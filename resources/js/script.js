@@ -10,5 +10,5 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.body.style.backgroundColor = "rgb(82, 193, 197)";
     document.getElementById('encabezado').style.backgroundColor = "rgb(97, 131, 182)";
-    document.getElementById('Crear_cita').style.color = "rgb(97, 131, 182)";
+    document.getElementById('Crear_cita').style.backgroundColor = "rgb(0, 0, 0)";
 }
