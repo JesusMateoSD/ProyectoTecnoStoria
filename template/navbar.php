@@ -1,12 +1,24 @@
 <nav class="navbar navbar-expand-lg bg-light" id="nav">
     <div class="container-fluid">
+
+        <?php $url="http:://".$_SERVER['HTTP_HOST']."/ProyectoTecnoStoria"?>
         <!-- 
           <ul class="nav navbar-nav">
             <a class="nav-item nav=link active" href="#">Administrador </a>
-          
+            <a class="nav-item nav=link" href="#">Inicio</a>
+            <a class="nav-item nav=link" href="#">Citas</a>
+            <a class="nav-item nav=link" href="#">Agendas</a>
+            <a class="nav-item nav=link" href="#">Personal de Salud</a>
+            <a class="nav-item nav=link" href="#">Asistente</a>
+            <a class="nav-item nav=link" href="#">Historias Clinicas</a>
+            <a class="nav-item nav=link" href="#">Pagos Citas</a>
+            <a class="nav-item nav=link" href="#">Facturas</a>
+            <a class="nav-item nav=link" href="#">EPS</a>
+            <a class="nav-item nav=link" href="#">Plan de Salud</a>
+            <a class="nav-item nav=link" href="#">Usuarios</a>
          -->
         <img src="../resources/img/Logo TecnoStoria Page.png" height="30" class="d-inline-block me-3" alt="">
-        <a class="navbar-brand" id="tecnostoria" href="../index.php">TecnoStoria</a>
+        <a class="navbar-brand" id="tecnostoria" href="../usuario/index.php">TecnoStoria</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,7 +33,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="../cita/frmcita.php">Crear paciente</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar paciente</a></li>
+                    <li><a class="dropdown-item" href="../cita/consultarcita.php">Consultar paciente</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Editar paciente</a></li>
                     <li><a class="dropdown-item" href="#">Borrar paciente</a></li>
