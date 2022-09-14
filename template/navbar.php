@@ -29,45 +29,13 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Menu de paciente
+                    Menu de Asistente
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../cita/frmcita.php">Crear paciente</a></li>
-                    <li><a class="dropdown-item" href="../cita/consultarcita.php">Consultar paciente</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Editar paciente</a></li>
-                    <li><a class="dropdown-item" href="#">Borrar paciente</a></li>
+                    <li><a class="dropdown-item" href="../paciente/frmpaciente.php">Pacientes</a></li>
+                    <li><a class="dropdown-item" href="../cita/frmcita.php">Citas Medicas</a></li>
+                    <li><a class="dropdown-item" href="../agenda/frmagenda.php">Agendas</a></li>
                 </ul>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu de citas medica
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Crear citas medica</a></li>
-                <li><a class="dropdown-item" href="#">Consultar citas medica</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Editar citas medica</a></li>
-                <li><a class="dropdown-item" href="#">Borrar citas medica</a></li>
-            </ul>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu de agenda
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Crear agenda</a></li>
-                <li><a class="dropdown-item" href="#">Consultar agenda</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Editar agenda</a></li>
-                <li><a class="dropdown-item" href="#">Borrar agenda</a></li>
-            </ul>
             </li>
         </ul>
 

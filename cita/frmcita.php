@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,7 +24,7 @@
         <div class="row" style="padding: 2% 0% 0% 30%">
           <h2><b>Formulario para la creacion de citas</b></h2>
         </div>
-        <form class="row g-3">
+        <form class="row g-3" method="POST" action="">
           <div class="row">
             <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
               <label for="staticEmail2" class="my-2 me-3">Agenda de la cita:</label>
@@ -107,10 +112,49 @@
               <button type="submit" class="btn btn-success">Crear cita medica</button>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 2% 0%">
-              <button type="submit" class="btn btn-primary">Vaciar campos</button>
+              <a class="btn btn-primary" href="../cita/consultarcita.php">Consultar citas</a>
+            </div>
+            <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
+              <a class="btn btn-danger" href="../cita/consultarcita.php">Vaciar campos</a>
             </div>
           </div>
         </form>
+
+        <div class="row align-items-center" style="padding: 2% 0% 2% 30%">
+          <h2><b>Busqueda de citas</b></h2>
+        </div>
+
+        <div class="row mx-auto">
+          <div class="table">
+            <table class="table table-primary">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Agenda de la Cita</th>
+                  <th scope="col">Asistente de la cita</th>
+                  <th scope="col">Fecha de la Cita</th>
+                  <th scope="col">Estado de la cita</th>
+                  <th scope="col">Medico de la Cita</th>
+                  <th scope="col">Paciente de la cita</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="">
+                  <td scope="row">#</td>
+                  <td>Agenda 1</td>
+                  <td>Asistente Jose</td>
+                  <td>2022-07-15</td>
+                  <td>Activo</td>
+                  <td>Ricardo Angulo</td>
+                  <td>Maria Luisa</td>
+                  <td>Modificar | Eliminar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </main>
 
