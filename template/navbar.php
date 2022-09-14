@@ -1,5 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-light" id="nav">
     <div class="container-fluid">
+        <!-- 
+          <ul class="nav navbar-nav">
+            <a class="nav-item nav=link active" href="#">Administrador </a>
+          
+         -->
         <img src="../resources/img/Logo TecnoStoria Page.png" height="30" class="d-inline-block me-3" alt="">
         <a class="navbar-brand" id="tecnostoria" href="../index.php">TecnoStoria</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
