@@ -26,11 +26,7 @@
               <label for="staticEmail2" class="my-2 me-3">Nombre de la agenda:</label>
             </div>
             <div class="col-8 my-2" style=" padding: 5% 0% 0% 0%">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccione una agenda</option>
-                <option value="1">Agenda Jorge Mario</option>
-                <option value="2">Agenda Carla Maria</option>
-              </select>
+              <input type="text" class="form-control" id="Fecha_Cita" placeholder="Nombre de la agenda o a quien le corresponde">
             </div>
           </div>
 
@@ -39,7 +35,7 @@
               <label for="staticEmail2" class="my-2 me-3">Citas pendientes:</label>
             </div>
             <div class="col-8 my-2" style="padding: 0%">
-              <input type="email" class="form-control" id="exampleFormControlInput1" disabled>
+              <input type="email" class="form-control" id="exampleFormControlInput1" disabled value="0">
             </div>
           </div>
 
@@ -48,16 +44,21 @@
               <button type="submit" class="btn btn-success">Crear agenda</button>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
-              <a class="btn btn-primary" href="../cita/consultarcita.php">Consultar agenda</a>
+              <a class="btn btn-primary" href="#buscaragenda">Consultar agenda</a>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
-              <a class="btn btn-danger" href="../cita/consultarcita.php">Vaciar campos</a>
+              <a class="btn btn-danger" href="#">Vaciar campos</a>
             </div>
           </div>
         </form>
 
         <div class="mx-auto row " style="padding: 2% 0% 2% 35%">
           <h2><b>Busqueda de agendas</b></h2>
+        </div>
+        
+        <div class="input-group" style="padding: 0% 10% 4% 10%">
+          <input type="search" class="form-control " placeholder="Buscar agendas" aria-label="Search" aria-describedby="search-addon" id="buscaragenda"/>
+          <button type="button" class="btn btn-success ">Buscar</button>
         </div>
 
         <div class="row mx-auto w-75">
@@ -76,7 +77,7 @@
                   <td scope="row">1</td>
                   <td>Agenda Jorge Mario</td>
                   <td>5</td>
-                  <td>Modificar | Eliminar</td>
+                  <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
                 </tr>
               </tbody>
             </table>

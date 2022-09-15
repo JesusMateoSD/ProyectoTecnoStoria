@@ -42,7 +42,7 @@
                 Menu de Personal de Salud
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../paciente/consultarpaciente.php">Consultar pacientes</a></li>
+                <li><a class="dropdown-item" href="../cita/consultarcita.php">Consultar pacientes</a></li>
                 <li><a class="dropdown-item" href="#">Historias Clinicas | Medicas</a></li>
                 <li><a class="dropdown-item" href="#">Facturas</a></li>
               </ul>

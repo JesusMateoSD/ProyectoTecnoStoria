@@ -16,12 +16,12 @@
   ?>
 
   <div class="mx-auto row" style="padding: 2% 0% 2% 35%">
-    <h2><b>Busqueda de pacientes</b></h2>
+    <h2><b>Busqueda de citas</b></h2>
   </div>
 
   <div class="input-group" style="padding: 0% 10% 2% 10%">
-    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-    <button type="button" class="btn btn-success ">search</button>
+    <input type="search" class="form-control " placeholder="Buscar paciente" aria-label="Search" aria-describedby="search-addon"/>
+    <button type="button" class="btn btn-success ">Buscar</button>
   </div>
 
   <div class="row mx-auto w-100">
@@ -30,37 +30,25 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nombres</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Edad</th>
-            <th scope="col">Numero de documento</th>
-            <th scope="col">Tipo de documento</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Fecha de nacimiento</th>
-            <th scope="col">Genero</th>
-            <th scope="col">Altura</th>
-            <th scope="col">RH</th>
+            <th scope="col">Agenda de la Cita</th>
+            <th scope="col">Asistente de la cita</th>
+            <th scope="col">Fecha de la Cita</th>
+            <th scope="col">Estado de la cita</th>
+            <th scope="col">Medico de la Cita</th>
+            <th scope="col">Paciente de la cita</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="">
             <td scope="row">1</td>
-            <td scope="col">Jose Andres</td>
-            <td scope="col">Sanchez Salazar</td>
-            <td scope="col">25</td>
-            <td scope="col">1836293741</td>
-            <td scope="col">Cedula de Ciudadania</td>
-            <td scope="col">3217782323</td>
-            <td scope="col">ejemplo@gmail.com</td>
-            <td scope="col">Manzana 12 Casa 30</td>
-            <td scope="col">1997-04-29</td>
-            <td scope="col">M</td>
-            <td scope="col">1.76</td>
-            <td scope="col">O+</td>
-            <td>Modificar | Eliminar</td>
+            <td>Agenda 1</td>
+            <td>Asistente Jose</td>
+            <td>2022-07-15</td>
+            <td>Activo</td>
+            <td>Ricardo Angulo</td>
+            <td>Maria Luisa</td>
+            <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
           </tr>
         </tbody>
       </table>

@@ -107,7 +107,7 @@
               <button type="submit" class="btn btn-success">Crear cita medica</button>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 2% 0%">
-              <a class="btn btn-primary" href="../cita/consultarcita.php">Consultar citas</a>
+              <a class="btn btn-primary" href="#buscarcitas">Consultar citas</a>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
               <a class="btn btn-danger" href="../cita/consultarcita.php">Vaciar campos</a>
@@ -115,8 +115,14 @@
           </div>
         </form>
 
-        <div class="row align-items-center" style="padding: 2% 0% 2% 30%">
+        
+        <div class="row align-items-center" style="padding: 4% 0% 2% 40%">
           <h2><b>Busqueda de citas</b></h2>
+        </div>
+        
+        <div class="input-group" style="padding: 0% 10% 4% 10%">
+          <input type="search" class="form-control " placeholder="Buscar citas" aria-label="Search" aria-describedby="search-addon" id="buscarcitas"/>
+          <button type="button" class="btn btn-success ">Buscar</button>
         </div>
 
         <div class="row mx-auto">
@@ -143,16 +149,17 @@
                   <td>Activo</td>
                   <td>Ricardo Angulo</td>
                   <td>Maria Luisa</td>
-                  <td>Modificar | Eliminar</td>
+                  <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-
       </div>
     </main>
 
+    <br>
+    <br>
     <?php
       include("../template/footer.php");
     ?>
