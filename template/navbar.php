@@ -24,21 +24,30 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active me-3" aria-current="page" href="../usuario/index.php">Pagina principal</a>
+              <a class="nav-link active me-3" aria-current="page" href="../usuario/index.php">Pagina principal</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Menu de Asistente
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../paciente/frmpaciente.php">Pacientes</a></li>
-                    <li><a class="dropdown-item" href="../cita/frmcita.php">Citas Medicas</a></li>
-                    <li><a class="dropdown-item" href="../agenda/frmagenda.php">Agendas</a></li>
-                </ul>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu de Asistente
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../paciente/frmpaciente.php">Pacientes</a></li>
+                <li><a class="dropdown-item" href="../cita/frmcita.php">Citas Medicas</a></li>
+                <li><a class="dropdown-item" href="../agenda/frmagenda.php">Agendas</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu de Personal de Salud
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Consultar pacientes</a></li>
+                <li><a class="dropdown-item" href="#">Historias Clinicas | Medicas</a></li>
+                <li><a class="dropdown-item" href="#">Facturas</a></li>
+              </ul>
             </li>
         </ul>
-
-        <!-- <button class="btn btn-success me-3">Crear su propia cita medica</button> -->
 
         <div>
             <button class="btn btn-primary" style="cursor:pointer" onclick="openNav()">&#9776; Usuario: Jesus Mateo</button>

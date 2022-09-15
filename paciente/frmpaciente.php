@@ -67,7 +67,12 @@
               <label for="staticEmail2" class="my-2">Tipo de documento:</label>
             </div>
             <div class="col-3 my-2" style=" padding: 0%">
-              <input type="email" class="form-control" id="tipoDocumentoP" placeholder="Tipo de documento del paciente">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Tipo de documento</option>
+                <option value="CC">Cedula de Ciudadania</option>
+                <option value="TI">Tarjeta de Identidad</option>
+                <option value="CE">Cedula de Extranjeria</option>
+              </select>
             </div>
           </div>
 
@@ -94,7 +99,7 @@
               <label for="staticEmail2" class="my-2">Fecha de nacimiento:</label>
             </div>
             <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento del paciente" required>
+              <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento del paciente" required>
             </div>
 
             <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
@@ -103,8 +108,9 @@
             <div class="col-3 my-2" style=" padding: 0%">
               <select class="form-select" aria-label="Default select example">
                 <option selected>Genero</option>
-                <option value="1">Masculino</option>
-                <option value="2">Femenino</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
               </select>
             </div>
           </div>
@@ -114,77 +120,39 @@
               <label for="staticEmail2" class="my-2">Altura del paciente:</label>
             </div>
             <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="alturaP" placeholder="Altura del paciente" required>
+              <input type="number" class="form-control" id="alturaP" placeholder="Altura del paciente (Ej: 1.80, 1.6)" required>
             </div>
 
             <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
               <label for="staticEmail2" class="my-2">RH del paciente:</label>
             </div>
             <div class="col-3 my-2" style=" padding: 0%">
-              <input type="email" class="form-control" id="rh" placeholder="Tipo de sangre o RH del paciente" required>
+              <select class="form-select" aria-label="Default select example">
+                  <option selected>RH</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+              </select>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-5 my-2" style=" padding: 2% 0% 0% 25%">
+            <div class="col-5 my-2" style=" padding: 1% 0% 2% 25%">
               <button type="submit" class="btn btn-success">Crear paciente</button>
             </div>
-            <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
-              <a class="btn btn-primary" href="#">Consultar pacientes</a>
+            <div class="col-3 my-2" style=" padding: 1% 5% 2% 2%">
+              <a class="btn btn-primary" href="consultarpaciente.php">Consultar pacientes</a>
             </div>
-            <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
+            <div class="col-3 my-2" style=" padding: 1% 0% 2% 0%">
               <a class="btn btn-danger" href="#">Vaciar campos</a>
             </div>
           </div>
         </form>
-
-        <div class="mx-auto row " style="padding: 2% 0% 2% 35%">
-          <h2><b>Busqueda de pacientes</b></h2>
-        </div>
-
-        <div class="row mx-auto w-100">
-          <div class="table">
-            <table class="table table-primary">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombres</th>
-                  <th scope="col">Apellidos</th>
-                  <th scope="col">Edad</th>
-                  <th scope="col">Numero de documento</th>
-                  <th scope="col">Tipo de documento</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">Correo</th>
-                  <th scope="col">Direccion</th>
-                  <th scope="col">Fecha de nacimiento</th>
-                  <th scope="col">Genero</th>
-                  <th scope="col">Altura</th>
-                  <th scope="col">RH</th>
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row">#</td>
-                  <td scope="col">Jose Andres</td>
-                  <td scope="col">Sanchez Salazar</td>
-                  <td scope="col">25</td>
-                  <td scope="col">1836293741</td>
-                  <td scope="col">Cedula de Ciudadania</td>
-                  <td scope="col">3217782323</td>
-                  <td scope="col">ejemplo@gmail.com</td>
-                  <td scope="col">Manzana 12 Casa 30</td>
-                  <td scope="col">1997-04-29</td>
-                  <td scope="col">M</td>
-                  <td scope="col">1.76</td>
-                  <td scope="col">O+</td>
-                  <td>Modificar | Eliminar</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
   </main>
 

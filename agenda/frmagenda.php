@@ -74,7 +74,7 @@
               <tbody>
                 <tr>
                   <td scope="row">#</td>
-                  <td>Agenda 1</td>
+                  <td>Agenda Jorge Mario</td>
                   <td>Asistente Jose</td>
                   <td>Modificar | Eliminar</td>
                 </tr>
