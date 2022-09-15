@@ -65,7 +65,7 @@
             <table class="table table-primary">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
                   <th scope="col">Nombre de la agenda</th>
                   <th scope="col">Citas pendientes</th>
                   <th scope="col">Acciones</th>
@@ -73,9 +73,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td scope="row">#</td>
+                  <td scope="row">1</td>
                   <td>Agenda Jorge Mario</td>
-                  <td>Asistente Jose</td>
+                  <td>5</td>
                   <td>Modificar | Eliminar</td>
                 </tr>
               </tbody>

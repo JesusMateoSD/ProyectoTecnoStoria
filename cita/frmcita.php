@@ -124,7 +124,7 @@
             <table class="table table-primary">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
                   <th scope="col">Agenda de la Cita</th>
                   <th scope="col">Asistente de la cita</th>
                   <th scope="col">Fecha de la Cita</th>
@@ -136,7 +136,7 @@
               </thead>
               <tbody>
                 <tr class="">
-                  <td scope="row">#</td>
+                  <td scope="row">1</td>
                   <td>Agenda 1</td>
                   <td>Asistente Jose</td>
                   <td>2022-07-15</td>

@@ -19,9 +19,9 @@
     <h2><b>Busqueda de pacientes</b></h2>
   </div>
 
-  <div class="input-group" style="padding: 0% 5% 2% 5%">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <button type="button" class="btn btn-success">search</button>
+  <div class="input-group" style="padding: 0% 10% 2% 10%">
+    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+    <button type="button" class="btn btn-success ">search</button>
   </div>
 
   <div class="row mx-auto w-100">
@@ -29,7 +29,7 @@
       <table class="table table-primary">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Nombres</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Edad</th>
@@ -47,7 +47,7 @@
         </thead>
         <tbody>
           <tr>
-            <td scope="row">#</td>
+            <td scope="row">1</td>
             <td scope="col">Jose Andres</td>
             <td scope="col">Sanchez Salazar</td>
             <td scope="col">25</td>
