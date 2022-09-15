@@ -49,7 +49,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">Perfil de usuario</a>
             <a href="#">Configuracion de usuario</a>
-            <a href="#">Cerrar sesion</a>
+            <a href="../usuario/login.php">Cerrar sesion</a>
         </div>
         </div>
     </div>

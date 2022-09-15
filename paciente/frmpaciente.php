@@ -126,7 +126,7 @@
           </div>
 
           <div class="row">
-            <div class="col-5 my-2" style=" padding: 2% 0% 2% 25%">
+            <div class="col-5 my-2" style=" padding: 2% 0% 0% 25%">
               <button type="submit" class="btn btn-success">Crear paciente</button>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
@@ -139,25 +139,45 @@
         </form>
 
         <div class="mx-auto row " style="padding: 2% 0% 2% 35%">
-          <h2><b>Busqueda de agendas</b></h2>
+          <h2><b>Busqueda de pacientes</b></h2>
         </div>
 
-        <div class="row mx-auto w-75">
+        <div class="row mx-auto w-100">
           <div class="table">
             <table class="table table-primary">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nombre de la agenda</th>
-                  <th scope="col">Citas pendientes</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Edad</th>
+                  <th scope="col">Numero de documento</th>
+                  <th scope="col">Tipo de documento</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Direccion</th>
+                  <th scope="col">Fecha de nacimiento</th>
+                  <th scope="col">Genero</th>
+                  <th scope="col">Altura</th>
+                  <th scope="col">RH</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td scope="row">#</td>
-                  <td>Agenda 1</td>
-                  <td>Asistente Jose</td>
+                  <td scope="col">Jose Andres</td>
+                  <td scope="col">Sanchez Salazar</td>
+                  <td scope="col">25</td>
+                  <td scope="col">1836293741</td>
+                  <td scope="col">Cedula de Ciudadania</td>
+                  <td scope="col">3217782323</td>
+                  <td scope="col">ejemplo@gmail.com</td>
+                  <td scope="col">Manzana 12 Casa 30</td>
+                  <td scope="col">1997-04-29</td>
+                  <td scope="col">M</td>
+                  <td scope="col">1.76</td>
+                  <td scope="col">O+</td>
                   <td>Modificar | Eliminar</td>
                 </tr>
               </tbody>
