@@ -1,8 +1,3 @@
-<?php 
-
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -63,7 +58,7 @@
               <label for="staticEmail2" class="my-2 me-3">Hora de la cita:</label>
             </div>
             <div class="col-3 my-2" style=" padding: 0%">
-              <input type="time" class="form-control" id="Fecha_Cita" placeholder="Hora">
+              <input type="time" class="form-control" id="Hora_Cita" placeholder="Hora">
             </div>
           </div>
 

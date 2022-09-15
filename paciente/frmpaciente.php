@@ -23,35 +23,117 @@
         <form class="row g-3" method="POST" action="">
           <div class="row">
             <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Nombre de la agenda:</label>
+              <label for="staticEmail2" class="my-2 me-3">Nombres del paciente:</label>
             </div>
-            <div class="col-8 my-2" style=" padding: 5% 0% 0% 0%">
+            <div class="col-8 my-2" style="padding: 5% 0% 0% 0%">
+              <input type="text" class="form-control" id="nombres" placeholder="Ingrese los nombres del paciente" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2 me-3">Apellidos del paciente:</label>
+            </div>
+            <div class="col-8 my-2" style="padding: 0%">
+              <input type="text" class="form-control" id="apellidos" placeholder="Ingrese los apellidos del paciente" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2 me-3">Edad del paciente:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad del paciente" required>
+            </div>
+
+            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+              <label for="staticEmail2" class="my-2 me-3">Telefono:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="number" class="form-control" id="telefono" placeholder="Telefono celular del paciente" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2">Nro de documento:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="number" class="form-control" id="numeroDocumento" placeholder="Numero de documento del paciente" required>
+            </div>
+
+            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+              <label for="staticEmail2" class="my-2">Tipo de documento:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="email" class="form-control" id="tipoDocumentoP" placeholder="Tipo de documento del paciente">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2">Correo electronico:</label>
+            </div>
+            <div class="col-8 my-2" style=" padding: 0%">
+              <input type="email" class="form-control" id="correo" placeholder="Correo electronico del paciente">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2 me-3">Direccion del paciente:</label>
+            </div>
+            <div class="col-8 my-2" style="padding: 0%">
+              <input type="text" class="form-control" id="direccion" placeholder="Direccion de residencia del paciente" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+              <label for="staticEmail2" class="my-2">Fecha de nacimiento:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="number" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento del paciente" required>
+            </div>
+
+            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+              <label for="staticEmail2" class="my-2">Genero del paciente:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
               <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccione una agenda</option>
-                <option value="1">Agenda Jorge Mario</option>
-                <option value="2">Agenda Carla Maria</option>
+                <option selected>Genero</option>
+                <option value="1">Masculino</option>
+                <option value="2">Femenino</option>
               </select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Citas pendientes:</label>
+              <label for="staticEmail2" class="my-2">Altura del paciente:</label>
             </div>
-            <div class="col-8 my-2" style="padding: 0%">
-              <input type="email" class="form-control" id="exampleFormControlInput1" disabled>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="number" class="form-control" id="alturaP" placeholder="Altura del paciente" required>
+            </div>
+
+            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+              <label for="staticEmail2" class="my-2">RH del paciente:</label>
+            </div>
+            <div class="col-3 my-2" style=" padding: 0%">
+              <input type="email" class="form-control" id="rh" placeholder="Tipo de sangre o RH del paciente" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-5 my-2" style=" padding: 2% 0% 2% 25%">
-              <button type="submit" class="btn btn-success">Crear agenda</button>
+              <button type="submit" class="btn btn-success">Crear paciente</button>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
-              <a class="btn btn-primary" href="../cita/consultarcita.php">Consultar agenda</a>
+              <a class="btn btn-primary" href="#">Consultar pacientes</a>
             </div>
             <div class="col-2 my-2" style=" padding: 2% 0% 0% 0%">
-              <a class="btn btn-danger" href="../cita/consultarcita.php">Vaciar campos</a>
+              <a class="btn btn-danger" href="#">Vaciar campos</a>
             </div>
           </div>
         </form>

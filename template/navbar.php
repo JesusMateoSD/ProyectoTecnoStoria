@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light" id="nav">
     <div class="container-fluid">
 
-        <?php $url="http:://".$_SERVER['HTTP_HOST']."/ProyectoTecnoStoria"?>
         <!-- 
           <ul class="nav navbar-nav">
             <a class="nav-item nav=link active" href="#">Administrador </a>
