@@ -15,7 +15,7 @@
       include("../template/navbar.php");
   ?>
 
-  <main>
+  <main class="container p-0">
   <div class="container-fluid">
         <div class="row" style="padding: 2% 0% 0% 25%">
           <h2><b>Formulario para la creacion de agendas</b></h2>
@@ -61,7 +61,7 @@
           <button type="button" class="btn btn-success ">Buscar</button>
         </div>
 
-        <div class="row mx-auto w-75">
+        <div class="row mx-auto w-100">
           <div class="table">
             <table class="table table-primary">
               <thead>

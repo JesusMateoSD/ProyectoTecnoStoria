@@ -14,7 +14,7 @@
   <?php
       include("../template/navbar.php");
   ?>
-
+<main class="container p-0">
   <div class="mx-auto row" style="padding: 2% 0% 2% 35%">
     <h2><b>Busqueda de citas</b></h2>
   </div>
@@ -54,7 +54,7 @@
       </table>
     </div>
   </div>
-
+</main>
   <?php
       include("../template/footer.php");
   ?>

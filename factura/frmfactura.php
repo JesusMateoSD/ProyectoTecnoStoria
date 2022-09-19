@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  include('../connection/db.php');
+  include('../template/navbar.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,53 +16,80 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
-  <?php
-      include("../template/navbar.php");
-  ?>
-<main>
-<div class="container-fluid">
+<main class="container p-0">
+  <div class="container-fluid">
     <div class="row" style="padding: 2% 0% 0% 30%">
       <h2><b>Formulario para la generacion de facturas</b></h2>
     </div>
     <form class="row g-3" method="POST" action="">
       <div class="row">
         <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2">Paciente referido:</label>
+          <label for="staticEmail2" class="my-2">Valor de la consulta:</label>
         </div>
         <div class="col-8 my-2" style=" padding: 5% 0% 0% 0%">
-          <select class="form-select" aria-label="Default select example" id="Pago_Cita_idPagoCita">
-            <option selected>Seleccione el metodo de pago</option>
-            <option value="1">Tarjeta</option>
-            <option value="2">Efectivo</option>
-            <option value="3">EPS</option>
-            <option value="3">Otro</option>
-          </select>
+          <input type="text" class="form-control" id="valor" placeholder="Solo numeros" required>
         </div>
-        
       </div>
 
 
       <div class="row">
         <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2">Agenda del paciente:</label>
+          <label for="staticEmail2" class="my-2">Fecha a pagar:</label>
         </div>
         <div class="col-8 my-2" style=" padding: 0%">
-          <select class="form-select" aria-label="Default select example" id="Paciente_Agenda_idAgenda">
-            <option selected>Seleccione la agenda donde estaba la cita del paciente</option>
-            <option value="1">Agenda Jota Mario</option>
-            <option value="2">Agenda Camila Moreno</option>
-            <option value="3">Agenda Jose Castaneda</option>
+          <input type="date" class="form-control" id="fechaPago" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Historia Clinica:</label>
+        </div>
+        <div class="col-8 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example" id="HistoriaClinica_idHistoriaClinica">
+            <option selected>Seleccione la historia clinica o medica a buscar, se mostrara el paciente y su condicion</option>
+            <option value="1">Jota Mario Dominguez</option>
+            <option value="2">Luis Jose Alvarado</option>
+            <option value="3">Camila Canola Moreno</option>
           </select>
         </div>
       </div>
 
       <div class="row">
         <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2">Medico quien atiende:</label>
+          <label for="staticEmail2" class="my-2">EPS Afiliada:</label>
         </div>
         <div class="col-8 my-2" style=" padding: 0%">
-          <select class="form-select" aria-label="Default select example" id="Paciente_idPersonaldeSalud">
-            <option selected>Seleccione al medico encargado de la historia clinica / medica</option>
+          <select class="form-select" aria-label="Default select example" id="epsP_HC">
+            <option selected>Seleccione la EPS afiliada del paciente</option>
+            <option value="1">EPS Convida</option>
+            <option value="2">TEST</option>
+            <option value="3">TEst 2</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Paciente Clinica:</label>
+        </div>
+        <div class="col-8 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example" id="Paciente_idPaciente">
+            <option selected>Seleccione el paciente tratado, se mostrara su nombre y apellidos completos</option>
+            <option value="1">Daniel Ramirez</option>
+            <option value="2">Miguel Alberto Salazar</option>
+            <option value="3">Camila Moreno Dominguez</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Metodo Pago:</label>
+        </div>
+        <div class="col-8 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example" id="MetodoPago_idMetodoPago">
+            <option selected>Seleccione la historia clinica o medica a buscar</option>
             <option value="1">Jota Mario Dominguez</option>
             <option value="2">Luis Jose Alvarado</option>
             <option value="3">Camila Canola Moreno</option>
@@ -70,16 +102,16 @@
           <label for="staticEmail2" class="my-2">Costo Total:</label>
         </div>
         <div class="col-8 my-2" style=" padding: 0% 0% 0% 0%">
-          <input type="text" class="form-control" id="alturaP_HC" placeholder="Altura del paciente (Ej: 1,80 o 1,6)" required maxlength="4">
+          <input type="text" class="form-control" id="alturaP_HC" required placeholder="Solo numeros">
         </div>
       </div>
 
       <div class="row">
         <div class="col-5 my-2" style=" padding: 1% 0% 2% 25%">
-          <button type="submit" class="btn btn-success">Crear paciente</button>
+          <button type="submit" class="btn btn-success">Crear factura</button>
         </div>
         <div class="col-3 my-2" style=" padding: 1% 5% 2% 2%">
-          <a class="btn btn-primary" href="#">Consultar pacientes</a>
+          <a class="btn btn-primary" href="#">Consultar factura</a>
         </div>
         <div class="col-3 my-2" style=" padding: 1% 0% 2% 0%">
           <a class="btn btn-danger" href="#">Vaciar campos</a>
@@ -88,8 +120,8 @@
     </form>
   </div>
 
-  <div class="row align-items-center" style="padding: 4% 0% 2% 32%">
-    <h2><b>Busqueda de historias clinicas</b></h2>
+  <div class="row align-items-center" style="padding: 4% 0% 2% 38%">
+    <h2><b>Busqueda de facturas</b></h2>
   </div>
         
   <div class="input-group" style="padding: 0% 10% 4% 10%">
@@ -103,30 +135,31 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Razon visita</th>
-            <th scope="col">Altura</th>
-            <th scope="col">EPS</th>
-            <th scope="col">Condicion</th>
-            <th scope="col">Observacion</th>
-            <th scope="col">Paciente</th>
-            <th scope="col">Agenda</th>
-            <th scope="col">Medico</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Fecha de Pago</th>
+            <th scope="col">Nombres completos con condicion</th>
+            <th scope="col">Nombre de EPS Afiliada</th>
+            <th scope="col">Metodo de Pago</th>
+            <th scope="col">Costo Total</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td scope="col">Dolores musculares</td>
-            <td scope="col">1.84</td>
-            <td scope="col">Convida</td>
-            <td scope="col">Sufre de una contraccion muscular leve en la parte inferior derecha del hombro izquierdo</td>
-            <td scope="col">Se debe tener en cuenta reposo y no realizar actividades de mucho esfuerzo</td>
-            <td scope="col">Maria Luisa</td>
-            <td scope="col">Agenda Camila Moreno</td>
-            <td scope="col">Luis Jose Alvarado</td>
-            <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
-          </tr>
+          <?php
+            $query = "SELECT `idFactura`, `valor`, `fechaPago`, CONCAT(paciente.nombres, ' ', paciente.apellidos, ', ', historia_clinica.condicion) AS nombrescompletos, eps.nombreEPS, metodo_pago.metodoPago, `costo_Total` FROM `factura` INNER JOIN eps ON factura.EPS_idEPS = eps.idEPS INNER JOIN paciente ON factura.Paciente_idPaciente = paciente.idpaciente INNER JOIN historia_clinica ON factura.HistoriaClinica_idHistoriaClinica = historia_clinica.idHistoria_Clinica INNER JOIN metodo_pago ON factura.MetodoPago_idMetodoPago = metodo_pago.idMetodo_Pago";
+            $result_tasks = mysqli_query($mysqli, $query);    
+            while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+              <tr>
+                <td><?php echo $row['idFactura']; ?></td>
+                <td><?php echo $row['valor']; ?></td>
+                <td><?php echo $row['fechaPago']; ?></td>
+                <td><?php echo $row['nombrescompletos']; ?></td>
+                <td><?php echo $row['nombreEPS']; ?></td>
+                <td><?php echo $row['metodoPago']; ?></td>
+                <td><?php echo $row['costo_Total']; ?></td>
+                <td><button class="btn btn-warning" type="button" id="modificar"><a href="editparametro.php">Modificar</a></button> | <button class="btn btn-danger" type="button" id="borrar"><a href="borrarparametro.php">Borrar</a></button></td>
+              </tr>
+          <?php } ?>
         </tbody>
       </table>
     </div>

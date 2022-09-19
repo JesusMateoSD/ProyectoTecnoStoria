@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light" id="nav">
     <div class="container-fluid">
         <img src="../resources/img/Logo TecnoStoria Page.png" height="30" class="d-inline-block me-3" alt="">
-        <a class="navbar-brand" id="tecnostoria" href="../principal/inicio.php">TecnoStoria</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,9 +36,9 @@
                     Administrador
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../usuario/indexparametro.php">Usuario</a></li>
-                    <li><a class="dropdown-item" href="">Crear Administrador</a></li>
-                    <li><a class="dropdown-item" href="">Crear Usuario</a></li>
+                    <li><a class="dropdown-item" href="../usuario/frmusuario.php">Crear Usuario / Administrador</a></li>
+                    <li><a class="dropdown-item" href="#">Crear Personal de Salud</a></li>
+                    <li><a class="dropdown-item" href="../usuario/frmasistente.php">Crear Asistente</a></li>
                 </ul>
             </li>
         </ul>

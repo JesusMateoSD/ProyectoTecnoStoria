@@ -14,7 +14,7 @@
       include("../template/navbar.php");
     ?>
 
-    <main>
+    <main class="container p-0">
       <div class="container-fluid">
         <div class="row" style="padding: 2% 0% 0% 30%">
           <h2><b>Formulario para la creacion de citas</b></h2>
