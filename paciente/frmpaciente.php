@@ -17,143 +17,143 @@
 
 <main>
   <div class="container-fluid">
-        <div class="row" style="padding: 2% 0% 0% 25%">
-          <h2><b>Formulario para la creacion de pacientes</b></h2>
+    <div class="row" style="padding: 2% 0% 0% 25%">
+      <h2><b>Formulario para la creacion de pacientes</b></h2>
+    </div>
+    <form class="row g-3" method="POST" action="">
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2 me-3">Nombres del paciente:</label>
         </div>
-        <form class="row g-3" method="POST" action="">
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Nombres del paciente:</label>
-            </div>
-            <div class="col-8 my-2" style="padding: 5% 0% 0% 0%">
-              <input type="text" class="form-control" id="nombres" placeholder="Ingrese los nombres del paciente" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Apellidos del paciente:</label>
-            </div>
-            <div class="col-8 my-2" style="padding: 0%">
-              <input type="text" class="form-control" id="apellidos" placeholder="Ingrese los apellidos del paciente" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Edad del paciente:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad del paciente" required>
-            </div>
-
-            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
-              <label for="staticEmail2" class="my-2 me-3">Telefono:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="telefono" placeholder="Telefono celular del paciente" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2">Numero de documento:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="numeroDocumento" placeholder="Numero de documento del paciente" required>
-            </div>
-
-            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
-              <label for="staticEmail2" class="my-2">Tipo de documento:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Tipo de documento</option>
-                <option value="CC">Cedula de Ciudadania</option>
-                <option value="TI">Tarjeta de Identidad</option>
-                <option value="CE">Cedula de Extranjeria</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2">Correo electronico:</label>
-            </div>
-            <div class="col-8 my-2" style=" padding: 0%">
-              <input type="email" class="form-control" id="correo" placeholder="Correo electronico del paciente">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2 me-3">Direccion del paciente:</label>
-            </div>
-            <div class="col-8 my-2" style="padding: 0%">
-              <input type="text" class="form-control" id="direccion" placeholder="Direccion de residencia del paciente" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2">Fecha de nacimiento:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento del paciente" required>
-            </div>
-
-            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
-              <label for="staticEmail2" class="my-2">Genero del paciente:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Genero</option>
-                <option value="M">Masculino</option>
-                <option value="F">Femenino</option>
-                <option value="O">Otro</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-              <label for="staticEmail2" class="my-2">Altura del paciente:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <input type="number" class="form-control" id="alturaP" placeholder="Altura del paciente (Ej: 1.80, 1.6)" required>
-            </div>
-
-            <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
-              <label for="staticEmail2" class="my-2">RH del paciente:</label>
-            </div>
-            <div class="col-3 my-2" style=" padding: 0%">
-              <select class="form-select" aria-label="Default select example">
-                  <option selected>RH</option>
-                  <option value="A+">A+</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B-">B-</option>
-                  <option value="AB+">AB+</option>
-                  <option value="AB-">AB-</option>
-                  <option value="O+">O+</option>
-                  <option value="O-">O-</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-5 my-2" style=" padding: 1% 0% 2% 25%">
-              <button type="submit" class="btn btn-success">Crear paciente</button>
-            </div>
-            <div class="col-3 my-2" style=" padding: 1% 5% 2% 2%">
-              <a class="btn btn-primary" href="#buscarpacientes">Consultar pacientes</a>
-            </div>
-            <div class="col-3 my-2" style=" padding: 1% 0% 2% 0%">
-              <a class="btn btn-danger" href="#">Vaciar campos</a>
-            </div>
-          </div>
-        </form>
+        <div class="col-8 my-2" style="padding: 5% 0% 0% 0%">
+          <input type="text" class="form-control" id="nombres" placeholder="Ingrese los nombres del paciente" required>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2 me-3">Apellidos del paciente:</label>
+        </div>
+        <div class="col-8 my-2" style="padding: 0%">
+          <input type="text" class="form-control" id="apellidos" placeholder="Ingrese los apellidos del paciente" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2 me-3">Edad del paciente:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad del paciente" required>
+        </div>
+
+        <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+          <label for="staticEmail2" class="my-2 me-3">Telefono:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <input type="number" class="form-control" id="telefono" placeholder="Telefono celular del paciente" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Numero de documento:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <input type="number" class="form-control" id="numeroDocumento" placeholder="Numero de documento del paciente" required>
+        </div>
+
+        <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+          <label for="staticEmail2" class="my-2">Tipo de documento:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Tipo de documento</option>
+            <option value="CC">Cedula de Ciudadania</option>
+            <option value="TI">Tarjeta de Identidad</option>
+            <option value="CE">Cedula de Extranjeria</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Correo electronico:</label>
+        </div>
+        <div class="col-8 my-2" style=" padding: 0%">
+          <input type="email" class="form-control" id="correo" placeholder="Correo electronico del paciente">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2 me-3">Direccion del paciente:</label>
+        </div>
+        <div class="col-8 my-2" style="padding: 0%">
+          <input type="text" class="form-control" id="direccion" placeholder="Direccion de residencia del paciente" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Fecha de nacimiento:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento del paciente" required>
+        </div>
+
+        <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+          <label for="staticEmail2" class="my-2">Genero del paciente:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Genero</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Altura del paciente:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <input type="text" class="form-control" id="alturaP" placeholder="Altura del paciente (Ej: 1.80, 1.6)" required maxlength="4">
+        </div>
+
+        <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
+          <label for="staticEmail2" class="my-2">RH del paciente:</label>
+        </div>
+        <div class="col-3 my-2" style=" padding: 0%">
+          <select class="form-select" aria-label="Default select example">
+              <option selected>RH</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-5 my-2" style=" padding: 1% 0% 2% 25%">
+          <button type="submit" class="btn btn-success">Crear paciente</button>
+        </div>
+        <div class="col-3 my-2" style=" padding: 1% 5% 2% 2%">
+          <a class="btn btn-primary" href="#buscarpacientes">Consultar pacientes</a>
+        </div>
+        <div class="col-3 my-2" style=" padding: 1% 0% 2% 0%">
+          <a class="btn btn-danger" href="#">Vaciar campos</a>
+        </div>
+      </div>
+    </form>
+  </div>
 
       <div class="row align-items-center" style="padding: 4% 0% 2% 40%">
         <h2><b>Busqueda de pacientes</b></h2>

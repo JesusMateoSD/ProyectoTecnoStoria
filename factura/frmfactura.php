@@ -15,74 +15,27 @@
       include("../template/navbar.php");
   ?>
 <main>
-  <div class="container-fluid">
-    <div class="row" style="padding: 2% 0% 0% 15%">
-      <h2><b>Formulario para la creacion de historias clinicas o medicas</b></h2>
+<div class="container-fluid">
+    <div class="row" style="padding: 2% 0% 0% 30%">
+      <h2><b>Formulario para la generacion de facturas</b></h2>
     </div>
     <form class="row g-3" method="POST" action="">
       <div class="row">
         <div class="col-3 my-2" style="padding: 5% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2 me-3">Razon de visita:</label>
-        </div>
-        
-        <div class="col-8 my-2" style="padding: 5% 0% 0% 0%">
-          <input type="text" class="form-control" id="razon_Visita" placeholder="Ingrese los nombres del paciente" required>
-        </div>
-      </div>
-
-      
-      <div class="row">
-        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2">Altura del paciente:</label>
-        </div>
-        <div class="col-3 my-2" style=" padding: 0%">
-          <input type="text" class="form-control" id="alturaP_HC" placeholder="Altura del paciente (Ej: 1,80 o 1,6)" required maxlength="4">
-        </div>
-
-        <div class="col-2 my-2" style="padding: 0% 0% 0% 3%">
-          <label for="staticEmail2" class="my-2">EPS del Paciente:</label>
-        </div>
-        <div class="col-3 my-2" style=" padding: 0%">
-          <select class="form-select" aria-label="Default select example" id="epsP_HC">
-            <option selected>Seleccione una EPS</option>
-            <option value="convida">EPS Convida</option>
-            <option value="famisanar">EPS Famisanar</option>
-            <option value="colsubsidio">EPS Colsubsidio</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-3 my-1" style="padding: 0% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2 me-3">Condicion:</label>
-        </div>
-        <div class="col-8 my-2" style=" padding: 0%">
-          <textarea class="form-control" id="condicion" rows="3" placeholder="Condicion del paciente (En la esquina inferior derecha se puede agrandar la caja de texto)"></textarea>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-3 my-1" style="padding: 0% 0% 0% 8%">
-          <label for="staticEmail2" class="my-2 me-3">Observacion:</label>
-        </div>
-        <div class="col-8 my-2" style=" padding: 0%">
-          <textarea class="form-control" id="observacion" rows="3" placeholder="Observacion del paciente (En la esquina inferior derecha se puede agrandar la caja de texto)"></textarea>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
           <label for="staticEmail2" class="my-2">Paciente referido:</label>
         </div>
-        <div class="col-8 my-2" style=" padding: 0%">
-          <select class="form-select" aria-label="Default select example" id="Paciente_idPaciente">
-            <option selected>Seleccione al paciente de la historia clinica / medica</option>
-            <option value="1">Juan Carlos Guerra Diaz</option>
-            <option value="2">Maria Luisa Gazabon Hernandez</option>
-            <option value="3">Andres Alejandro Gomez Ramirez</option>
+        <div class="col-8 my-2" style=" padding: 5% 0% 0% 0%">
+          <select class="form-select" aria-label="Default select example" id="Pago_Cita_idPagoCita">
+            <option selected>Seleccione el metodo de pago</option>
+            <option value="1">Tarjeta</option>
+            <option value="2">Efectivo</option>
+            <option value="3">EPS</option>
+            <option value="3">Otro</option>
           </select>
         </div>
+        
       </div>
+
 
       <div class="row">
         <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
@@ -109,6 +62,15 @@
             <option value="2">Luis Jose Alvarado</option>
             <option value="3">Camila Canola Moreno</option>
           </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 my-2" style="padding: 0% 0% 0% 8%">
+          <label for="staticEmail2" class="my-2">Costo Total:</label>
+        </div>
+        <div class="col-8 my-2" style=" padding: 0% 0% 0% 0%">
+          <input type="text" class="form-control" id="alturaP_HC" placeholder="Altura del paciente (Ej: 1,80 o 1,6)" required maxlength="4">
         </div>
       </div>
 

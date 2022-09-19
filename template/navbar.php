@@ -1,21 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-light" id="nav">
     <div class="container-fluid">
-
-        <!-- 
-          <ul class="nav navbar-nav">
-            <a class="nav-item nav=link active" href="#">Administrador </a>
-            <a class="nav-item nav=link" href="#">Inicio</a>
-            <a class="nav-item nav=link" href="#">Citas</a>
-            <a class="nav-item nav=link" href="#">Agendas</a>
-            <a class="nav-item nav=link" href="#">Personal de Salud</a>
-            <a class="nav-item nav=link" href="#">Asistente</a>
-            <a class="nav-item nav=link" href="#">Historias Clinicas</a>
-            <a class="nav-item nav=link" href="#">Pagos Citas</a>
-            <a class="nav-item nav=link" href="#">Facturas</a>
-            <a class="nav-item nav=link" href="#">EPS</a>
-            <a class="nav-item nav=link" href="#">Plan de Salud</a>
-            <a class="nav-item nav=link" href="#">Usuarios</a>
-         -->
         <img src="../resources/img/Logo TecnoStoria Page.png" height="30" class="d-inline-block me-3" alt="">
         <a class="navbar-brand" id="tecnostoria" href="../usuario/index.php">TecnoStoria</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,8 +27,8 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="../cita/consultarcita.php">Consultar pacientes</a></li>
-                <li><a class="dropdown-item" href="#">Historias Clinicas | Medicas</a></li>
-                <li><a class="dropdown-item" href="#">Facturas</a></li>
+                <li><a class="dropdown-item" href="../historia_clinica/frmhistoriaclinica.php">Historias Clinicas | Medicas</a></li>
+                <li><a class="dropdown-item" href="../factura/frmfactura.php">Facturas</a></li>
               </ul>
             </li>
         </ul>
@@ -56,7 +40,6 @@
         <div id="mySidenav" class="sidenav">
             <h2> -- Asistente -- </h2>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Perfil de usuario</a>
             <a href="#">Configuracion de usuario</a>
             <a href="../usuario/login.php">Cerrar sesion</a>
         </div>
