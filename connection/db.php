@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
+
 session_start();
 
 $mysqli=new mysqli("localhost","root","","tecnostoriadb"); //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
