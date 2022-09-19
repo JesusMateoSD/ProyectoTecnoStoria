@@ -1,14 +1,8 @@
 <?php
   session_start();
   include('../connection/db.php');
-  // include('header/header.php');
 ?>
 
-<?php
-   if($_POST){
-    header('Location:inicio.php');
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,10 +27,10 @@
       <div class="container">
         <div class="card"></div>
           <div class="card">
-            <h1 class="title">Login</h1>
+            <h1 class="title">Inicio de Sesion</h1>
             <form action="validarusuario.php" method="POST" autocomplete="off">
               <div class="input-container">
-                <input type="text" id="correo" name="correo"  required="required"/>
+                <input type="email" id="correo" name="correo"  required="required"/>
                 <label for="Username">Correo</label>
                 <div class="bar"></div>
               </div>
@@ -46,7 +40,7 @@
                 <div class="bar"></div>
               </div>
               <div class="button-container">
-                <button type="submit" class="btn btn-outline-primary" name="salvarusuario"><span>Login</span></button>
+                <button type="submit" class="btn btn-outline-primary" name="salvarusuario"><span>Iniciar Sesion</span></button>
               </div>
             </form>
           </div>
