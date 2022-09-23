@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="col-md-8">
-        <table class="table table-hover">
+        <table class="table table-light">
           <thead>
             <tr class="table-primary">
               <th>Nombre</th>

@@ -8,11 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <body>
     <main>
-      <div class="container">
+      <div class="container ">
         <div class="row">
-          <div class="clearfix" style="margin: 5% 5% 5% 0%; padding: 10% 0% 10% 0%">
-            <img src="../resources/img/Logo TecnoStoria Page.png" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid">
-            <h2>Bienvenido a la pagina inicial de la pagina web TecnoStoria</h2>
+          <div class="clearfix " style="margin: 5% 5% 5% 0%; padding: 10% 0% 10% 0%">
+            <div class="d-flex flex-row-reverse">
+              <img src="../img/Logo TecnoStoria Page.png" class="img-fluid">
+              <h2>Bienvenido a la pagina inicial de la pagina web TecnoStoria</h2>
+            </div>
             <br>
             <p>
               Esta pagina fue disenada para que tanto la persona que quiera acudir a generar una cita como el personal de salud que trabaja tenga la oportunidad de que puedan trabajar en conjunto sin tener algun problema con el tiempo de atencion y trabajo.

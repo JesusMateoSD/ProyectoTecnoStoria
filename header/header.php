@@ -13,11 +13,11 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light mb-3" id="nav">
       <div class="container-fluid my-2">
-        <img src="../img/Logo TecnoStoria Page.png" height="30" class="d-inline-block me-3" alt="">
+        <img src="../img/Logo TecnoStoria Page.png" height="30" class="d-inline-block pr-2" alt="">
         <a class="navbar-brand" id="tecnostoria" href="../inicio/inicio.php">TecnoStoria</a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon mt-1">☰</span>
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
