@@ -109,7 +109,3 @@
 <script src="../js/custom-file-input.js"></script>
 
              <!-- FIN PHP INDEX SUPER USUARIO -->
-
-<?php
-  include('../includes/footer.php');
-?>
