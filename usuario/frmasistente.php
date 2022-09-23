@@ -18,7 +18,7 @@
 <body>
 <main class="container p-0">
   <div class="container-fluid">
-    <div class="row" style="padding: 2% 0% 0% 45%">
+    <div class="row" style="padding: 2% 0% 0% 41%">
       <h2><b>Asistentes</b></h2>
     </div>
     <form class="row g-3" method="POST" action="">
@@ -44,16 +44,15 @@
           <input type="text" class="form-control" id="valor" placeholder="Escriba el cargo especifico que hara el asistente" required>
         </div>
       </div>
-      
     </form>
   </div>
 
-  <div class="row align-items-center" style="padding: 4% 0% 2% 38%">
-    <h2><b>Busqueda de asistentes</b></h2>
+  <div class="row" style="padding: 4% 0% 2% 35%">
+    <h2><b>Tabla de Asistentes</b></h2>
   </div>
-
-  <div class="row" style="padding: 0% 0% 2% 40%">
-    <h2><b>Asistentes</b></h2>
+  <div class="input-group" style="padding: 0% 10% 4% 10%">
+    <input type="search" class="form-control " placeholder="Buscar asistentes" aria-label="Search" aria-describedby="search-addon" id="buscarasistente"/>
+    <button type="button" class="btn btn-success ">Buscar</button>
   </div>
     <table class="table table-hover">
       <thead>

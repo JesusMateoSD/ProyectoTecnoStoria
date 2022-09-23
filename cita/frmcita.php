@@ -1,3 +1,8 @@
+<?php
+  include('../connection/db.php');
+  include("../template/navbar.php");
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,11 +14,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   </head>
   <body>
-    
-    <?php
-      include("../template/navbar.php");
-    ?>
-
     <main class="container p-0">
       <div class="container-fluid">
         <div class="row" style="padding: 2% 0% 0% 30%">
@@ -130,10 +130,10 @@
             <table class="table table-primary">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
                   <th scope="col">Agenda de la Cita</th>
                   <th scope="col">Asistente de la cita</th>
                   <th scope="col">Fecha de la Cita</th>
+                  <th scope="col">Hora de la cita</th>
                   <th scope="col">Estado de la cita</th>
                   <th scope="col">Medico de la Cita</th>
                   <th scope="col">Paciente de la cita</th>
@@ -141,16 +141,26 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="">
-                  <td scope="row">1</td>
-                  <td>Agenda 1</td>
-                  <td>Asistente Jose</td>
-                  <td>2022-07-15</td>
-                  <td>Activo</td>
-                  <td>Ricardo Angulo</td>
-                  <td>Maria Luisa</td>
-                  <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
-                </tr>
+              <?php
+                $query = "SELECT `idCita`, agenda.nombreAgenda, usuario.nombre AS asistente, `fechaCita`, `horaCita`, estadocita.estadoCita FROM `cita` INNER JOIN agenda ON cita.Agenda_idAgenda = agenda.idAgenda INNER JOIN asistente ON cita.Asistente_idAsistente = asistente.idAsistente INNER JOIN usuario ON asistente.Usuario_idUsuario = usuario.idusuario INNER JOIN estadocita ON cita.EstadoCita_idEstadoCita = estadocita.idEstadoCita INNER JOIN personal_de_salud ON cita.Personal_de_Salud_Usuario_idUsuario = personal_de_salud.idPS INNER JOIN paciente ON cita.Paciente_idPaciente = paciente.idpaciente";
+                $result_tasks = mysqli_query($mysqli, $query);    
+                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                  <tr>
+                    <td><?php echo $row['nombreAgenda']?></td>
+                    <td><?php echo $row['asistente']?></td>
+                    <td><?php echo $row['fechaCita']; ?></td>
+                    <td><?php echo $row['horaCita']; ?></td>
+                    <td><?php echo $row['estadoCita']?></td>
+                <?php } 
+                
+                $query = "SELECT usuario.nombre AS personalsalud, paciente.nombres FROM `cita` INNER JOIN personal_de_salud ON cita.Personal_de_Salud_Usuario_idUsuario = personal_de_salud.Usuario_idUsuario INNER JOIN usuario ON personal_de_salud.Usuario_idUsuario = usuario.idusuario INNER JOIN paciente ON cita.Paciente_idPaciente = paciente.idpaciente";
+                $result_tasks = mysqli_query($mysqli, $query);    
+                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                    <td><?php echo $row['personalsalud']?></td>
+                    <td><?php echo $row['nombres']; ?></td>
+                    <td><button class="btn btn-warning" type="button" id="modificar"><a href="editparametro.php">Modificar</a></button> | <button class="btn btn-danger" type="button" id="borrar"><a href="borrarparametro.php">Borrar</a></button></td>
+                  </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>

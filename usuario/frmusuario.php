@@ -114,8 +114,12 @@
   </div>
   <br>
   <div class="col-md-12">
-    <div class="row" style="padding: 0% 0% 2% 35%">
-      <h2><b>Usuarios en general</b></h2>
+    <div class="row" style="padding: 0% 0% 2% 30%">
+      <h2><b>Tabla de usuarios en general</b></h2>
+    </div>
+    <div class="input-group" style="padding: 0% 10% 4% 10%">
+      <input type="search" class="form-control " placeholder="Buscar usuarios" aria-label="Search" aria-describedby="search-addon" id="buscarusuario"/>
+      <button type="button" class="btn btn-success ">Buscar</button>
     </div>
     <table class="table table-hover">
       <thead>
@@ -145,42 +149,10 @@
       </tbody>
     </table>
 
-
     <br>
 
-    <div class="row" style="padding: 0% 0% 2% 35%">
-      <h2><b>Personal de Salud</b></h2>
-    </div>
-    <table class="table table-hover">
-      <thead>
-        <tr class="table-primary">
-          <th>ID</th>
-          <th>ID Usuario</th>
-          <th>ID Especializacion</th>
-          <th>Registro Medico</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $query = "SELECT idPS, usuario.nombre, especializacion.especializacion, registroMedico FROM personal_de_salud INNER JOIN usuario ON personal_de_salud.Usuario_idUsuario = usuario.idusuario INNER JOIN especializacion ON personal_de_salud.especializacion = especializacion.idEspecializacion";
-        $result_tasks = mysqli_query($mysqli, $query);    
-        while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-          <tr>
-            <td><?php echo $row['idPS']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>
-            <td><?php echo $row['especializacion']; ?></td>
-            <td><?php echo $row['registroMedico']?></td>
-            <td><button class="btn btn-warning" type="button" id="modificar"><a href="editparametro.php">Modificar</a></button> | <button class="btn btn-danger" type="button" id="borrar"><a href="borrarparametro.php">Borrar</a></button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-    <br>
-
-    <div class="row" style="padding: 0% 0% 2% 35%">
-      <h2><b>Administradores</b></h2>
+    <div class="row" style="padding: 0% 0% 2% 31%">
+      <h2><b>Tabla de administradores</b></h2>
     </div>
     <table class="table table-hover">
       <thead>
@@ -216,8 +188,8 @@
   include("../template/footer.php");
 ?>
 
-<script src="../resources/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    </html>
+  <script src="../resources/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</html>
 
 

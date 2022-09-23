@@ -37,7 +37,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="../usuario/frmusuario.php">Crear Usuario / Administrador</a></li>
-                    <li><a class="dropdown-item" href="#">Crear Personal de Salud</a></li>
+                    <li><a class="dropdown-item" href="../usuario/frmpersonalsalud.php">Crear Personal de Salud</a></li>
                     <li><a class="dropdown-item" href="../usuario/frmasistente.php">Crear Asistente</a></li>
                 </ul>
             </li>

@@ -1,3 +1,7 @@
+<?php
+    include('../connection/db.php');
+    include("../template/navbar.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +15,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
-  <?php
-      include("../template/navbar.php");
-  ?>
 
 <main>
   <div class="container-fluid">
@@ -69,9 +70,12 @@
         <div class="col-3 my-2" style=" padding: 0%">
           <select class="form-select" aria-label="Default select example">
             <option selected>Tipo de documento</option>
-            <option value="CC">Cedula de Ciudadania</option>
-            <option value="TI">Tarjeta de Identidad</option>
-            <option value="CE">Cedula de Extranjeria</option>
+            <?php
+              $query = "SELECT * FROM tipodocumento";
+              $result_tasks = mysqli_query($mysqli, $query);    
+              while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                <option value = "<?php echo $row['idtipodocumento']?>" ><?php echo $row['tipodocumento']; ?></option>
+            <?php } ?>  
           </select>
         </div>
       </div>
@@ -107,10 +111,13 @@
         </div>
         <div class="col-3 my-2" style=" padding: 0%">
           <select class="form-select" aria-label="Default select example">
-            <option selected>Genero</option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
-            <option value="O">Otro</option>
+            <option selected>Seleccione genero</option>
+            <?php
+              $query = "SELECT * FROM genero";
+              $result_tasks = mysqli_query($mysqli, $query);    
+              while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                <option value = "<?php echo $row['idGenero']?>" ><?php echo $row['genero']; ?></option>
+            <?php } ?>  
           </select>
         </div>
       </div>
@@ -129,14 +136,12 @@
         <div class="col-3 my-2" style=" padding: 0%">
           <select class="form-select" aria-label="Default select example">
               <option selected>RH</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
+              <?php
+              $query = "SELECT * FROM tiporh";
+              $result_tasks = mysqli_query($mysqli, $query);    
+              while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                <option value = "<?php echo $row['idtipoRH']?>" ><?php echo $row['tipoRH']; ?></option>
+            <?php } ?>  
           </select>
         </div>
       </div>
@@ -155,57 +160,58 @@
     </form>
   </div>
 
-      <div class="row align-items-center" style="padding: 4% 0% 2% 40%">
-        <h2><b>Busqueda de pacientes</b></h2>
-      </div>
-        
-        <div class="input-group" style="padding: 0% 10% 4% 10%">
-          <input type="search" class="form-control " placeholder="Buscar pacientes" aria-label="Search" aria-describedby="search-addon" id="buscarpacientes"/>
-          <button type="button" class="btn btn-success ">Buscar</button>
-        </div>
+  <div class="row align-items-center" style="padding: 4% 0% 2% 40%">
+    <h2><b>Busqueda de pacientes</b></h2>
+  </div>
+    
+  <div class="input-group" style="padding: 0% 10% 4% 10%">
+    <input type="search" class="form-control " placeholder="Buscar pacientes" aria-label="Search" aria-describedby="search-addon" id="buscarpacientes"/>
+    <button type="button" class="btn btn-success ">Buscar</button>
+  </div>
 
-      <div class="row mx-auto w-100">
-        <div class="table">
-          <table class="table table-primary">
-            <thead>
+    <div class="row mx-auto w-100">
+      <div class="table">
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th scope="col">Nombres Completos</th>
+              <th scope="col">Numero de documento</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Fecha de nacimiento</th>
+              <th scope="col">Genero</th>
+              <th scope="col">Altura</th>
+              <th scope="col">Tipo de Documento</th>
+              <th scope="col">RH</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+            $query = "SELECT `idpaciente`, CONCAT(`nombres`, ' ', `apellidos`) AS nombrecompleto , `edad`, `numeroDocumento`, `telefono`, `correo`, `direccion`, `fechaNacimiento`, genero.genero, alturaP, tipodocumento.tipodocumento, tiporh.tipoRH FROM `paciente` INNER JOIN genero ON paciente.Genero_idGenero = genero.idGenero INNER JOIN tipodocumento ON paciente.tipoDocumentoP = tipodocumento.idtipodocumento INNER JOIN tiporh ON paciente.rh_idRH = tiporh.idtipoRH";
+            $result_tasks = mysqli_query($mysqli, $query);    
+            while($row = mysqli_fetch_assoc($result_tasks)) { ?>
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Numero de documento</th>
-                <th scope="col">Tipo de documento</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Fecha de nacimiento</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Altura</th>
-                <th scope="col">RH</th>
-                <th scope="col">Acciones</th>
+                <td><?php echo $row['nombrecompleto']; ?></td>
+                <td><?php echo $row['numeroDocumento']?></td>
+                <td><?php echo $row['edad']?></td>
+                <td><?php echo $row['telefono']; ?></td>
+                <td><?php echo $row['correo']; ?></td>
+                <td><?php echo $row['direccion']?></td>
+                <td><?php echo $row['fechaNacimiento']?></td>
+                <td><?php echo $row['genero']; ?></td>
+                <td><?php echo $row['alturaP']; ?></td>
+                <td><?php echo $row['tipodocumento']?></td>
+                <td><?php echo $row['tipoRH']?></td>
+                <td><button class="btn btn-warning" type="button" id="modificar"><a href="editparametro.php">Modificar</a></button> | <button class="btn btn-danger" type="button" id="borrar"><a href="borrarparametro.php">Borrar</a></button></td>
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">1</td>
-                <td scope="col">Jose Andres</td>
-                <td scope="col">Sanchez Salazar</td>
-                <td scope="col">25</td>
-                <td scope="col">1836293741</td>
-                <td scope="col">Cedula de Ciudadania</td>
-                <td scope="col">ejemplo@gmail.com</td>
-                <td scope="col">Manzana 12 Casa 30</td>
-                <td scope="col">3912732801</td>
-                <td scope="col">1997-04-29</td>
-                <td scope="col">M</td>
-                <td scope="col">1.76</td>
-                <td scope="col">O+</td>
-                <td><button class="btn btn-warning" type="button" id="button-addon2">Modificar</button> | <button class="btn btn-danger" type="button" id="button-addon2">Eliminar</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <?php } ?>
+          </tbody>
+        </table>
       </div>
+    </div>
   </main>
 
   <?php
