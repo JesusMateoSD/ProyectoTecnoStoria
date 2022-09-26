@@ -75,7 +75,7 @@
       </div>
     </div>
    <br>
-      <table class="table table-hover">
+      <table class="table table-hover table-light">
         <thead>
           <tr class="table-primary">
             <th>Nombre</th>
@@ -92,8 +92,8 @@
           while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <tr>
             <td><?php echo $row['nombre']; ?></td>
-           <td><?php echo $row['cargo']; ?></td>
-           <td><?php echo $row['correo']; ?></td>
+            <td><?php echo $row['cargo']; ?></td>
+            <td><?php echo $row['correo']; ?></td>
             <td><?php echo $row['nivel']; ?></td>
             <td>
               <a href="borrarusuario.php?id=<?php echo $row['id']?>" class="btn btn-danger">

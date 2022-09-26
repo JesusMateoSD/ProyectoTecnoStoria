@@ -37,7 +37,7 @@
         <td><?php echo $row['correo']; ?></td>
         
         <td>
-          <li id="<?php echo $row['id']?>" class="btn btn-danger" ><a href="#" class="deleteitem" ><i class="fas fa-trash-alt"></i></a></i>
+          <li id="<?php echo $row['id']?>" class="btn btn-danger" ><a href="#" class="deleteitem" style="color: #FFF;" ><i class="fas fa-trash-alt " ></i></a></i>
         </td>
       </tr>
     <?php } ?>

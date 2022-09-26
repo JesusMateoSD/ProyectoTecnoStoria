@@ -145,8 +145,12 @@
         </div>
       </div>
       <br>
-      <div id="tablapacientes"></div>
-    </div>
+
+      <div class="bg-light p-2 mb-2">
+        <div id="tablapacientes" ></div>
+      </div>
+
+      </div>
   </div>
 </main>
 

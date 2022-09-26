@@ -68,7 +68,7 @@
     <br>
 
     <div class="col-md-12">
-      <table class="table table-hover">
+      <table class="table table-hover table-light">
         <thead>
           <tr class="table-primary">
             <th>Consultorio</th>
