@@ -17,8 +17,6 @@
 
     $capb = $_POST['capb'];
     $napb = $_POST['napb'];
-    
-  
 
     $foto=$_FILES["foto"]["name"];
     $ruta=$_FILES["foto"]["tmp_name"];

@@ -53,7 +53,7 @@
               <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente"  onkeyup="javascript:this.value=this.value.toUpperCase();" autofocus autocomplete="off">
             </div>
             <div class="col-md-3 mb-4">
-              <select class="custom-select mr-sm-2"   name="tipodocumento" id="tipodocumento" >
+              <select class="custom-select mr-sm-2" name="tipodocumento" id="tipodocumento" >
                 <option value="0">Tipo Documento:</option>
                   <?php
                     $query = $mysqli -> query ("SELECT * FROM tbl_tipodocumento ");
@@ -66,19 +66,15 @@
             <div class="col-md-3 mb-4">
               <input type="text" name="documento" id="documento" class="form-control" placeholder="Documento"  onBlur="alerta();" autofocus autocomplete="off">
             </div>
-
             <div class="col-md-2 mb-4">
               <input type="text" name="fecha" class="form-control"  value="<?php echo $fechahoy = date('Y-m-d'); ?>" readonly>
             </div>
-
             <div class="col-md-2 mb-4">
               <input type="date" name="fechan" id="fechan" class="form-control">
             </div>
-
             <div class="col-md-1 mb-4">
               <input type="text" name="edad" class="form-control" placeholder="Edad" id="edad" autocomplete="off">
             </div>
-
             <div class="col-md-2 mb-4">
               <select class="form-control" id="sexo" name="sexo">
               <option>Sexo</option>
@@ -86,27 +82,21 @@
               <option Value="F">F</option>
               </select>
             </div>
-
             <div class="col-md-5 mb-4">
               <input type="text" name="dir" class="form-control" placeholder="Direccion" id="dir" autocomplete="off">
             </div>
-
             <div class="col-md-2 mb-4">
               <input type="text" name="telefono" class="form-control" placeholder="Telefono" id="telefono" autocomplete="off">
             </div>
-
             <div class="col-md-3 mb-4">
               <input type="email" name="correo" class="form-control" placeholder="Correo" id="correo" autocomplete="off">
             </div>
-
             <div class="col-md-3 mb-4">
               <input type="text" name="ocupacion" class="form-control" placeholder="Ocupacion" id="ocupacion" autocomplete="off">
             </div>
-
             <div class="col-md-4 mb-4">
               <input type="text" name="eps" class="form-control" placeholder="EPS" id="eps" autocomplete="off">
             </div>
-                  
             <div class="col-md-5 mb-4">
               <select class="custom-select mr-sm-2"   name="dpto" id="dpto" >
                 <option value="0">Seleccione Departamento:</option>
@@ -118,24 +108,19 @@
                 ?>
               </select>
             </div>  
-
             <div class="col-md-3 mb-4">
               <select class="custom-select mr-sm-2" name="municipio" id="municipio"></select>
             </div>
             <br>
-      
             <div class="col-md-4 mb-4">
               <input type="text" name="acudiente" id="acudiente"  onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control" placeholder="Acudiente" autofocus>
             </div>
-        
             <div class="col-md-3 mb-4">
               <input type="text" name="direcciona" class="form-control" placeholder="Direccion" id="direcciona" autocomplete="off">
             </div>
-
             <div class="col-md-3 mb-4">
               <input type="text" name="telefonoa" class="form-control" placeholder="Telefono" id="telefonoa" autocomplete="off">
             </div>
-
             <div class="col-md-12 mb-2">
               <div class="p-2 mb-2 bg-primary "></div>
             </div>          
@@ -145,12 +130,10 @@
         </div>
       </div>
       <br>
-
       <div class="bg-light p-2 mb-2">
         <div id="tablapacientes" ></div>
       </div>
-
-      </div>
+    </div>
   </div>
 </main>
 
@@ -209,8 +192,6 @@
     $("#tablapacientes").load('mostrardetallep.php');
   }
 </script>
-
-<!--calcula la edad -->
 
 <script type="text/javascript">
   $(function(){
