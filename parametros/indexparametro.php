@@ -31,7 +31,7 @@
               <input type="text" name="depto" class="form-control" placeholder="Departamento" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"autofocus>
             </div> 
 
-            <div class="col-md-2 mb-4">
+            <div class="col-md-3 mb-4">
               <input type="text" name="telefono" class="form-control" placeholder="Telefono" autofocus>
             </div>
 
@@ -39,7 +39,7 @@
               <input type="email" name="correo" class="form-control" autocomplete="off" placeholder="ejemplo@mai.com" autofocus>
             </div>
 
-            <div class="col-md-2 mb-4">
+            <div class="col-md-3 mb-4">
               <input type="text" name="capb" class="form-control" placeholder="Codigo E.A.P.B" autofocus>
             </div>
 
@@ -48,7 +48,6 @@
             </div>
 
             <div class="col-md-7 mb-4">
-              <!-- <input type="file" name="foto" id="foto"  class="fas fa-cloud-upload-alt">-->
               <input type="file" name="foto" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} archivos seleccionados" multiple />
               <label for="file-1">
               <svg xmlns="http://www.w3.org/2000/svg" class="iborrainputfile" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg>
@@ -57,7 +56,7 @@
             </div>
             
             <div class="col-md-12 mb-2">
-              <div class="p-2 mb-2 bg-primary "></div>
+              <div class="p-2 mb-2 bg-primary"></div>
             </div>
           </div>
           <input type="submit" name="salvarparametro" class="btn btn-primary " value="Grabar Consultorio">

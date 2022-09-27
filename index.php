@@ -20,9 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">  
-        <!-- Mixins-->
-        <!-- Pen Title-->
+      <div class="row">
         <div class="pen-title">
           <h1>TecnoStoria</h1>
         </div>
