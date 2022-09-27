@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-md-3 mb-4">
-              <input type="email" name="correo" class="form-control" placeholder="ejemplo@mai.com" autofocus autocomplete="off">
+              <input type="email" name="correo" class="form-control" placeholder="ejemplo@gmail.com" autofocus autocomplete="off">
             </div>
 
           <div class="col-md-3 mb-4">

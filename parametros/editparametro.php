@@ -1,12 +1,10 @@
-<?php include("../db.php"); ?>
-
 <?php 
-  include('../header/header.php');
   include("../db.php");
+  include('../header/header.php');
   $title = '';
   $description= '';
 
-  if  (isset($_GET['id'])) {
+  if(isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "SELECT * FROM tbl_parametros WHERE id=$id";
     $result = mysqli_query($mysqli, $query);
@@ -43,6 +41,7 @@
     mysqli_query($mysqli, $query);
     $_SESSION['message'] = 'Consultorio Actualizado Correctamente';
     $_SESSION['message_type'] = 'warning';
+
     header('Location: indexparametro.php');
   }
 ?>
@@ -51,8 +50,7 @@
   <div class="row">
     <br>
     <form action="editparametro.php?id=<?php echo $_GET['id']; ?>" method="POST" >
-      <p class="p-2 bg-success text-white"">Actualizar  Parametros</p>
-      <br>
+      <p class="p-2 mb-4 bg-success text-white"">Actualizar  Parametros</p>
       <div class="form-row">
         <div class="col-md-4 mb-4">
           <label for="validationCustom02">Consultorio</label>
@@ -101,13 +99,11 @@
 	    </div>
     </div>
     
-	  <div class="col-md-4 mb-4">
+	  <div class="col-md-4 mt-4 mx-auto">
 	    <input type="submit" name="update" class="btn btn-success btn-block" value="Actualizar Consultorio">
 	  </div>
   </form>
 </div>
-
-<?php include('../includes/footer.php'); ?>
 
 
 

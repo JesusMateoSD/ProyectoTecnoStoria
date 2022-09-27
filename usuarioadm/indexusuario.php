@@ -30,7 +30,7 @@
         <div class="card card-body">
           <form action="salvarusuario.php" method="POST" >
             <div class="form-group">
-              <input type="text" name="nombre" class="form-control" placeholder="Nombre" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"autofocus autocomplete="off">
+              <input type="text" name="nombre" class="form-control" placeholder="Nombre" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();" autofocus autocomplete="off">
             </div>
 
             <div class="form-group">

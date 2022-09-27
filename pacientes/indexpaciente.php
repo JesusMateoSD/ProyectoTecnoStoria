@@ -68,11 +68,11 @@
             </div>
 
             <div class="col-md-2 mb-4">
-              <input type="text" name="fecha" class="form-control"  value="<?php echo  $fechahoy = date('Y-m-d'); ?>"  readonly>
+              <input type="text" name="fecha" class="form-control"  value="<?php echo $fechahoy = date('Y-m-d'); ?>" readonly>
             </div>
 
             <div class="col-md-2 mb-4">
-              <input type="date" name="fechan" id="fechan" class="form-control"  >
+              <input type="date" name="fechan" id="fechan" class="form-control">
             </div>
 
             <div class="col-md-1 mb-4">

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="../cssjs/style.css" type="text/css" rel="stylesheet">
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg bg-light mb-3" id="nav">
       <div class="container-fluid my-2">
@@ -56,8 +55,7 @@
             </li>
             <?php } ?>
 
-            <?php if ($_SESSION['snivel'] == 1 OR $_SESSION['snivel'] == 2 OR $_SESSION['snivel'] == 3 ){ ?>
-              
+            <?php if($_SESSION['snivel'] == 1 OR $_SESSION['snivel'] == 2 OR $_SESSION['snivel'] == 3 ){ ?> 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 ASISTENTE
@@ -71,10 +69,8 @@
                 <li><a class="dropdown-item" href="">Cambiar Clave</a></li>
               </ul>
             </li>
-
-            <?php } ?>
+            <?php }?>
           </ul>
-
           <div style="margin-left: 60px;">
             <button class="btn btn-primary" style="cursor:pointer" onclick="openNav()">&#9776; Usuario: <?php echo $_SESSION['snombre'];?></button>
           </div>
@@ -92,4 +88,3 @@
   <script src="../cssjs/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>  
 </html>
-

@@ -1,14 +1,13 @@
 <?php
   session_start();
   include('../db.php');
-  include('../includes/header.php');
 ?>
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Coco Firma</title>
+    <title>Firma de Usuario</title>
   
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -48,6 +47,3 @@
     <script src="js/app.js"></script>
   </body>
 </html>
-<?php
-  include('../includes/footer.php');
-?>

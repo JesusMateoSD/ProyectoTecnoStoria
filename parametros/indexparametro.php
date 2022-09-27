@@ -2,11 +2,11 @@
   session_start();
   include('../db.php');
   include('../header/header.php');
- ?>
+?>
              <!-- INICIO PHP INDEXPARAMETROS -->
 <main class="container p-0">
   <br>
-  <div class="p-2 mb-2 bg-primary text-white">Crear Consultorio</div>   
+  <div class="p-2 mb-4 bg-primary text-white">Crear Consultorio</div>   
     <div class="container">
       <div class="row">
         <form action="salvarparametro.php" method="POST" enctype="multipart/form-data">
