@@ -5,7 +5,7 @@
 <?php
   include('../db.php');
 
-  if (isset($_POST['salvarparametro'])) {
+  if (isset($_POST['salvarconsultorio'])) {
     $nombre = $_POST['nombre'];
     $nit = $_POST['nit'];
     $direccion = $_POST['direccion'];
@@ -23,7 +23,7 @@
     $destino="fotospr/".$foto;
     copy($ruta,$destino);
     
-    $query = "INSERT INTO tbl_parametros(nombre, nit,direccion,telefono,correo,foto,ciudad,depto,capb,napb) VALUES ('$nombre', '$nit', '$direccion', '$telefono', '$correo', '$destino', '$ciudad', '$depto', '$capb', '$napb')";
+    $query = "INSERT INTO tbl_consultorios(nombre, nit,direccion,telefono,correo,foto,ciudad,depto,capb,napb) VALUES ('$nombre', '$nit', '$direccion', '$telefono', '$correo', '$destino', '$ciudad', '$depto', '$capb', '$napb')";
     $result = mysqli_query($mysqli, $query);
 
     if(!$result) {
@@ -34,13 +34,13 @@
   $(document).ready(function() {
     swal({
       title: 'Medicina Web!',
-      text: "El Parametro Ha Sido Grabado Correctamente!",
+      text: "El Consultorio Ha Sido Grabado Correctamente!",
       type: 'success',
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'OK!'
     }).then((result) => {
       if (result.value) {
-        window.location.href = "indexparametro.php";
+        window.location.href = "indexconsultorio.php";
       }
     })
   });
@@ -48,6 +48,6 @@
 <?php
  // $_SESSION['message'] = 'Consultorio Grabado Correctamente';
  // $_SESSION['message_type'] = 'success';
-//  header('Location: indexparametro.php');
+//  header('Location: indexconsultorio.php');
   }
 ?>

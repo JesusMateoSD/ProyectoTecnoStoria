@@ -3,13 +3,13 @@
   include('../db.php');
   include('../header/header.php');
 ?>
-             <!-- INICIO PHP INDEXPARAMETROS -->
+             <!-- INICIO PHP INDEXCONSULTORIOS -->
 <main class="container p-0">
   <br>
   <div class="p-2 mb-4 bg-primary text-white">Crear Consultorio</div>   
     <div class="container">
       <div class="row">
-        <form action="salvarparametro.php" method="POST" enctype="multipart/form-data">
+        <form action="salvarconsultorio.php" method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <div class="col-md-8 mb-4">
               <input type="text" name="nombre" class="form-control" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"  placeholder="Consultorio" autofocus>
@@ -59,7 +59,7 @@
               <div class="p-2 mb-2 bg-primary"></div>
             </div>
           </div>
-          <input type="submit" name="salvarparametro" class="btn btn-primary " value="Grabar Consultorio">
+          <input type="submit" name="salvarconsultorio" class="btn btn-primary " value="Grabar Consultorio">
         </form>
       </div>
     </div>
@@ -79,7 +79,7 @@
         </thead>
         <tbody>
           <?php
-          $query = "SELECT * FROM tbl_parametros";
+          $query = "SELECT * FROM tbl_consultorios";
           $result_tasks = mysqli_query($mysqli, $query);    
 
           while($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -88,12 +88,12 @@
             <td><?php echo $row['nit']; ?></td>
             <td><?php echo $row['ciudad']; ?></td>
             <td>
-              <a href="editparametro.php?id=<?php echo $row['id']?>" class="btn btn-success">
+              <a href="editconsultorio.php?id=<?php echo $row['id']?>" class="btn btn-success">
                 <i  class="fas fa-edit"></i>
               </a>
             </td>
             <td>
-              <a href="borrarparametro.php?id=<?php echo $row['id']?>" class="btn btn-danger">
+              <a href="borrarconsultorio.php?id=<?php echo $row['id']?>" class="btn btn-danger">
                 <i class="fas fa-trash-alt"></i>
               </a>
             </td>

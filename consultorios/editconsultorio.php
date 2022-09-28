@@ -1,3 +1,7 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
+
 <?php 
   include("../db.php");
   include('../header/header.php');
@@ -6,7 +10,7 @@
 
   if(isset($_GET['id'])) {
     $id = $_GET['id'];
-    $query = "SELECT * FROM tbl_parametros WHERE id=$id";
+    $query = "SELECT * FROM tbl_consultorios WHERE id=$id";
     $result = mysqli_query($mysqli, $query);
 
     if (mysqli_num_rows($result) == 1) {
@@ -37,20 +41,29 @@
     $capb = $_POST['capb'];
     $napb = $_POST['napb'];
 
-    $query = "UPDATE tbl_parametros set nombre = '$nombre', nit = '$nit', direccion = '$direccion', telefono = '$telefono', correo = '$correo' , ciudad = '$ciudad' , depto = '$depto', capb = '$capb', napb = '$napb' WHERE id=$id";
+    $query = "UPDATE tbl_consultorios set nombre = '$nombre', nit = '$nit', direccion = '$direccion', telefono = '$telefono', correo = '$correo' , ciudad = '$ciudad' , depto = '$depto', capb = '$capb', napb = '$napb' WHERE id=$id";
     mysqli_query($mysqli, $query);
-    $_SESSION['message'] = 'Consultorio Actualizado Correctamente';
-    $_SESSION['message_type'] = 'warning';
 
-    header('Location: indexparametro.php');
+   // $_SESSION['message'] = 'Consultorio Actualizado Correctamente';
+  //  $_SESSION['message_type'] = 'warning';
+
+  //  header('Location: indexconsultorio.php');
+?>
+<script>
+    swal("Buen Trabajo!", "Se registro con éxito","success").then(function()  
+ { 
+    window.location.replace("indexconsultorio.php");
+});
+</script>
+<?php
   }
 ?>
 
 <div class="container">
   <div class="row">
     <br>
-    <form action="editparametro.php?id=<?php echo $_GET['id']; ?>" method="POST" >
-      <p class="p-2 mb-4 bg-success text-white"">Actualizar  Parametros</p>
+    <form action="editconsultorio.php?id=<?php echo $_GET['id']; ?>" method="POST" >
+      <p class="p-2 mb-4 bg-success text-white">Actualizar  Consultorios</p>
       <div class="form-row">
         <div class="col-md-4 mb-4">
           <label for="validationCustom02">Consultorio</label>

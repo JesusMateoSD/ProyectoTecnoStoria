@@ -7,7 +7,7 @@
 
   if(isset($_GET['id'])) {
     $id = $_GET['id'];
-    $query = "DELETE FROM tbl_parametros WHERE id = $id";
+    $query = "DELETE FROM tbl_consultorios WHERE id = $id";
     $result = mysqli_query($mysqli, $query);
     if(!$result) {
       die("Query Failed.");
@@ -17,13 +17,13 @@
   $(document).ready(function() {
     swal({
       title: 'Medicina Web!',
-      text: "El Parametro Ha Sido Borrado Correctamente!",
+      text: "El Consultorio Ha Sido Borrado Correctamente!",
       type: 'success',
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'OK!'
     }).then((result) => {
       if (result.value) {
-        window.location.href = "indexparametro.php";
+        window.location.href = "indexconsultorio.php";
       }
     })
   });

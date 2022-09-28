@@ -30,7 +30,7 @@
                 ADMINISTRADOR
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../parametros/indexparametro.php">Parametros</a></li>
+                <li><a class="dropdown-item" href="../consultorios/indexconsultorio.php">Consultorio</a></li>
                 <li><a class="dropdown-item" href="../usuarioadm/indexusuario.php">Crear Administrador</a></li>
                 <li><a class="dropdown-item" href="../usuarios/indexusuario.php">Crear Usuario</a></li>
                 <li><a class="dropdown-item" href="">Horas de Agenda</a></li>

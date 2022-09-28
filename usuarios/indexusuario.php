@@ -79,7 +79,6 @@
         <thead>
           <tr class="table-primary">
             <th>Nombre</th>
-            <th>Cargo</th>
             <th>Correo</th>
             <th>Nivel</th>
             <th>Borrar Usuario</th>
@@ -92,7 +91,6 @@
           while($row = mysqli_fetch_assoc($result_tasks)) { ?>
           <tr>
             <td><?php echo $row['nombre']; ?></td>
-            <td><?php echo $row['cargo']; ?></td>
             <td><?php echo $row['correo']; ?></td>
             <td><?php echo $row['nivel']; ?></td>
             <td>
