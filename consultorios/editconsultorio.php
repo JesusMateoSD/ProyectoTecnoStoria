@@ -50,10 +50,19 @@
   //  header('Location: indexconsultorio.php');
 ?>
 <script>
-    swal("Buen Trabajo!", "Se registro con éxito","success").then(function()  
- { 
-    window.location.replace("indexconsultorio.php");
-});
+    $(document).ready(function() {
+    swal({
+      title: 'Medicina Web!',
+      text: "El Consultorio Ha Sido Actualizado con exito!",
+      type: 'success',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK!'
+    }).then((result) => {
+      if (result.value) {
+        window.location.href = "indexconsultorio.php";
+      }
+    })
+  });
 </script>
 <?php
   }

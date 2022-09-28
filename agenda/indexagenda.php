@@ -6,13 +6,13 @@
 ?>
 
 <main class="container p-0">
-  <link rel="stylesheet" href="../cssjs/stylecute.css" />
-  <script src="../cssjs/cute-alert.js"></script>
+  <link rel="stylesheet" href="../cssjs/cute-alert-master/stylecute.css" />
+  <script src="../cssjs/cute-alert-master/cute-alert.js"></script>
   <script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>
   <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
   <div class="container">
     <div class="row">
-      <form id="myForm"   method="POST" >
+      <form id="myForm" method="POST" >
         <div class="form-row">
           <div class="col-md-5 mb-4">
             <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional" >
@@ -20,7 +20,7 @@
                 <?php
                   $query = $mysqli -> query ("SELECT * FROM tbl_usuarios WHERE nivel = 2");
                   while ($valores = mysqli_fetch_array($query)) {
-                  echo '<option value="'.$valores['nombre'].'">'.$valores['nombre'].'</option>';
+                    echo '<option value="'.$valores['nombre'].'">'.$valores['nombre'].'</option>';
                   }
                 ?>
             </select>
@@ -29,7 +29,7 @@
             <input type="text" name="docp" id="docp" class="form-control" readonly>
           </div>
           <div class="col-md-2 mb-4">
-            <input type="date" name="fecha" id="fecha" value="<?php echo  $fechahoy = date('Y-m-d'); ?>"  class="form-control" placeholder="Fecha"  onchange="mostrarInfo()">
+            <input type="date" name="fecha" id="fecha" value="<?php echo $fechahoy = date('Y-m-d'); ?>"  class="form-control" placeholder="Fecha"  onchange="mostrarInfo()">
           </div>
           <div class="col-md-3 mb-4">
             <select class="custom-select mr-sm-2"  name="hora" id="hora" >
@@ -174,7 +174,7 @@
     var request = new XMLHttpRequest();
     request.responseType = 'json';
     // Objeto PHP que consultaremos
-    request.open("POST", "consultapaciente.php");
+    request.open("POST", "../pacientes/consultapaciente.php");
     // Definiendo el listener
     request.onreadystatechange = function() {
       // Revision si fue completada la peticion y si fue exitosa
@@ -220,7 +220,7 @@
         data:datos,
         success:function(r){
           if(r==1){
-          //  alert("agregado con exito");
+            alert("agregado con exito");
           }else{
             mostrarInfo();
           // $("#datos").load('proceso.php');

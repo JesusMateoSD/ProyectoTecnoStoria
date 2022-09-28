@@ -2,7 +2,7 @@
 session_start();
 include('../db.php');
 
-//if (isset($_POST['salvaragenda'])) {
+if (isset($_POST['salvaragenda'])) {
   $docp = $_POST['docp'];
   $profesional = $_POST['profesional'];
   $fecha = $_POST['fecha'];
@@ -19,5 +19,5 @@ include('../db.php');
   if(!$result) {
     die("Query Fallo.");
   }
-
+}
 ?>
