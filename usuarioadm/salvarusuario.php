@@ -1,6 +1,5 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 
 <?php
@@ -11,7 +10,6 @@ if (isset($_POST['salvarusuario'])) {
   $nombre = $_POST['nombre'];
   $correo = $_POST['correo'];
   $documento = $_POST['documento'];
-  
   $pass = $_POST['clave'];    
   $passHash = password_hash($pass, PASSWORD_BCRYPT);
     
@@ -19,7 +17,7 @@ if (isset($_POST['salvarusuario'])) {
 
   if($total==0){
   
-    $query = "INSERT INTO tbl_usuarios(nombre, correo,clave,nivel,documento) VALUES ('$nombre', '$correo', '$passHash', '1','$documento')";
+    $query = "INSERT INTO tbl_usuarios(nombre,correo,clave,nivel,documento,fecha) VALUES ('$nombre', '$correo', '$passHash', '1','$documento', CURDATE() )";
     $result = mysqli_query($mysqli, $query);
     
     $tarea = "Creado Usuario Administrador";

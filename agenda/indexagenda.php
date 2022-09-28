@@ -12,7 +12,7 @@
   <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
   <div class="container">
     <div class="row">
-      <form id="myForm" method="POST" >
+      <form id="myForm" method="POST">
         <div class="form-row">
           <div class="col-md-5 mb-4">
             <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional" >
@@ -174,7 +174,7 @@
     var request = new XMLHttpRequest();
     request.responseType = 'json';
     // Objeto PHP que consultaremos
-    request.open("POST", "../pacientes/consultapaciente.php");
+    request.open("POST", "consultapaciente.php");
     // Definiendo el listener
     request.onreadystatechange = function() {
       // Revision si fue completada la peticion y si fue exitosa
@@ -213,17 +213,17 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#salvaragenda').click(function(){
-      var datos=$('#myForm').serialize();
+      var datos = $('#myForm').serialize();
       $.ajax({
         type:"POST",
         url:"salvaragenda.php",
-        data:datos,
+        data: datos,
         success:function(r){
           if(r==1){
             alert("agregado con exito");
           }else{
             mostrarInfo();
-          // $("#datos").load('proceso.php');
+            $("#datos").load('proceso.php');
           }
         }
       });
