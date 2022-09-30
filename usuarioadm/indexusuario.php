@@ -47,7 +47,7 @@
             </div>           
           
             <input type="submit" name="salvarusuario" class="btn btn-primary btn-block mb-2" value="Grabar Administrador">
-            <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success btn-block mb-2" value="Vaciar Campos">  
+            <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success btn-block mb-2" value="Vaciar Campos">  
           </form>
         </div>
       </div>

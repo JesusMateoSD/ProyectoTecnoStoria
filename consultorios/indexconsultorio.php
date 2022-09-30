@@ -61,7 +61,7 @@
             </div>
           </div>
           <input type="submit" name="salvarconsultorio" class="btn btn-primary mx-2" value="Grabar Consultorio">
-          <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos">  
+          <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar  Campos">  
         </form>
       </div>
     </div>

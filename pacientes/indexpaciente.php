@@ -125,8 +125,8 @@
               <div class="p-2 mb-2 bg-primary "></div>
             </div>          
           </div>
-          <input name="salvarpaciente" id="salvarpaciente" class="btn btn-primary mx-2" value="Grabar Paciente">
-          <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos">       
+          <input type="submit" name="salvarpaciente" id="salvarpaciente" class="btn btn-primary mx-2" value="Grabar Paciente">
+          <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos">       
           </form>
         </div>
       </div>

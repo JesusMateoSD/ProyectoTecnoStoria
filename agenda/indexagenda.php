@@ -69,7 +69,7 @@
               </div>
             </div>
             <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary mx-2" value="Grabar Cita">
-            <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos"> 
+            <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos"> 
           </form>
         </div>
       </div>
