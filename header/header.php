@@ -33,7 +33,6 @@
                 <li><a class="dropdown-item" href="../consultorios/indexconsultorio.php">Consultorio</a></li>
                 <li><a class="dropdown-item" href="../usuarioadm/indexusuario.php">Crear Administrador</a></li>
                 <li><a class="dropdown-item" href="../usuarios/indexusuario.php">Crear Usuario</a></li>
-                <li><a class="dropdown-item" href="">Horas de Agenda</a></li>
                 <li><a class="dropdown-item" href="">Crear Tarifa</a></li>
                 <li><a class="dropdown-item" href="">Crear CIE10</a></li>
                 <li><a class="dropdown-item" href="">Crear CUPS</a></li>

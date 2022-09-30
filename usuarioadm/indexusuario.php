@@ -11,6 +11,7 @@
 ?>
 
 <link rel="stylesheet" href="../css/subirarchivo.css">
+<script language="javascript" src="../cssjs/jquery-3.6.0.min.js"></script>
 <main class="container p-0">   
   <div class="p-2 mb-2 bg-primary text-white">Crear Administrador</div>
     <hr>  
@@ -30,22 +31,23 @@
         <div class="card card-body">
           <form action="salvarusuario.php" method="POST" >
             <div class="form-group">
-              <input type="text" name="nombre" class="form-control" placeholder="Nombre" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();" autofocus autocomplete="off">
+              <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();" autofocus autocomplete="off">
             </div>
 
             <div class="form-group">
-              <input type="email" name="correo" class="form-control" placeholder="ejemplo@mai.com" autofocus autocomplete="off">
+              <input type="email" name="correo" id="correo" class="form-control" placeholder="ejemplo@mai.com" autofocus autocomplete="off">
             </div>
                         
             <div class="form-group">
-              <input type="text" name="clave" class="form-control" placeholder="Clave" id="inputPassword" autocomplete="off">
+              <input type="text" name="clave" id="clave" class="form-control" placeholder="Clave" id="inputPassword" autocomplete="off">
             </div>
           
             <div class="form-group">
-              <input type="text" name="documento" class="form-control" placeholder="Documento" autofocus autocomplete="off">
+              <input type="text" name="documento" id="documento" class="form-control" placeholder="Documento" autofocus autocomplete="off">
             </div>           
           
-            <input type="submit" name="salvarusuario" class="btn btn-primary btn-block" value="Grabar Administrador">
+            <input type="submit" name="salvarusuario" class="btn btn-primary btn-block mb-2" value="Grabar Administrador">
+            <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success btn-block mb-2" value="Vaciar Campos">  
           </form>
         </div>
       </div>
@@ -86,5 +88,16 @@
     </div>
   </main>
 <script src="../js/custom-file-input.js"></script>
+
+<script type="text/javascript">
+  $("#vaciarcampos").on("click", function() {
+    // Cancelar comportamiento normal del botón
+    event.preventDefault();
+    $('#nombre').val('');
+    $('#correo').val('');
+    $('#clave').val('');
+    $('#documento').val('');
+  });
+</script>
 
              <!-- FIN PHP INDEX SUPER USUARIO -->

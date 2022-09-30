@@ -12,7 +12,7 @@
   <script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>
 
   <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
-    <body onload="mostrarInfori();">
+    <body onload="mostrarInfo();">
       <div class="container">
         <div class="row">
           <form id="myForm" method="POST">
@@ -57,7 +57,7 @@
               <div class="col-md-3 mb-4">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                 <select class="custom-select mr-sm-2" name="nivel" id="nivel">
-                  <option selected>Estado...</option>
+                  <option selected value="0">Estado...</option>
                   <option value="Asignada">Asignada</option>
                   <option value="Cumplida">Cumplida</option>
                   <option value="Cancelada">Cancelada</option>
@@ -68,7 +68,8 @@
                 <input type="text" name="obs" id="obs" class="form-control" placeholder="Observaciones" autofocus>
               </div>
             </div>
-            <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary " value="Grabar Cita">
+            <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary mx-2" value="Grabar Cita">
+            <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos"> 
           </form>
         </div>
       </div>
@@ -128,26 +129,6 @@ function mostrarInfo(){
   }
 </script>
 
-<script>
-  function mostrarInfori(cod){
-    $("#datos").load('procesoi.php');
-    if (window.XMLHttpRequest){
-      xmlhttp=new XMLHttpRequest();
-    } else{
-      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-  
-    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-      document.getElementById("datos").innerHTML=xmlhttp.responseText;
-    } else{
-      document.getElementById("datos").innerHTML='Cargando...';
-    }
-
-    xmlhttp.open("POST","procesoi.php",true);
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  }
-
-</script>
 
 <script>
   //  document.getElementById("codigo").onchange = function(){alerta()};
@@ -163,7 +144,7 @@ function mostrarInfo(){
       if(this.readyState === 4 && this.status === 200) {
         // Ingresando la respuesta obtenida del PHP
         var nombrer = this.response.message;
-      
+        
         if(nombrer === "vacio"){
           cuteAlert({
             type: "info",
@@ -172,7 +153,7 @@ function mostrarInfo(){
             buttonText: "Aceptar"
           }).then((e)=>{
             if ( e == ("Thanks")){
-
+              
             } else{
               window.location.href="indexagenda.php";
             }
@@ -187,7 +168,7 @@ function mostrarInfo(){
     // Recogiendo la data del HTML
     var myForm = document.getElementById("myForm");
     var formData = new FormData(myForm);
-
+    
     // Enviando la data al PHP
     request.send(formData);
   }
@@ -215,4 +196,40 @@ function mostrarInfo(){
   });
 </script>
 
-             <!-- FIN PHP INDEX SUPER PARAMETROS -->
+<script type="text/javascript">
+  $("#vaciarcampos").on("click", function() {
+    // Cancelar comportamiento normal del botón
+    event.preventDefault();
+    $('#profesional').val('0');
+    $('#docp').val('');
+    $('#fecha').val('');
+    $('#hora').val('0');
+    $('#cedula').val('');
+    $('#paciente').val('');
+    $('#telefono').val('');
+    $('#nivel').val('0');
+    $('#obs').val('');
+  });
+</script>
+
+<!-- FIN PHP INDEX SUPER PARAMETROS -->
+
+<!-- <script>
+  function mostrarInfori(cod){
+    $("#datos").load('procesoi.php');
+    if (window.XMLHttpRequest){
+      xmlhttp=new XMLHttpRequest();
+    } else{
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  
+    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+      document.getElementById("datos").innerHTML=xmlhttp.responseText;
+    } else{
+      document.getElementById("datos").innerHTML='Cargando...';
+    }
+
+    xmlhttp.open("POST","procesoi.php",true);
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  }
+</script> -->

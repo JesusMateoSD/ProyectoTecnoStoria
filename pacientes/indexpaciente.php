@@ -6,8 +6,8 @@
 ?>
  
 <head> 
-  <link rel="stylesheet" href="../cssjs/stylecute.css" />
-  <script src="../cssjs/cute-alert.js"></script>
+  <link rel="stylesheet" href="../cssjs/cute-alert-master/stylecute.css" />
+  <script src="../cssjs/cute-alert-master/cute-alert.js"></script>
   <link rel="stylesheet" type="text/css" href="../cssjs/datatables.min.css"/>
   <script language="javascript" src="../cssjs/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="../cssjs/datatables.min.js"></script>
@@ -115,7 +115,7 @@
             <div class="col-md-4 mb-4">
               <input type="text" name="acudiente" id="acudiente"  onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control" placeholder="Acudiente" autofocus>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-9 mb-4">
               <input type="text" name="direcciona" class="form-control" placeholder="Direccion" id="direcciona" autocomplete="off">
             </div>
             <div class="col-md-3 mb-4">
@@ -125,7 +125,8 @@
               <div class="p-2 mb-2 bg-primary "></div>
             </div>          
           </div>
-          <input  name="salvarpaciente" id="salvarpaciente" class="btn btn-primary " value="Grabar Paciente">      
+          <input name="salvarpaciente" id="salvarpaciente" class="btn btn-primary mx-2" value="Grabar Paciente">
+          <input name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos">       
           </form>
         </div>
       </div>
@@ -213,3 +214,26 @@
   }
 </script>
 
+<script type="text/javascript">
+  $("#vaciarcampos").on("click", function() {
+    // Cancelar comportamiento normal del botón
+    event.preventDefault();
+    $('#paciente').val('');
+    $('#fechan').val('');
+    $('#tipodocumento').val('0');
+    $('#edad').val('');
+    $('#sexo').val('Sexo');
+    $('#dir').val('');
+    $('#telefono').val('');
+    $('#paciente').val('');
+    $('#fechan').val('');
+    $('#correo').val('');
+    $('#ocupacion').val('');
+    $('#eps').val('');
+    $('#dpto').val('0');
+    $('#municipio').val('');
+    $('#acudiente').val('');
+    $('#direcciona').val('');
+    $('#telefonoa').val('');
+  });
+</script>
