@@ -3,7 +3,7 @@
 
   session_start();
 
-  $mysqli=new mysqli("localhost","root","79057182","bd_tecnostoria"); //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
+  $mysqli=new mysqli("localhost","root","","bd_tecnostoria"); //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
 
   if(mysqli_connect_errno()){
     echo 'Conexion Fallida : ', mysqli_connect_error();
@@ -11,7 +11,7 @@
 
 
   //para autocompletar
-  $contraseña = "79057182";
+  $contraseña = "";
   $usuario = "root";
   $nombre_base_de_datos = "bd_tecnostoria";
   try {

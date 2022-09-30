@@ -1,2 +1,2 @@
-CREATE USER 'mateo'@'%' IDENTIFIED BY 'mateo123';
+CREATE USER 'mateo'@'%' IDENTIFIED BY 'mateo123*';
 GRANT ALL PRIVILEGES ON *.* TO 'mateo'@'%' WITH GRANT OPTION;
