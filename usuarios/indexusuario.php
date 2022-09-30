@@ -50,7 +50,6 @@
             <input type="date" name="fecha" class="form-control" placeholder="" autofocus>
           </div>
       
-      
           <div class="col-md-3 mb-4">
             <input type="text" name="clave" class="form-control" placeholder="Clave" id="inputPassword" autocomplete="off">
           </div>

@@ -76,7 +76,14 @@
           </div>
           
           <div id="mySidenav" class="sidenav">
-            <h2> -- Asistente -- </h2>
+            <h2> <?php 
+              if($_SESSION['snivel'] == 1){
+                echo " Administrador ";
+              }else if($_SESSION['snivel'] == 2){
+                echo "Medico";
+              }else if($_SESSION['snivel'] == 3){
+                echo "Asistente";
+              } ?></h2>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="../logout.php">Cerrar sesion</a>
           </div>

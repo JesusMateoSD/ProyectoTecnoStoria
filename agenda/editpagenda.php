@@ -4,22 +4,23 @@
 
 <?php 
   session_start();
-  include('../header/header.php');
   include("../db.php");
+  include('../header/header.php');
 ?>
 <?php
 
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
-    $query = "SELECT * FROM tbl_agenda WHERE id = $id";
-    $result = mysqli_query($mysqli, $query);
+    $query = "SELECT * FROM tbl_agenda WHERE id = '".$id."'";
+    $result = mysqli_query($mysqli,$query);
+
     if (mysqli_num_rows($result) == 1) {
       $row = mysqli_fetch_array($result);
       $horag = $row['horag'];
       $fecha =  $row['fecha'];
       $dpaciente = $row['dpaciente'];
-      $npaciente =$row['npaciente'];
+      $npaciente = $row['npaciente'];
       $tpaciente = $row['tpaciente'];
       $estado = $row['estado'];
       $obs = $row['obs'];
@@ -30,7 +31,7 @@
 
   if (isset($_POST['update'])) {
     $id = $_GET['id'];
-    $profesional= $_POST['profesional'];
+    $profesional = $_POST['profesional'];
     $docp = $_POST['docp'];
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
@@ -47,7 +48,7 @@
     $(document).ready(function() {
       swal({
         title: 'Medicina Web!',
-        text: "La AgendaS Ha Sido Actualizada con exito!",
+        text: "La Agenda Ha Sido Actualizada con exito!",
         type: 'success',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'OK!'
@@ -65,10 +66,11 @@
 <div class="container">
   <div class="row"> 
     <form  id="myForm" action="editpagenda.php?id=<?php echo $_GET['id']; ?>" method="POST" >
-      <div class="p-2 mb-2 bg-primary text-white">Actualizar  Agenda</div>
+      <div class="p-2 mb-2 bg-success text-white">Actualizar  Agenda</div>
       <br>
       <div class="form-row">
         <div class="col-md-5 mb-4">
+          <label>Nombre del Medico</label>
           <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional" >
             <option value="<?php echo $nprofesional; ?>" selected><?php echo $nprofesional; ?></option>
               <?php
@@ -80,12 +82,15 @@
           </select>
         </div>  
         <div class="col-md-2 mb-4">
+          <label>Registro Medico</label>
           <input type="text" name="docp" id="docp"   class="form-control"  value="<?php echo $dprofesional; ?>" readonly>
         </div>
         <div class="col-md-2 mb-4">
+          <label>Fecha de la cita</label>
           <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha"  value="<?php echo $fecha; ?>" autofocus>
         </div>          
         <div class="col-md-3 mb-4">
+          <label>Hora de la Cita</label>
           <select class="custom-select mr-sm-2"  name="hora" id="hora" >
             <option value="<?php echo $horag; ?>" selected><?php echo $horag; ?></option>
                 <?php
@@ -97,16 +102,19 @@
           </select>
         </div>  
         <div class="col-md-3 mb-4">
+          <label>Cedula del Paciente</label>
           <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?php echo $dpaciente; ?>" autofocus>
         </div>
         <div class="col-md-4 mb-4">
+          <label>Nombre del Paciente</label>
           <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente" value="<?php echo $npaciente; ?>"autofocus>
         </div>  
         <div class="col-md-2 mb-4">
+          <label>Telefono del Paciente</label>
           <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" value="<?php echo $tpaciente; ?>" autofocus>
         </div>
         <div class="col-md-3 mb-4">
-          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+          <label>Estado de la Cita</label>
           <select class="custom-select mr-sm-2" name="nivel" id="nivel"  >
             <option selected value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
             <option value="Asignada">Asignada</option>
@@ -116,12 +124,13 @@
           </select>
         </div>
         <div class="col-md-12 mb-4">
+        <label>Observaciones</label>
           <input type="text" name="obs" id="obs" class="form-control" placeholder="Observaciones" value="<?php echo $obs; ?>" autofocus>
         </div>
       </div>
     </div>
-    <div class="col-md-4 mb-4">
-      <input type="submit" name="update" class="btn btn-primary btn-block" value="Actualizar Agenda">
+    <div class="col-md-4 mb-4 mx-auto">
+      <input type="submit" name="update" class="btn btn-success btn-block" value="Actualizar Agenda">
     </div>
   </form>
 </div>

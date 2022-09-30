@@ -7,7 +7,7 @@
   
 <main class="container p-0">
 
-  <link rel="stylesheet" href="../cssjs/stylecute.css" />
+  <link rel="stylesheet" href="../cssjs/stylecute.css"/>
   <script src="../cssjs/cute-alert.js"></script>
   <script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>
 
@@ -15,10 +15,10 @@
     <body onload="mostrarInfori();">
       <div class="container">
         <div class="row">
-          <form id="myForm"   method="POST" >
+          <form id="myForm" method="POST">
             <div class="form-row">
               <div class="col-md-5 mb-4">
-                <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional" >
+                <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional">
                   <option value="0">Seleccione Profesional:</option>
                   <?php
                     $query = $mysqli -> query ("SELECT * FROM tbl_usuarios WHERE nivel = 2");
@@ -29,7 +29,7 @@
                 </select>
               </div>  
               <div class="col-md-2 mb-4">
-                <input type="text" name="docp" id="docp"   class="form-control"  readonly>
+                <input type="text" name="docp" id="docp" class="form-control" value="Registro Medico" readonly>
               </div>
               <div class="col-md-2 mb-4">
                 <input type="date" name="fecha" id="fecha" value="<?php echo  $fechahoy = date('Y-m-d'); ?>"  class="form-control" placeholder="Fecha"  onchange="mostrarInfo()">
