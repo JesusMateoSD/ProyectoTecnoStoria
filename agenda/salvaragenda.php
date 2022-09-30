@@ -19,5 +19,11 @@ include('../db.php');
   if(!$result) {
     die("Query Fallo.");
   }
+
+//  $_SESSION['message'] = 'Cita Grabada Correctamente';
+//  $_SESSION['message_type'] = 'success';
+//  header('Location: indexagenda.php');
+
 //}
+
 ?>

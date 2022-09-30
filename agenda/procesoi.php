@@ -2,12 +2,8 @@
      session_start();
     include('../db.php');
     date_default_timezone_set('America/Bogota'); 
-   // $fechahoy = $_POST[fecha];
-     $fechahoy = date('Y-m-d');
-
-   //  echo '<script type="text/javascript">alert("'.$fechahoy.'");</script>';
-    
-    ?>
+   $fechahoy = date('Y-m-d');
+   ?>
 
       
          <script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>

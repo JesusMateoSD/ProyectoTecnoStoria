@@ -1,13 +1,16 @@
-<?php ob_start() ?>
-<?php 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 
-include('../includes/header.php');
+<?php 
+session_start();
+include('../header/header.php');
 include("../db.php");
 
 
 if  (isset($_GET['id'])) {
   $id = $_GET['id'];
- // $_SESSION[scedulap] = $id;
+
   $query = "SELECT * FROM tbl_agenda WHERE id=$id";
   $result = mysqli_query($mysqli, $query);
   if (mysqli_num_rows($result) == 1) {
@@ -40,12 +43,25 @@ if (isset($_POST['update'])) {
 
   $query = "UPDATE tbl_agenda set fecha = '$fecha', horag = '$hora', nprofesional = '$profesional', dprofesional = '$docp', npaciente = '$paciente', dpaciente = '$cedula' , tpaciente = '$telefono', estado = '$nivel', obs = '$obs' WHERE id=$id";
   mysqli_query($mysqli, $query);
-  $_SESSION['message'] = 'Cita Actualizada Correctamente';
-  $_SESSION['message_type'] = 'warning';
-  header('Location: indexagenda.php');
- // header('Location:  indexagenda.php?idf='. $fecha);
-}
- ?>
+  ?>
+<script>
+    $(document).ready(function() {
+    swal({
+      title: 'Medicina Web!',
+      text: "La AgendaS Ha Sido Actualizada con exito!",
+      type: 'success',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK!'
+    }).then((result) => {
+      if (result.value) {
+        window.location.href = "indexagenda.php";
+      }
+    })
+  });
+</script>
+<?php
+  }
+?>
 
 <div class="container">
 <div class="row"> 
