@@ -21,6 +21,7 @@
         $_SESSION['scorreo'] = $row['correo'];
         $_SESSION['sclave'] = $row['clave'];
         $_SESSION['snombre'] = $row['nombre'];
+        $_SESSION['sdocumento'] = $row['documento'];
         $_SESSION['snivel'] = $row['nivel'];
         
         $correo1 = $row['correo'];

@@ -48,7 +48,7 @@
                 MEDICO
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Ingreso Historia Clinica</a></li>
+                <li><a class="dropdown-item" href="../hclinica/modalhc.php" >Ingreso Historia Clinica</a></li>
                 <li><a class="dropdown-item" href="../agenda/indexagenda.php">Agenda</a></li>
               </ul>
             </li>
@@ -94,3 +94,4 @@
   <script src="../cssjs/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>  
 </html>
+
