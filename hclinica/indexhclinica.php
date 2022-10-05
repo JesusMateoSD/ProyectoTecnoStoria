@@ -7,7 +7,11 @@
   include('../db.php');
   include('../header/header.php');
 
-  $_SESSION['scedulap'] = $_GET['id'];
+  $_SESSION['scedulap'] = 0;
+  if(isset($_GET['id'])){
+    $_SESSION['scedulap'] = $_GET['id'];
+  }
+
   if (empty($_SESSION['scedulap'])){
 
     $cedula = $_POST['documento'];
