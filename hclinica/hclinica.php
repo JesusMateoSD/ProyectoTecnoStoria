@@ -19,8 +19,8 @@
 ?>
 
 <head>
-  <link rel="stylesheet" href="../cssjs/stylecute.css" />
-  <script src="../cssjs/cute-alert.js"></script>
+  <link rel="stylesheet" href="../cssjs/cute-alert-master/stylecute.css" />
+  <script src="../cssjs/cute-alert-master/cute-alert.js"></script>
   <link rel="stylesheet" type="text/css" href="../cssjs/datatables.min.css" />
   <script language="javascript" src="../cssjs/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="../cssjs/datatables.min.js"></script>
@@ -34,7 +34,7 @@
     function cal() {
       try {
         var a = document.f.pesokg.value,
-        var b = document.f.tallacm.value;
+        b = document.f.tallacm.value;
 
         document.f.imc.value = a / (b * b);
         var c = document.f.imc.value;
@@ -111,7 +111,7 @@
               <input type="text" name="fechan" class="form-control" id="fechan" value="<?php echo  $fechan; ?>" readonly>
             </div>
 
-            <div class="col-md-12 mb-2">
+            <div class="col-md-12 mt-4 mb-4">
               <div class="p-2 mb-2 bg-primary "></div>
             </div>
 
@@ -459,7 +459,7 @@
           </div>
 
           <input name="salvarhistoria" id="salvarhistoria" class="btn btn-primary " value="Grabar Historia">
-          <a href="../hclinica/indexhclinica.php?id=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-primary">Salir</a>
+          <a href="../hclinica/indexhclinica.php?id=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
         </form>
       </div>
     </div>
