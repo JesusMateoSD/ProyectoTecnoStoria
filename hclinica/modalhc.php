@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="form-row mb-4">
-      <input type="text" name="documento" id="documento" class="form-control">
+      <input type="text" name="documento" id="documento" class="form-control text-center">
     </div>
     </div>
     <div class="form-row mb-2 text-center">
