@@ -1,12 +1,4 @@
 <?php
-  session_start();
-  if(isset($_SESSION['usuario'])){
-    include("header.php");
-  }
-  else{
-    header('location:index.php');
-  }
-  
   if(isset($_POST['salvarusuario'])){
     $usuario = new UsuarioControlador();
     $usuario->registrarUsuarioControlador();
@@ -33,7 +25,12 @@
   $usuario = new UsuarioControlador();
   $datos = $usuario->tablaUsuariosControlador();
 
-  
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
 ?>
 <main class="container ">  
   <div class="p-2 mb-2 bg-primary text-white">Crear Usuario</div>
@@ -113,7 +110,7 @@
             <tr>
               <td><?php echo $v['nombre'] ?></td>
               <td><?php echo $v['correo'] ?></td>
-              <td><?php echo$v['nivel'] ?></td>
+              <td><?php echo $v['nivel'] ?></td>
               <td>
                 <a href="index.php?action=delUser&id=<?php echo $v['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
               </td>

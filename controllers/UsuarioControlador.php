@@ -25,21 +25,6 @@
         if($respuesta == 'success'){
           header('location:index.php?action=usuok');
         } else{
-          ?>
-            <script LANGUAGE="javascript">
-              $(document).ready(function() {
-                swal({
-                  title: 'TecnoStoria',
-                  text: "El Usuario NO se grabo con exito, parece que ha surgido un error",
-                  type: 'error',
-                  confirmButtonColor: '#3085d6',
-                  confirmButtonText: 'OK!'
-                }).then((result) => {
-                  
-                })
-              });
-            </script>
-          <?php
           header('location:index.php?action=usuario');
         }
       }            
@@ -58,22 +43,7 @@
       if($respuesta == 'success'){
         header('location:index.php?action=usuadmok');
       } else{
-      ?>
-        <script LANGUAGE="javascript">
-          $(document).ready(function() {
-            swal({
-              title: 'TecnoStoria',
-              text: "El Usuario Administrador NO se grabo con exito, parece que ha surgido un error",
-              type: 'error',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'OK!'
-            }).then((result) => {
-              
-            })
-          });
-        </script>
-        <?php
-        header('location:index.php?action=usuario');
+        header('location:index.php?action=usuarioadm');
       }
     }
 

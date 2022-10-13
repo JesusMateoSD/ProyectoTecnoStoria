@@ -21,7 +21,7 @@
     <title>TecnoStoria</title>
     <div class="container">
       <div class="row">
-        <div class="pen-title">
+        <div class="pen-title mx-auto">
           <h1>TecnoStoria</h1>
         </div>
         <div class="container">

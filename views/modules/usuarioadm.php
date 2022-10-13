@@ -1,12 +1,5 @@
 <!-- INICIO PHP INDEXSPERUSUARIO -->
 <?php
-  session_start();
-  if(isset($_SESSION['usuario'])){
-    include("header.php");
-  }
-  else{
-    header('location:index.php');
-  }
   
   if(isset($_POST['salvarusuario'])){
     $usuario = new UsuarioControlador();
@@ -33,9 +26,15 @@
 
   $usuario = new UsuarioControlador();
   $datos = $usuario->tablaUsuariosAdmControlador();
+
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
 ?>
 
-<script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
 <main class="container p-0">   
   <div class="p-2 mb-2 bg-primary text-white">Crear Administrador</div>
     <hr>  
@@ -87,14 +86,15 @@
           <tbody>
             <?php
               foreach($datos as $v){
-                print '<tr>';
-                print '<td>'. $v['nombre'] . '</td>';
-                print '<td>'. $v['correo'] .'</td>';
-                print '<td><a href="index.php?action=delUserAdm&id='.$v['id'].'" class="btn btn-danger">Borrar</a></td>';
-                print '</td>';
-                print '</tr>';
-              }
             ?>
+              <tr>
+                <td><?php echo $v['nombre'] ?></td>
+                <td><?php echo $v['correo'] ?></td>
+                <td>
+                  <a href="index.php?action=delUserAdm&id=<?php echo $v['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+          <?php }  ?>
           </tbody>
         </table>
       </div>

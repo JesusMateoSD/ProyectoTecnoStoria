@@ -23,41 +23,9 @@
         $respuesta = $consultorio->registrarConsultorioModelo($datosConsultorio);
 
         if($respuesta == 'success'){
-          ?>
-          <script LANGUAGE="javascript">
-            $(document).ready(function() {
-              swal({
-                title: 'TecnoStoria',
-                text: "El Consultorio Ha Sido Grabado Correctamente!",
-                type: 'success',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK!'
-              }).then((result) => {
-                
-              })
-            });
-          </script>
-          <?php
-
-          header('location:index.php?action=ok');
+          header('location:index.php?action=usucon');
         } else if($respuesta == 'error'){
-          ?>
-          <script LANGUAGE="javascript">
-            $(document).ready(function() {
-              swal({
-                title: 'TecnoStoria',
-                text: "El Consultorio NO se grabo con exito, parece que ha surgido un error",
-                type: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK!'
-              }).then((result) => {
-                
-              })
-            });
-          </script>
-          <?php
           header('location:index.php?action=consultorio');
-
         }
       }
     }

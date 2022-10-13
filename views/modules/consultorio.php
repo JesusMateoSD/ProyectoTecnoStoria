@@ -1,22 +1,36 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
-<script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
 <?php
-  session_start();
+  if(isset($_POST['salvarconsultorio'])){
+    $consultorio = new ConsultorioControlador();
+    $consultorio->registrarConsultorioControlador();
+  }
+
+  if($_GET['action'] == 'usucon'){
+    ?>
+      <script LANGUAGE="javascript">
+        $(document).ready(function() {
+          swal({
+            title: 'TecnoStoria',
+            text: "El Consultorio Ha Sido Grabado Correctamente!",
+            type: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK!'
+          }).then((result) => {
+            
+          })
+        });
+      </script>
+    <?php
+  }
+
+  $consultorio = new ConsultorioControlador();
+  $datos = $consultorio->tablaConsultoriosControlador();
+
   if(isset($_SESSION['usuario'])){
     include("header.php");
   }
   else{
     header('location:index.php');
   }
-    
-  if(isset($_POST['salvarconsultorio'])){
-    $consultorio = new ConsultorioControlador();
-    $consultorio->registrarConsultorioControlador();
-  }
-
-  $consultorio = new ConsultorioControlador();
-  $datos = $consultorio->tablaConsultoriosControlador();
 ?>
              <!-- INICIO PHP INDEXCONSULTORIOS -->
 <main class="container p-0">
