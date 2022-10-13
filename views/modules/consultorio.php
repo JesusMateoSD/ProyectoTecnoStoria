@@ -2,7 +2,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 <script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
 <?php
-  include("header.php");
+  session_start();
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
+    
   if(isset($_POST['salvarconsultorio'])){
     $consultorio = new ConsultorioControlador();
     $consultorio->registrarConsultorioControlador();

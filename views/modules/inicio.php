@@ -1,5 +1,12 @@
 <?php
-  include("header.php");
+session_start();
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
+  
 ?>
 
   <meta charset="utf-8">

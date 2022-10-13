@@ -1,12 +1,35 @@
 <!-- INICIO PHP INDEXSPERUSUARIO -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 <?php
-  include("header.php");
+  session_start();
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
+  
   if(isset($_POST['salvarusuario'])){
     $usuario = new UsuarioControlador();
     $usuario->registrarUsuarioAdmControlador();
   }
+
+  if($_GET['action'] == 'usuadmok'){
+    ?>
+      <script LANGUAGE="javascript">
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "El Usuario Administrador Ha Sido Grabado Correctamente!",
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+              
+            })
+          });
+        </script>
+    <?php
+  } 
 
   $usuario = new UsuarioControlador();
   $datos = $usuario->tablaUsuariosAdmControlador();

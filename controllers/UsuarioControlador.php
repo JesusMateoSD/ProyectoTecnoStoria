@@ -23,40 +23,24 @@
         $respuesta = $usuario->registrarUsuarioModelo($datosUsuario);
         
         if($respuesta == 'success'){
-          ?>
-          <script LANGUAGE="javascript">
-            $(document).ready(function() {
-              swal({
-                title: 'TecnoStoria',
-                text: "El Usuario Ha Sido Grabado Correctamente!",
-                type: 'success',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK!'
-              }).then((result) => {
-                
-              })
-            });
-          </script>
-          <?php
-
-          header('location:index.php?action=usuario&res=ok');
+          header('location:index.php?action=usuok');
         } else{
           ?>
-          <script LANGUAGE="javascript">
-            $(document).ready(function() {
-              swal({
-                title: 'TecnoStoria',
-                text: "El Usuario NO se grabo con exito, parece que ha surgido un error",
-                type: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK!'
-              }).then((result) => {
-                
-              })
-            });
-          </script>
+            <script LANGUAGE="javascript">
+              $(document).ready(function() {
+                swal({
+                  title: 'TecnoStoria',
+                  text: "El Usuario NO se grabo con exito, parece que ha surgido un error",
+                  type: 'error',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'OK!'
+                }).then((result) => {
+                  
+                })
+              });
+            </script>
           <?php
-          header('location:index.php?action=usuario&res=err');
+          header('location:index.php?action=usuario');
         }
       }            
     }
@@ -72,23 +56,7 @@
       $respuesta = $usuario->registrarUsuarioAdmModelo($datosUsuario);
       
       if($respuesta == 'success'){
-        ?>
-        <script LANGUAGE="javascript">
-          $(document).ready(function() {
-            swal({
-              title: 'TecnoStoria',
-              text: "El Usuario Administrador Ha Sido Grabado Correctamente!",
-              type: 'success',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'OK!'
-            }).then((result) => {
-              
-            })
-          });
-        </script>
-        <?php
-
-        header('location:index.php?action=ok');
+        header('location:index.php?action=usuadmok');
       } else{
       ?>
         <script LANGUAGE="javascript">
@@ -129,6 +97,8 @@
 
           print $respuesta;
           if($respuesta == 'success'){
+            session_start();
+            $_SESSION['usuario'] = $_POST['correo'];
             
             header('location: index.php?action=inicio');
           } else{

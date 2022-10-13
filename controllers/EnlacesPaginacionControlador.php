@@ -20,7 +20,7 @@ class EnlacesPaginacionControlador{
       $ruta = "views/modules/error.php";
     }
     include($ruta);
-  }
+  } 
   
 }
 

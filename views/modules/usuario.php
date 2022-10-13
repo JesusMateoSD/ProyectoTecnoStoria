@@ -1,16 +1,39 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
-<script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
 <?php
-  include("header.php");
-
+  session_start();
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
+  
   if(isset($_POST['salvarusuario'])){
     $usuario = new UsuarioControlador();
     $usuario->registrarUsuarioControlador();
   }
-  
+
+  if($_GET['action'] == 'usuok'){
+    ?>
+      <script LANGUAGE="javascript">
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "El Usuario  Ha Sido Grabado Correctamente!",
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+              
+            })
+          });
+        </script>
+    <?php
+  } 
+  //print "el valor del get es ".$_GET['action'];
   $usuario = new UsuarioControlador();
   $datos = $usuario->tablaUsuariosControlador();
+
+  
 ?>
 <main class="container ">  
   <div class="p-2 mb-2 bg-primary text-white">Crear Usuario</div>
@@ -84,6 +107,7 @@
         </thead>
         <tbody>
           <?php
+          
             foreach($datos as $v){
           ?>
             <tr>
@@ -94,7 +118,7 @@
                 <a href="index.php?action=delUser&id=<?php echo $v['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
               </td>
               </tr>
-          <?php } ?>
+          <?php }  ?>
         </tbody>
       </table>
     </div>

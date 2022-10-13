@@ -4,11 +4,15 @@ class EnlacesPaginacionModelo{
   public function verficarEnlacePagina($enlace){
     $modulo = "views/modules/".$enlace.".php";
     if(!file_exists($modulo)){
-      $modulo = "Error";
+      if($enlace == 'usuok'){
+        $modulo = 'views/modules/usuario.php';
+      }
+      if($enlace == 'usuadmok'){
+        $modulo = 'views/modules/usuarioadm.php';
+      }
     }
-    print 'Variable action: ' . $_GET['action'];
+      
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
-      //print "entro en el error de login";
       header('location:index.php?action=login&err=err');
     } else if(isset($_GET['action']) && $_GET['action'] == 'delUser'){
       header('location:index.php?action=eliminarUsuario&id='.$_GET['id']);
