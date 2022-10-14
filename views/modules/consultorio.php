@@ -4,7 +4,7 @@
     $consultorio->registrarConsultorioControlador();
   }
 
-  if($_GET['action'] == 'usucon'){
+  if($_GET['action'] == 'con'){
     ?>
       <script LANGUAGE="javascript">
         $(document).ready(function() {
@@ -21,6 +21,24 @@
       </script>
     <?php
   }
+
+  if($_GET['action'] == 'conAct'){
+    ?>
+      <script>
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "El Consultorio Ha Sido Actualizado con exito!",
+              type: 'info',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+            
+            })
+          });
+      </script>
+    <?php
+      }
 
   $consultorio = new ConsultorioControlador();
   $datos = $consultorio->tablaConsultoriosControlador();

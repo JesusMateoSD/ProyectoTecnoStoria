@@ -21,10 +21,10 @@
     <title>TecnoStoria</title>
     <div class="container">
       <div class="row">
-        <div class="pen-title mx-auto">
+        <div class="pen-title mx-auto py-6">
           <h1>TecnoStoria</h1>
         </div>
-        <div class="container">
+        <div class="container my-0">
           <div class="card"></div>
           <div class="card">
             <h1 class="title">Inicio de sesion</h1>

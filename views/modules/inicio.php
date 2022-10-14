@@ -15,7 +15,7 @@ session_start();
     <main>
       <div class="container ">
         <div class="row">
-          <div class="clearfix " style="margin: 5% 5% 5% 0%; padding: 10% 0% 10% 0%">
+          <div class="clearfix " style="margin: 5% 5% 5% 0%; padding: 5% 0% 5% 0%">
             <div class="d-flex flex-row-reverse">
               <img src="views/img/LogoTecnoStoriaPage.png" class="img-fluid">
               <h2>Bienvenido a la pagina inicial de la pagina web TecnoStoria</h2>

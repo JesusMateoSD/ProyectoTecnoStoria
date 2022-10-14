@@ -1,72 +1,40 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
-
 <?php 
-  include('header.php');
+  // $title = '';
+  // $description= '';
+
+  if (isset($_POST['update'])) {
+    $consultorio = new ConsultorioControlador();
+    $consultorio->editarConsultorioControlador($_GET['id']);
+  }
+
   $consultorio = new ConsultorioControlador();
   $datos = $consultorio->consultarConsultorioControlador($_GET['id']);
 
-  $title = '';
-  $description= '';
-
-
-  // if (isset($_POST['update'])) {
-  //   $consultorio = new ConsultorioControlador();
-  //   $consultorio->editarConsultorioControlador();
-
-  //   $id = $_GET['id'];
-  //   $nombre= $_POST['nombre'];
-  //   $nit = $_POST['nit'];
-  //   $direccion = $_POST['direccion'];
-  //   $telefono = $_POST['telefono'];
-  //   $correo = $_POST['correo'];
-
-  //   $ciudad = $_POST['ciudad'];
-  //   $depto = $_POST['depto'];
-  //   $capb = $_POST['capb'];
-  //   $napb = $_POST['napb'];
-
-  //   $query = "UPDATE tbl_consultorios set nombre = '$nombre', nit = '$nit', direccion = '$direccion', telefono = '$telefono', correo = '$correo' , ciudad = '$ciudad' , depto = '$depto', capb = '$capb', napb = '$napb' WHERE id=$id";
-  //   mysqli_query($mysqli, $query);
-
-  
-?>
-<!-- <script>
-    $(document).ready(function() {
-    swal({
-      title: 'Medicina Web!',
-      text: "El Consultorio Ha Sido Actualizado con exito!",
-      type: 'success',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'OK!'
-    }).then((result) => {
-      if (result.value) {
-        window.location.href = "indexconsultorio.php";
-      }
-    })
-  });
-</script> -->
-<?php
-  // }
   foreach($datos as $v){
-    echo $nombreE = $v['nombre'];
-    echo $nitE = $v['nit']; 
-    echo $direccionE = $v['direccion'];
-    echo $telefonoE = $v['telefono'];
-    echo $correoE = $v['correo'];
-    echo $fotoE = $v['foto'];
-    echo $ciudadE = $v['ciudad'];
-    echo $deptoE = $v['depto'];
-    echo $capb = $v['capb'];
-    echo $napb = $v['napb'];      
-  } 
+    $nombreE = $v['nombre'];
+    $nitE = $v['nit']; 
+    $direccionE = $v['direccion'];
+    $telefonoE = $v['telefono'];
+    $correoE = $v['correo'];
+    $fotoE = $v['foto'];
+    $ciudadE = $v['ciudad'];
+    $deptoE = $v['depto'];
+    $capbE = $v['capb'];
+    $napbE = $v['napb'];      
+  }
+  
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
 ?>
 
 <div class="container">
   <div class="row">
     <br>
-    <form action="editconsultorio.php?id=<?php echo $_GET['id']; ?>" method="POST" >
+    <form method="POST" >
       <p class="p-2 mb-4 bg-success text-white">Actualizar  Consultorios</p>
       <div class="form-row">
         <div class="col-md-4 mb-4">
@@ -121,8 +89,4 @@
 	  </div>
   </form>
 </div>
-
-
-
-
 

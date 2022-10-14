@@ -23,12 +23,14 @@
         $respuesta = $consultorio->registrarConsultorioModelo($datosConsultorio);
 
         if($respuesta == 'success'){
-          header('location:index.php?action=usucon');
+          header('location:index.php?action=con');
         } else if($respuesta == 'error'){
           header('location:index.php?action=consultorio');
         }
       }
     }
+
+    
 
     public function tablaConsultoriosControlador(){
       $respuesta = new ConsultorioModelo();
@@ -48,11 +50,28 @@
       $respuesta = $usuario->consultarConsultorioModelo($id);
       return $respuesta;
     }
+    
+    public function editarConsultorioControlador($id){
+      if(isset($_POST['update'])){
+        $datosConsultorio = ['id' => $id,
+        'nombre' => $_POST['nombre'],
+        'nit' => $_POST['nit'],
+        'direccion' => $_POST['direccion'],
+        'telefono' => $_POST['telefono'],
+        'correo' => $_POST['correo'],
+        'ciudad' => $_POST['ciudad'],
+        'depto' => $_POST['depto'],
+        'capb' => $_POST['capb'],
+        'napb' => $_POST['napb']];
 
-    public function editarUsuarioControlador($id){
-      if(isset($id)){
         $usuario = new ConsultorioModelo();
-        $respuesta = $usuario->editarConsultorioModelo($id);
+        $respuesta = $usuario->editarConsultorioModelo($datosConsultorio);
+
+        if($respuesta == 'success'){
+          header('location:index.php?action=conAct');
+        } else if($respuesta == 'error'){
+          header('location:index.php?action=editconsultorio');
+        }
       }
     }
 

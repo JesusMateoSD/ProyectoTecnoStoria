@@ -29,15 +29,15 @@
       <div class="signature-pad--body">
         <canvas></canvas>
       </div>
-      <div class="signature-pad--footer">
+      <div class="signature-pad--footer bg-dark p-3">
         <div class="signature-pad--actions">
           <div>
-            <button type="button" class="btn btn-danger " data-action="clear">Borrar</button>
-            <button type="button" class="btn btn-warning " data-action="undo">Retroceder</button>
+            <button type="button" class="btn btn-danger px-3 mx-3" data-action="clear">Borrar</button>
+            <button type="button" class="btn btn-warning px-3" data-action="undo">Retroceder</button>
           </div>
           <div>
-            <button type="button" class="btn btn-success " data-action="save-png">Salvar Como PNG</button>
-            <a onclick="window.close();" class="btn btn-danger " role="button" aria-pressed="true">Cerrar</a>
+            <button type="button" class="btn btn-success px-3" data-action="save-png">Salvar Como PNG</button>
+            <a onclick="window.close();" class="btn btn-danger px-3 mx-3" role="button" aria-pressed="true">Cerrar</a>
           </div>
         </div>
       </div>
