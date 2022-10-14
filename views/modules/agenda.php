@@ -1,13 +1,14 @@
 <?php
-  include('header.php');
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
   $fechahoy = date('Y-m-d'); 
 ?>
   
 <main class="container p-0">
-
-  <link rel="stylesheet" href="views/cute-alert-master/stylecute.css"/>
-  <script src="views/cute-alert-master/cute-alert.js"></script>
-  <script language="javascript" src="views/js/jquery-3.1.1.min.js"></script>
 
   <script>
     function mostrarInfo(){
@@ -192,23 +193,3 @@
 </script>
 
 <!-- FIN PHP INDEX SUPER PARAMETROS -->
-
-<!-- <script>
-  function mostrarInfori(cod){
-    $("#datos").load('procesoi.php');
-    if (window.XMLHttpRequest){
-      xmlhttp=new XMLHttpRequest();
-    } else{
-      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-  
-    if (xmlhttp.readyState==4 && xmlhttp.status==200){
-      document.getElementById("datos").innerHTML=xmlhttp.responseText;
-    } else{
-      document.getElementById("datos").innerHTML='Cargando...';
-    }
-
-    xmlhttp.open("POST","procesoi.php",true);
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  }
-</script> -->

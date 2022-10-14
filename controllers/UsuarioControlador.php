@@ -65,14 +65,12 @@
           $usuario = new UsuarioModelo();
           $respuesta = $usuario->validarUsuarioModelo($datosUsuario);
 
-          print $respuesta;
           if($respuesta == 'success'){
             session_start();
             $_SESSION['usuario'] = $_POST['correo'];
             
             header('location: index.php?action=inicio');
           } else{
-
             header('location:index.php?action=err');
           }
         }

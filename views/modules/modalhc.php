@@ -1,4 +1,9 @@
 <?php
+  if(isset($_POST['salvarparametro'])){
+    $usuario = new UsuarioControlador();
+    $usuario->validarUsuarioControlador();
+  }
+
   if(isset($_SESSION['usuario'])){
     include("header.php");
   }
@@ -8,7 +13,7 @@
 ?>
 
 <main class="container" style="width: 900px; height: 300px; margin-top: 12%;">
-  <form action="../hclinica/indexhclinica.php" method="POST" >
+  <form method="POST" >
     <div class="row text-center">
       <div class="col-md-12 mb-2 text-center">
         <h1>Digite Numero Documento:</h1> 

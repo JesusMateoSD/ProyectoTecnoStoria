@@ -3,17 +3,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 
 <?php
-  session_start();
-  include('../db.php');
-  include('../header/header.php');
 
   $_SESSION['scedulap'] = 0;
+
   if(isset($_GET['id'])){
     $_SESSION['scedulap'] = $_GET['id'];
   }
 
-  if (empty($_SESSION['scedulap'])){
-
+  if(empty($_SESSION['scedulap'])){
     $cedula = $_POST['documento'];
     $_SESSION['scedulap']  = $cedula;	
 
@@ -65,6 +62,12 @@
             </script>';
     }
   }
+
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  } else{
+    header('location:index.php');
+  }
 ?>
    <!-- INICIO PHP  -->
 
@@ -111,27 +114,3 @@
     </div>
   </div>
              <!-- FIN PHP  -->
-
-   <!-- <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form action="../hclinica/indexhclinica.php" method="POST" >
-            <div class="modal-header">
-              <h4 class="modal-title">Digite Numero Documento</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <div class="modal-body">
-              <div class="col-md-12 mb-4">
-              <input type="text" name="documento" id="documento" class="form-control" placeholder="Documento"  autofocus autocomplete="off">
-              </div>
-            </div>
-            
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <input type="submit" name="salvarparametro" class="btn btn-primary " value="Historia Clinica">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> -->
