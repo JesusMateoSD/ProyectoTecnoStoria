@@ -5,7 +5,11 @@
   else{
     header('location:index.php');
   }
-  $fechahoy = date('Y-m-d'); 
+  $fechahoy = date('Y-m-d');
+  
+  $agenda = new AgendaControlador();
+  $profesionales = $agenda->tablaAgenProControlador();
+  $horas = $agenda->tablaHorasControlador();
 ?>
   
 <main class="container p-0">
@@ -34,9 +38,8 @@
                 <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional">
                   <option value="0">Seleccione Profesional:</option>
                   <?php
-                    $query = $mysqli->query("SELECT * FROM tbl_usuarios WHERE nivel = 2");
-                    while ($valores = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$valores['nombre'].'">'.$valores['nombre'].'</option>';
+                    foreach($profesionales as $v){
+                      echo '<option value="'.$v['nombre'].'">'.$v['nombre'].'</option>';
                     }
                   ?>
                 </select>
@@ -51,9 +54,8 @@
                 <select class="custom-select mr-sm-2"  name="hora" id="hora" >
                   <option value="0">Seleccione Hora:</option>
                     <?php
-                      $query = $mysqli -> query ("SELECT * FROM tbl_horas ");
-                      while ($valores = mysqli_fetch_array($query)) {
-                      echo '<option value="'.$valores['hora'].'">'.$valores['hora'].'</option>';
+                      foreach ($horas as $h) {
+                      echo '<option value="'.$h['hora'].'">'.$h['hora'].'</option>';
                     }
                     ?>
                 </select>

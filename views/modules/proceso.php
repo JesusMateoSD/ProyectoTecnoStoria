@@ -1,11 +1,9 @@
 <?php
-  session_start();
-  include('../db.php');
   date_default_timezone_set('America/Bogota'); 
   $fechahoy = $_POST['fecha']; 
 ?>
 
-<script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>
+<script language="javascript" src="views/js/jquery-3.1.1.min.js"></script>
 <div class="col-md-12">
   <table class="table table-hover table-light" style="font-size:90%;">
     <thead>

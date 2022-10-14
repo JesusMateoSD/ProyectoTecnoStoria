@@ -5,7 +5,7 @@
       if(isset($_POST['salvarconsultorio'])){
         $foto=$_FILES["foto"]["name"];
         $ruta=$_FILES["foto"]["tmp_name"];
-        $destino="fotospr/".$foto; 
+        $destino="views/img/fotospr/".$foto; 
 
         $datosConsultorio = ['nombre' => $_POST['nombre'],
         'nit' => $_POST['nit'],

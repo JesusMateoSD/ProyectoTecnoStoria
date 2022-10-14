@@ -6,7 +6,7 @@
         $fechas = $_POST['fecha'];
         $foto=$_FILES["foto"]["name"];
         $ruta=$_FILES["foto"]["tmp_name"];
-        $destino="firmasus/".$foto; 
+        $destino="views/img/firmasus/".$foto; 
 
         $datosUsuario = ['nombre' => $_POST['nombre'],
         'correo' => $_POST['correo'],

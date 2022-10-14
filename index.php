@@ -8,6 +8,10 @@
   require_once('models/ConsultorioModelo.php');
   require_once('controllers/HClinicaControlador.php');
   require_once('models/HClinicaModelo.php');
+  require_once('controllers/AgendaControlador.php');
+  require_once('models/AgendaModelo.php');
+  require_once('controllers/PacienteControlador.php');
+  require_once('models/PacienteModelo.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();
