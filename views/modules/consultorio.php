@@ -107,7 +107,6 @@
             </div>
           </div>
           <input type="submit" name="salvarconsultorio" class="btn btn-primary mx-2" value="Grabar Consultorio">
-          <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar  Campos">  
         </form>
       </div>
     </div>
@@ -151,20 +150,4 @@
   </div>
 </main>
 
-<script type="text/javascript">
-  $("#vaciarcampos").on("click", function() {
-    // Cancelar comportamiento normal del botón
-    event.preventDefault();
-    $('#nombre').val('');
-    $('#nit').val('');
-    $('#direccion').val('');
-    $('#ciudad').val('');
-    $('#dpto').val('0');
-    $('#telefono').val('');
-    $('#correo').val('');
-    $('#capb').val('');
-    $('#napb').val('');
-    $('#foto').val('');
-  });
-</script>
 

@@ -70,7 +70,6 @@
             </div>           
           
             <input type="submit" name="salvarusuario" class="btn btn-primary btn-block mb-2" value="Grabar Administrador">
-            <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success btn-block mb-2" value="Vaciar Campos">  
           </form>
         </div>
       </div>
@@ -100,16 +99,5 @@
       </div>
     </div>
   </main>
-
-<script type="text/javascript">
-  $("#vaciarcampos").on("click", function() {
-    // Cancelar comportamiento normal del botón
-    event.preventDefault();
-    $('#nombre').val('');
-    $('#correo').val('');
-    $('#clave').val('');
-    $('#documento').val('');
-  });
-</script>
 
              <!-- FIN PHP INDEX SUPER USUARIO -->

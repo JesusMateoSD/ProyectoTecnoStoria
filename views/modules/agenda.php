@@ -1,15 +1,27 @@
 <?php
-  session_start();
-  include('../db.php');
   include('header.php');
   $fechahoy = date('Y-m-d'); 
 ?>
   
 <main class="container p-0">
 
-  <link rel="stylesheet" href="../cssjs/stylecute.css"/>
-  <script src="../cssjs/cute-alert.js"></script>
-  <script language="javascript" src="../cssjs/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" href="views/cute-alert-master/stylecute.css"/>
+  <script src="views/cute-alert-master/cute-alert.js"></script>
+  <script language="javascript" src="views/js/jquery-3.1.1.min.js"></script>
+
+  <script>
+    function mostrarInfo(){
+      var url = "views/modules/proceso.php";                                      
+      $.ajax({                        
+        type: "POST",                 
+        url: url,                    
+        data: $("#myForm").serialize(),
+        success: function(data){
+          $('#datos').html(data);           
+        }
+      });
+    }
+  </script>
 
   <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
     <body onload="mostrarInfo();">
@@ -21,7 +33,7 @@
                 <select class="custom-select mr-sm-2"  onchange="alerta();" name="profesional" id="profesional">
                   <option value="0">Seleccione Profesional:</option>
                   <?php
-                    $query = $mysqli -> query ("SELECT * FROM tbl_usuarios WHERE nivel = 2");
+                    $query = $mysqli->query("SELECT * FROM tbl_usuarios WHERE nivel = 2");
                     while ($valores = mysqli_fetch_array($query)) {
                     echo '<option value="'.$valores['nombre'].'">'.$valores['nombre'].'</option>';
                     }
@@ -69,7 +81,6 @@
               </div>
             </div>
             <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary mx-2" value="Grabar Cita">
-            <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos"> 
           </form>
         </div>
       </div>
@@ -113,22 +124,6 @@
     alert(e.target.value);
   }
 </script>
-
-<script>
-function mostrarInfo(){
-  var url = "proceso.php";                                      
-  $.ajax({                        
-      type: "POST",                 
-      url: url,                    
-      data: $("#myForm").serialize(),
-      success: function(data)            
-      {
-        $('#datos').html(data);           
-      }
-    });
-  }
-</script>
-
 
 <script>
   //  document.getElementById("codigo").onchange = function(){alerta()};
@@ -193,22 +188,6 @@ function mostrarInfo(){
       });
       return false;
     });
-  });
-</script>
-
-<script type="text/javascript">
-  $("#vaciarcampos").on("click", function() {
-    // Cancelar comportamiento normal del botón
-    event.preventDefault();
-    $('#profesional').val('0');
-    $('#docp').val('');
-    $('#fecha').val('');
-    $('#hora').val('0');
-    $('#cedula').val('');
-    $('#paciente').val('');
-    $('#telefono').val('');
-    $('#nivel').val('0');
-    $('#obs').val('');
   });
 </script>
 
