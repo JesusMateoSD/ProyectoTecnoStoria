@@ -1,7 +1,8 @@
 <?php
   if(isset($_POST['salvarparametro'])){
+    $cedula = $_POST['documento'];
     $usuario = new UsuarioControlador();
-    $usuario->validarDocumentoPacienteControlador();
+    $usuario->validarDocumentoPacienteControlador($cedula);
   }
 
   if(isset($_SESSION['usuario'])){

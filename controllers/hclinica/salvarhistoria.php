@@ -72,7 +72,6 @@ date_default_timezone_set('America/Bogota');
   $imd = $_POST['imd'];
   $conds = $_POST['conds'];
   $incap = $_POST['incap'];
-
   $usuario = $_SESSION['snombre'];
   $docusuario = $_SESSION['sdocumento'];
 

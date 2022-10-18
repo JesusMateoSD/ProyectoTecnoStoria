@@ -6,6 +6,24 @@
 
   $fechahoy = date('Y-m-d');
 
+  if($_GET['action'] == 'hcok'){
+    ?>
+      <script>
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "La historia clinica ha sido creada con exito",
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+            
+            })
+          });
+      </script>
+    <?php
+  }
+
   $cedulaPHC = $_SESSION['scedulap'];
   $paciente = new UsuarioControlador();
   $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
@@ -21,8 +39,6 @@
   $edad = $pacienteHC["edad"];
   $fechan = $pacienteHC["fechan"];
 
-  //Causa externa y finalidad consulta
-  
   $HClinica = new HClinicaControlador();
   $tCausaEx = $HClinica->TablaCausasExternasControlador();
   $FinalidadC = $HClinica->TablaFinalidadConsultasControlador();
@@ -32,6 +48,7 @@
   } else{
     header('location:index.php');
   }
+
 
 ?>
 
@@ -479,7 +496,7 @@
             </div>
           </div>
 
-          <input name="salvarhistoria" id="salvarhistoria" class="btn btn-primary " value="Grabar Historia">
+          <input type="submit" name="salvarhistoria" id="salvarhistoria" class="btn btn-primary" value="Grabar Historia">
           <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
         </form>
       </div>
@@ -492,7 +509,7 @@
   </div>
 </main>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function() {
     $('#salvarhistoria').click(function() {
       var datos = $('#myForm').serialize();
@@ -512,6 +529,6 @@
       return false;
     });
   });
-</script>
+</script> -->
 
 <!-- FIN PHP INDEX SUPER USUARIO -->

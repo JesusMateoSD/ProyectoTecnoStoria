@@ -3,9 +3,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
 
 <?php
+  session_start();
 
   $cedulaPHC = $_SESSION['scedulap'];
-
   $paciente = new UsuarioControlador();
   $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
 

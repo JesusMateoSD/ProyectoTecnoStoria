@@ -38,7 +38,9 @@
           <td><?php echo $row['edad']; ?></td>
           <td><?php echo $row['telefono']; ?></td>
           <td>
-            <li id="<?php echo $row['id'] ?>" class="btn btn-danger"><a href="index.php?action=delHC&id=<?php echo $row['id']?>" class="deleteitem" style="color: #FFF;"><i class="fas fa-trash-alt"></i></a></i>
+            <a href="index.php?action=delHC&id=<?php echo $row['id']?>" class="btn btn-danger">
+              <i class="fas fa-trash-alt"></i>
+            </a>
           </td>
           <td>
             <a href="views/modules/hclinicapdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
@@ -49,7 +51,7 @@
   </tbody>
 </table>
 
-
+<!-- 
 <script type="text/javascript">
   $(function() {
     $(".deleteitem").click(function(e) {
@@ -71,4 +73,4 @@
     });
   });
   //-->
-</script>
+</script> -->

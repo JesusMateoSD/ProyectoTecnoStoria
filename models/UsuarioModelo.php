@@ -124,7 +124,7 @@ class UsuarioModelo extends Conexion{
       try{
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
-        $stmt->bindParam(':id', $id,PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
         if($stmt->execute()){
           return 'success';
         }else{
@@ -158,7 +158,6 @@ class UsuarioModelo extends Conexion{
       $stmt = $conexion->conectar()->prepare($sql);
       $stmt->bindParam(':documento', $documento, PDO::PARAM_STR);
       $stmt->execute();
-
       if($stmt->rowCount() == 1){
         $resulsql = $stmt->fetch();
         $_SESSION['scedulap'] = $resulsql['documento'];

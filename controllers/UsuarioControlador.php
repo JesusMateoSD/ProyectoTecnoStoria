@@ -96,17 +96,14 @@
       return $respuesta;
     }
 
-    public function validarDocumentoPacienteControlador(){
-      if(isset($_POST['salvarparametro'])){
-        $documento = $_POST['documento'];
-        $usuario = new UsuarioModelo();
-        $respuesta = $usuario->validarDocumentoPacienteModelo($documento);
+    public function validarDocumentoPacienteControlador($documento){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->validarDocumentoPacienteModelo($documento);
 
-        if($respuesta == 'success'){          
-          header('location: index.php?action=indexhclinica');
-        } else{
-          header('location:index.php?action=modalhc');
-        }
+      if($respuesta == 'success'){          
+        header('location: index.php?action=indexhclinica');
+      } else{
+        header('location:index.php?action=modalhc');
       }
     }
 

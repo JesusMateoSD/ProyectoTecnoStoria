@@ -105,9 +105,9 @@
       try{
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
-        $stmt->bindParam(':fecha', $datosCita['fecha'],PDO::PARAM_INT);
+        $stmt->bindParam(':fecha', $datosCita['fecha'],PDO::PARAM_STR);
         $stmt->bindParam(':hora', $datosCita['hora'],PDO::PARAM_STR);
-        $stmt->bindParam(':profesional', $datosCita['profesional'],PDO::PARAM_INT);
+        $stmt->bindParam(':profesional', $datosCita['profesional'],PDO::PARAM_STR);
         $stmt->bindParam(':docp', $datosCita['docp'],PDO::PARAM_STR);
         $stmt->bindParam(':paciente', $datosCita['paciente'],PDO::PARAM_STR);
         $stmt->bindParam(':cedula', $datosCita['cedula'],PDO::PARAM_STR);

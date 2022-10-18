@@ -22,6 +22,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'pacok'){
         $modulo = 'views/modules/paciente.php';
       }
+
+      if($enlace == 'hcok'){
+        $modulo = 'views/modules/hclinica.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
