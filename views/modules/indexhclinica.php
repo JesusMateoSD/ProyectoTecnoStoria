@@ -4,64 +4,12 @@
 
 <?php
 
-  $_SESSION['scedulap'] = 0;
+  $cedulaPHC = $_SESSION['scedulap'];
 
-  if(isset($_GET['id'])){
-    $_SESSION['scedulap'] = $_GET['id'];
-  }
+  $paciente = new UsuarioControlador();
+  $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
 
-  if(empty($_SESSION['scedulap'])){
-    $cedula = $_POST['documento'];
-    $_SESSION['scedulap']  = $cedula;	
-
-    $query = "SELECT * FROM tbl_pacientes WHERE documento='$cedula'";
-    $result = mysqli_query($mysqli, $query);
-
-    $row = mysqli_fetch_array($result);
-    $nombrep = $row["paciente"];
-
-    if (mysqli_num_rows($result) == 0) {
-      echo  '<script LANGUAGE="javascript">
-              $(document).ready(function() {
-                swal({
-                  title: "TecnoStoria!",
-                  text: "Paciente No Existe Debe Crearlo Primero Para Hacer Historia Clinica!",
-                  type: "error",
-                  confirmButtonColor: "#3085d6",
-                  confirmButtonText: "OK!"
-                }).then((result) => {
-                  if (result.value) {
-                    window.location.href = "../pacientes/indexpaciente.php";
-                  }
-                })
-              });
-            </script>';
-    } 
-  } else{
-      
-    $query = "SELECT * FROM tbl_pacientes WHERE documento='$_SESSION[scedulap]'";
-    $result = mysqli_query($mysqli, $query);
-
-    $row = mysqli_fetch_array($result);
-    $nombrep = $row["paciente"];
-    if (mysqli_num_rows($result) == 0) {
-      echo  '<script LANGUAGE="javascript">
-              $(document).ready(function() {
-                swal({
-                  title: "TecnoStoria!",
-                  text: "Paciente No Existe Debe Crearlo Primero Para Hacer Historia Clinica!",
-                  type: "error",
-                  confirmButtonColor: "#3085d6",
-                  confirmButtonText: "OK!"
-                }).then((result) => {
-                  if (result.value) {
-                    window.location.href = "../pacientes/indexpaciente.php";
-                  }
-                })
-              });
-            </script>';
-    }
-  }
+  $nombreP = $pacienteHC['paciente']; 
 
   if(isset($_SESSION['usuario'])){
     include("header.php");
@@ -73,38 +21,38 @@
 
 <div class="bg-light m-5 pt-3">
   <div class="container-fluid">
-    <div class="p-2 mb-3 bg-primary text-white">Historia Clinica Paciente <?php echo  $nombrep; ?></div>
+    <div class="p-2 mb-3 bg-primary text-white">Historia Clinica Paciente <?php echo $nombreP; ?></div>
       <?php if ($_SESSION['snivel'] == 1 OR $_SESSION['snivel'] == 2) { ?>  
         <div class="row">
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary"  onclick="window.location.href='hclinica.php'">Crear Historia Clinica</button>
+            <a href="index.php?action=hclinica"><button type="button" style="width: 100%;" class="btn btn-outline-primary">Crear Historia Clinica</button></a>
           </div>
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../evolucion/evolucion.php'">Evolucion</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Evolucion</button>
           </div>
 
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../recetario/recetario.php'">Recetario</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Recetario</button>
           </div>          
         </div>
         <br>
         <div class="row">      
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../certificacion/certificacion.php'">Certificacion</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Certificacion</button>
           </div>
             
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../omedicas/omedicas.php'">Ordenes Medicas</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Ordenes Medicas</button>
           </div>
 
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../remision/remision.php'">Remisiones</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Remisiones</button>
           </div>
         </div>
         <br>
         <div class="row">
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='../cinformados/cinformados.php'">Consentimientos Informados</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Consentimientos Informados</button>
           </div>
         </div>
         <br>

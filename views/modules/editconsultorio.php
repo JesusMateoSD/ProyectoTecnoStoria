@@ -2,7 +2,7 @@
   // $title = '';
   // $description= '';
 
-  if (isset($_POST['update'])) {
+  if(isset($_POST['update'])) {
     $consultorio = new ConsultorioControlador();
     $consultorio->editarConsultorioControlador($_GET['id']);
   }

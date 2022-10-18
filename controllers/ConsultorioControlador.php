@@ -23,31 +23,29 @@
         $respuesta = $consultorio->registrarConsultorioModelo($datosConsultorio);
 
         if($respuesta == 'success'){
-          header('location:index.php?action=con');
+          header('location:index.php?action=conok');
         } else if($respuesta == 'error'){
           header('location:index.php?action=consultorio');
         }
       }
     }
 
-    
-
     public function tablaConsultoriosControlador(){
-      $respuesta = new ConsultorioModelo();
-      $respuesta = $respuesta->tablaConsultoriosModelo();
+      $consultorio = new ConsultorioModelo();
+      $respuesta = $consultorio->tablaConsultoriosModelo();
       return $respuesta;
     }
 
     public function borrarConsultorioControlador($id){
       if(isset($id)){
-        $usuario = new ConsultorioModelo();
-        $respuesta = $usuario->eliminarConsultorioModelo($id);
+        $consultorio = new ConsultorioModelo();
+        $respuesta = $consultorio->eliminarConsultorioModelo($id);
       }
     }
 
     public function consultarConsultorioControlador($id){
-      $usuario = new ConsultorioModelo();
-      $respuesta = $usuario->consultarConsultorioModelo($id);
+      $consultorio = new ConsultorioModelo();
+      $respuesta = $consultorio->consultarConsultorioModelo($id);
       return $respuesta;
     }
     
@@ -64,8 +62,8 @@
         'capb' => $_POST['capb'],
         'napb' => $_POST['napb']];
 
-        $usuario = new ConsultorioModelo();
-        $respuesta = $usuario->editarConsultorioModelo($datosConsultorio);
+        $consultorio = new ConsultorioModelo();
+        $respuesta = $consultorio->editarConsultorioModelo($datosConsultorio);
 
         if($respuesta == 'success'){
           header('location:index.php?action=conAct');

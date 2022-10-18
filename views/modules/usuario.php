@@ -10,7 +10,7 @@
           $(document).ready(function() {
             swal({
               title: 'TecnoStoria',
-              text: "El Usuario  Ha Sido Grabado Correctamente!",
+              text: "El Usuario Ha Sido Grabado Correctamente!",
               type: 'success',
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'OK!'
@@ -103,7 +103,6 @@
         </thead>
         <tbody>
           <?php
-          
             foreach($datos as $v){
           ?>
             <tr>

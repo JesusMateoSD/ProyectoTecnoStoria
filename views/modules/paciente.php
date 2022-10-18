@@ -1,16 +1,46 @@
 <?php
-  session_start();
-  include('../db.php');
-  include('header.php');
   $fechahoy = date('Y-m-d');
+
+  $usuario = $_SESSION['snombre'];
+  $docusuario = $_SESSION['sdocumento'];
+
+  if(isset($_POST['salvarpaciente'])){
+    $consultorio = new PacienteControlador();
+    $consultorio->registrarPacienteControlador($usuario,$docusuario);
+  }
+
+  if($_GET['action'] == 'pacok'){
+    ?>
+    <script LANGUAGE="javascript">
+       $(document).ready(function() {
+         swal({
+           title: 'Medicina Web!',
+           text: "El Paciente Fue Grabado Correctamente!",
+           type: 'success',
+           confirmButtonColor: '#3085d6',
+           confirmButtonText: 'OK!'
+         }).then((result) => {
+          
+         })
+       });
+     </script>
+    <?php
+  }
+
+  $paciente = new PacienteControlador();
+  $pacienteTD = $paciente->tipoDocumentoControlador();
+  $pacienteDept = $paciente->DepartamentosPacienteControlador();
+
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  }
+  else{
+    header('location:index.php');
+  }
+
 ?>
  
-<head> 
-  <link rel="stylesheet" href="views/cute-alert-master/stylecute.css" />
-  <script src="views/cute-alert-master/cute-alert.js"></script>
-  <link rel="stylesheet" type="text/css" href="views/css/datatables.min.css"/>
-  <script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="views/js/datatables.min.js"></script>
+<head>
 
   <script type="text/javascript">
     function existe(){
@@ -33,7 +63,7 @@
     $("#dpto").change(function () {
       $("#dpto option:selected").each(function () {
         id_departamento = $(this).val();
-        $.post("municipios.php", { id_departamento: id_departamento }, function(data){
+        $.post("views/modules/municipios.php", { id_departamento: id_departamento }, function(data){
           $("#municipio").html(data);
         });            
       });
@@ -43,7 +73,7 @@
 
 <script type="text/javascript">
   function detalleinicio() { 
-    $("#tablapacientes").load('mostrardetallep.php');
+    $("#tablapacientes").load('views/modules/mostrardetallep.php');
   }
 </script>
 
@@ -53,7 +83,7 @@
   <body onload="detalleinicio()">
     <div class="container">
       <div class="row">
-        <form id="myForm" name="f"  method="POST" >
+        <form id="myForm" name="f" method="POST" >
           <div class="form-row">
             <div class="col-md-6 mb-4">
               <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente"  onkeyup="javascript:this.value=this.value.toUpperCase();" autofocus autocomplete="off">
@@ -62,8 +92,7 @@
               <select class="custom-select mr-sm-2" name="tipodocumento" id="tipodocumento" >
                 <option value="0">Tipo Documento:</option>
                   <?php
-                    $query = $mysqli -> query ("SELECT * FROM tbl_tipodocumento ");
-                    while ($valores = mysqli_fetch_array($query)) {
+                    foreach($pacienteTD as $valores){
                       echo '<option value="'.$valores['tipo'].'">'.$valores['nombre'].'</option>';
                     }
                   ?>
@@ -107,10 +136,9 @@
               <select class="custom-select mr-sm-2"   name="dpto" id="dpto" >
                 <option value="0">Seleccione Departamento:</option>
                 <?php
-                $query = $mysqli -> query ("SELECT * FROM tbl_departamentos ");
-                while ($valores = mysqli_fetch_array($query)) {
-                  echo '<option value="'.$valores['id_departamento'].'">'.$valores['departamento'].'</option>';
-                }
+                  foreach($pacienteDept as $valores){
+                    echo '<option value="'.$valores['id_departamento'].'">'.$valores['departamento'].'</option>';
+                  }
                 ?>
               </select>
             </div>  
@@ -132,7 +160,6 @@
             </div>          
           </div>
           <input type="submit" name="salvarpaciente" id="salvarpaciente" class="btn btn-primary mx-2" value="Grabar Paciente">
-          <input type="submit" name="vaciarcampos" id="vaciarcampos" class="btn btn-success mx-2" value="Vaciar Campos">       
           </form>
         </div>
       </div>
@@ -174,27 +201,6 @@
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('#salvarpaciente').click(function(){
-      var datos=$('#myForm').serialize();
-      $.ajax({
-        type:"POST",
-        url:"salvarpaciente.php",
-        data:datos,
-        success:function(r){
-          if(r==1){
-            //  alert("agregado con exito");  
-          } else{
-            $("#tablapacientes").load('mostrardetallep.php');
-          }
-        }
-      });
-      return false;
-    });
-  });
-</script>
-
-<script type="text/javascript">
   $(function(){
     $('#fechan').on('change', calcularEdad);
   });
@@ -214,26 +220,3 @@
   }
 </script>
 
-<script type="text/javascript">
-  $("#vaciarcampos").on("click", function() {
-    // Cancelar comportamiento normal del botón
-    event.preventDefault();
-    $('#paciente').val('');
-    $('#fechan').val('');
-    $('#tipodocumento').val('0');
-    $('#edad').val('');
-    $('#sexo').val('Sexo');
-    $('#dir').val('');
-    $('#telefono').val('');
-    $('#paciente').val('');
-    $('#fechan').val('');
-    $('#correo').val('');
-    $('#ocupacion').val('');
-    $('#eps').val('');
-    $('#dpto').val('0');
-    $('#municipio').val('');
-    $('#acudiente').val('');
-    $('#direcciona').val('');
-    $('#telefonoa').val('');
-  });
-</script>

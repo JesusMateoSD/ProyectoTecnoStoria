@@ -1,19 +1,43 @@
 <?php
+  if(isset($_POST['salvaragenda'])){
+    $usuario = new AgendaControlador();
+    $usuario->RegistrarCitaControlador();
+  }
+
+  $fechahoy = date('Y-m-d');
+
+  if($_GET['action'] == 'ageAct'){
+    ?>
+      <script>
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "La Cita asignada ha sido actualizada con exito!",
+              type: 'info',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+            
+            })
+          });
+      </script>
+    <?php
+  }
+  
+  $agenda = new AgendaControlador();
+  $profesionales = $agenda->tablaAgenProControlador();
+  $horas = $agenda->tablaHorasControlador();
+
   if(isset($_SESSION['usuario'])){
     include("header.php");
   }
   else{
     header('location:index.php');
   }
-  $fechahoy = date('Y-m-d');
-  
-  $agenda = new AgendaControlador();
-  $profesionales = $agenda->tablaAgenProControlador();
-  $horas = $agenda->tablaHorasControlador();
 ?>
   
 <main class="container p-0">
-
+  <script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
   <script>
     function mostrarInfo(){
       var url = "views/modules/proceso.php";                                      
@@ -48,26 +72,26 @@
                 <input type="text" name="docp" id="docp" class="form-control" value="Registro Medico" readonly>
               </div>
               <div class="col-md-2 mb-4">
-                <input type="date" name="fecha" id="fecha" value="<?php echo  $fechahoy = date('Y-m-d'); ?>"  class="form-control" placeholder="Fecha"  onchange="mostrarInfo()">
+                <input type="date" name="fecha" id="fecha" value="<?php echo $fechahoy = date('Y-m-d'); ?>"  class="form-control" placeholder="Fecha" onchange="mostrarInfo()">
               </div>
               <div class="col-md-3 mb-4">
                 <select class="custom-select mr-sm-2"  name="hora" id="hora" >
                   <option value="0">Seleccione Hora:</option>
                     <?php
                       foreach ($horas as $h) {
-                      echo '<option value="'.$h['hora'].'">'.$h['hora'].'</option>';
-                    }
+                        echo '<option value="'.$h['hora'].'">'.$h['hora'].'</option>';
+                      }
                     ?>
                 </select>
               </div>  
               <div class="col-md-3 mb-4">
-                <input type="text" name="cedula" id="cedula" class="form-control" onBlur="alertap();" placeholder="Cedula" autofocus>
+                <input type="text" name="cedula" id="cedula" class="form-control" onblur="alertap()" placeholder="Cedula" autofocus>
               </div>
               <div class="col-md-4 mb-4">
-                <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente" autofocus>
+                <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente" autofocus readonly>
               </div> 
               <div class="col-md-2 mb-4">
-                <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" autofocus>
+                <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" autofocus readonly>
               </div>
               <div class="col-md-3 mb-4">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
@@ -93,105 +117,7 @@
   </div>
 </main>
 
-<script>
-  document.getElementById("profesional").onchange = function(){alerta()};
-  function alerta() {
-    // Creando el objeto para hacer el request
-    var request = new XMLHttpRequest();
-    request.responseType = 'json';
-    // Objeto PHP que consultaremos
-    request.open("POST", "registrop.php");
-    // Definiendo el listener
-      request.onreadystatechange = function() {
-        // Revision si fue completada la peticion y si fue exitosa
-        if(this.readyState === 4 && this.status === 200) {
-          // Ingresando la respuesta obtenida del PHP
-          var nombrer = this.response.message;
-          if(nombrer === "vacio"){
-            alert("Este Profesional No Existe en El Sistema.");
-          }else{
-            document.getElementById("docp").value = this.response.registro;
-          }
-        }
-      };
-      
-      // Recogiendo la data del HTML
-      var myForm = document.getElementById("myForm");
-      var formData = new FormData(myForm);
-
-      // Enviando la data al PHP
-      request.send(formData);
-  }
-
-  function handler(e){
-    alert(e.target.value);
-  }
-</script>
-
-<script>
-  //  document.getElementById("codigo").onchange = function(){alerta()};
-  function alertap() {
-    // Creando el objeto para hacer el request
-    var request = new XMLHttpRequest();
-    request.responseType = 'json';
-    // Objeto PHP que consultaremos
-    request.open("POST", "consultapaciente.php");
-    // Definiendo el listener
-    request.onreadystatechange = function() {
-      // Revision si fue completada la peticion y si fue exitosa
-      if(this.readyState === 4 && this.status === 200) {
-        // Ingresando la respuesta obtenida del PHP
-        var nombrer = this.response.message;
-        
-        if(nombrer === "vacio"){
-          cuteAlert({
-            type: "info",
-            title: "Advertencia",
-            message: "Debe Crear Primero El Paciente Para Agendar",
-            buttonText: "Aceptar"
-          }).then((e)=>{
-            if ( e == ("Thanks")){
-              
-            } else{
-              window.location.href="indexagenda.php";
-            }
-          })
-        } else{
-          document.getElementById("paciente").value = this.response.paciente;
-          document.getElementById("telefono").value = this.response.telefono;
-          //document.getElementById('cantidad').focus();
-        }
-      }
-    };  
-    // Recogiendo la data del HTML
-    var myForm = document.getElementById("myForm");
-    var formData = new FormData(myForm);
-    
-    // Enviando la data al PHP
-    request.send(formData);
-  }
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#salvaragenda').click(function(){
-      var datos=$('#myForm').serialize();
-      $.ajax({
-        type:"POST",
-        url:"salvaragenda.php",
-        data:datos,
-        success:function(r){
-          if(r==1){
-            //alert("agregado con exito");
-          }else{
-            mostrarInfo();
-            //$("#datos").load('proceso.php');
-          }
-        }
-      });
-      return false;
-    });
-  });
-</script>
+<script src="views/js/agendapro.js"></script>
+<script src="views/js/agendapac.js"></script>
 
 <!-- FIN PHP INDEX SUPER PARAMETROS -->

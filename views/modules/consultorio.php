@@ -4,7 +4,7 @@
     $consultorio->registrarConsultorioControlador();
   }
 
-  if($_GET['action'] == 'con'){
+  if($_GET['action'] == 'conok'){
     ?>
       <script LANGUAGE="javascript">
         $(document).ready(function() {

@@ -1,7 +1,7 @@
 <?php
   if(isset($_POST['salvarparametro'])){
     $usuario = new UsuarioControlador();
-    $usuario->validarUsuarioControlador();
+    $usuario->validarDocumentoPacienteControlador();
   }
 
   if(isset($_SESSION['usuario'])){
@@ -25,7 +25,7 @@
     </div>
     <div class="form-row mb-2 text-center">
       <div class="col-md-12 text-center">        
-        <input type="submit" name="salvarparametro" class="btn btn-primary " value="Historia Clinica">            
+        <input type="submit" name="salvarparametro" class="btn btn-primary " value="Historia Clinica">   
       </div>
     </div>
   </form>

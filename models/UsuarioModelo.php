@@ -82,7 +82,6 @@ class UsuarioModelo extends Conexion{
   }
 
   public function validarUsuarioModelo($datosUsuario){
-
     $clave = $datosUsuario['clave'];
     $correo = $datosUsuario['correo'];
 
@@ -99,6 +98,7 @@ class UsuarioModelo extends Conexion{
         $_SESSION['scorreo'] = $resulsql['correo'];
         $_SESSION['sclave'] = $resulsql['pass'];
         $_SESSION['snombre'] = $resulsql['nombre'];
+        $_SESSION['sdocumento'] = $resulsql['documento'];
         $_SESSION['snivel'] = $resulsql['nivel'];
         $_SESSION['sregistro'] = $resulsql['registro'];
 
@@ -122,7 +122,6 @@ class UsuarioModelo extends Conexion{
    public function eliminarUsuarioModelo($id){
       $sql = "DELETE FROM tbl_usuarios WHERE id = :id";
       try{
-
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
         $stmt->bindParam(':id', $id,PDO::PARAM_STR);
@@ -135,6 +134,57 @@ class UsuarioModelo extends Conexion{
         return $e;
       }
    }
+
+  public function validarProfesionalModelo($profesional){
+    $sql = "SELECT * FROM tbl_usuarios WHERE nombre = :profesional";
+    try {
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':profesional', $profesional,PDO::PARAM_STR);
+      $stmt->execute();
+      if($stmt->rowCount() == 1){
+        $resulsql = $stmt->fetch();
+        return $resulsql;
+      }
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
+
+  public function validarDocumentoPacienteModelo($documento){
+    $sql = "SELECT * FROM tbl_pacientes WHERE documento = :documento";
+    try {
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':documento', $documento, PDO::PARAM_STR);
+      $stmt->execute();
+
+      if($stmt->rowCount() == 1){
+        $resulsql = $stmt->fetch();
+        $_SESSION['scedulap'] = $resulsql['documento'];
+        return 'success';
+      } else {
+        return 'error';
+      }
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
+
+  public function consultarPacienteHCModelo($cedulaPHC){
+    $sql = "SELECT * FROM tbl_pacientes WHERE documento = :documento";
+    try {
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':documento', $cedulaPHC,PDO::PARAM_STR);
+      $stmt->execute();
+      if($stmt->rowCount() == 1){
+        return $stmt->fetch();
+      }
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
 }
 
 ?>

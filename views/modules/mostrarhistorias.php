@@ -1,8 +1,4 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="views/css/datatables.min.css" />
-  <script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="views/js/datatables.min.js"></script>
-
   <script type="text/javascript">
     $(document).ready(function() {
       $('#tablehistorias').DataTable();
@@ -23,13 +19,18 @@
     </tr>
   </thead>
   <tbody>
-
     <?php
-      include('../db.php');
-      $query = "SELECT * FROM tbl_hclinica ";
-      $result_tasks = mysqli_query($mysqli, $query);
+      require_once('../../controllers/HClinicaControlador.php');
+      require_once('../../models/HClinicaModelo.php');
 
-      while ($row = mysqli_fetch_assoc($result_tasks)) { ?>
+      $HClinica = new HClinicaControlador();
+      $HClinicas = $HClinica->TablaHClinicaControlador();
+
+      // $query = "SELECT * FROM tbl_hclinica";
+      // $result_tasks = mysqli_query($mysqli, $query);
+
+      // while ($row = mysqli_fetch_assoc($result_tasks)) { 
+        foreach($HClinicas as $row){ ?>
         <tr>
           <td><?php echo $row['paciente']; ?></td>
           <td><?php echo $row['fecha']; ?></td>
@@ -37,10 +38,10 @@
           <td><?php echo $row['edad']; ?></td>
           <td><?php echo $row['telefono']; ?></td>
           <td>
-            <li id="<?php echo $row['id'] ?>" class="btn btn-danger"><a href="#" class="deleteitem" style="color: #FFF;"><i class="fas fa-trash-alt"></i></a></i>
+            <li id="<?php echo $row['id'] ?>" class="btn btn-danger"><a href="index.php?action=delHC&id=<?php echo $row['id']?>" class="deleteitem" style="color: #FFF;"><i class="fas fa-trash-alt"></i></a></i>
           </td>
           <td>
-            <a href="hclinicapdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
+            <a href="views/modules/hclinicapdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
               <i class="fas fa-file-pdf"></i></a>
           </td>
         </tr>

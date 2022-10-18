@@ -3,7 +3,6 @@
 class EnlacesPaginacionModelo{
   public function verficarEnlacePagina($enlace){
     $modulo = "views/modules/".$enlace.".php";
-    $conteo = 0;
     if(!file_exists($modulo)){
       if($enlace == 'usuok'){
         $modulo = 'views/modules/usuario.php';
@@ -11,8 +10,17 @@ class EnlacesPaginacionModelo{
       if($enlace == 'usuadmok'){
         $modulo = 'views/modules/usuarioadm.php';
       }
-      if($enlace == 'con' || $enlace == 'conAct'){
+
+      if($enlace == 'conok' || $enlace == 'conAct'){
         $modulo = 'views/modules/consultorio.php';
+      }
+
+      if($enlace == 'ageok' || $enlace == 'ageAct'){
+        $modulo = 'views/modules/agenda.php';
+      }
+
+      if($enlace == 'pacok'){
+        $modulo = 'views/modules/paciente.php';
       }
     }
       
@@ -26,11 +34,26 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarUsuarioadm&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delCons'){
       header('location:index.php?action=eliminarConsultorio&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delCita'){
+      header('location:index.php?action=eliminarCita&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delPac'){
+      header('location:index.php?action=eliminarPaciente&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delHC'){
+      header('location:index.php?action=eliminarHC&id='.$_GET['id']);
     } 
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);
+    }else if(isset($_GET['action']) && $_GET['action'] == 'editAge'){
+      header('location:index.php?action=editpagenda&id='.$_GET['id']);
     } 
+
+    if(isset($_GET['action']) && $_GET['action'] == 'indexhclinicaAge'){
+      if(isset($_GET['idp']) && !empty($_GET['idp'])){
+        header('location:index.php?action=validarHC&id='.$_GET['idp']);
+      }
+      $modulo = 'views/modules/agenda.php';
+    }
     
     if($_GET['res'] == 'ok'){
       header('location:index.php?action=ok');

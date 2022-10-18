@@ -1,34 +1,53 @@
 <?php
-  session_start();
-  include('../db.php');
-  include('../header/header.php');
+  if(isset($_POST['salvarhistoria'])){
+    $HClinicaS = new HClinicaControlador();
+    $HClinicaS->registrarHistoriaClinicaControlador();
+  }
+
   $fechahoy = date('Y-m-d');
 
+  $cedulaPHC = $_SESSION['scedulap'];
+  $paciente = new UsuarioControlador();
+  $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
 
-  $query = "SELECT * FROM tbl_pacientes WHERE documento='$_SESSION[scedulap]'";
-  $result = mysqli_query($mysqli, $query);
-  $row = mysqli_fetch_array($result);
-  $nombrep = $row["paciente"];
-  $td = $row["tipodocumento"];
-  $documento = $row["documento"];
-  $dir = $row["direccion"];
-  $tel = $row["telefono"];
-  $edad = $row["edad"];
-  $fechan = $row["fechan"];
+  // $query = "SELECT * FROM tbl_pacientes WHERE documento='$_SESSION[scedulap]'";
+  // $result = mysqli_query($mysqli, $query);
+  // $row = mysqli_fetch_array($result);
+  $nombrep = $pacienteHC['paciente'];
+  $td = $pacienteHC["tipodocumento"];
+  $documento = $pacienteHC["documento"];
+  $dir = $pacienteHC["direccion"];
+  $tel = $pacienteHC["telefono"];
+  $edad = $pacienteHC["edad"];
+  $fechan = $pacienteHC["fechan"];
+
+  //Causa externa y finalidad consulta
+  
+  $HClinica = new HClinicaControlador();
+  $tCausaEx = $HClinica->TablaCausasExternasControlador();
+  $FinalidadC = $HClinica->TablaFinalidadConsultasControlador();
+
+  if(isset($_SESSION['usuario'])){
+    include("header.php");
+  } else{
+    header('location:index.php');
+  }
 
 ?>
 
 <head>
-  <link rel="stylesheet" href="../cssjs/cute-alert-master/stylecute.css" />
-  <script src="../cssjs/cute-alert-master/cute-alert.js"></script>
-  <link rel="stylesheet" type="text/css" href="../cssjs/datatables.min.css" />
-  <script language="javascript" src="../cssjs/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="../cssjs/datatables.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $('#tablehistorias').DataTable();
     });
   </script>
+
+  <script type="text/javascript">
+    function detalleinicio() {
+      $("#tablahistorias").load('views/modules/mostrarhistorias.php');
+    }
+  </script>
+
 
   <script>
     function cal() {
@@ -68,7 +87,7 @@
           <div class="form-row">
             <div class="col-md-2 mb-2">
               <label for="usr">Fecha:</label>
-              <input type="text" name="fecha" class="form-control" value="<?php echo  $fechahoy = date('Y-m-d'); ?>" readonly>
+              <input type="text" name="fecha" class="form-control" value="<?php echo $fechahoy = date('Y-m-d'); ?>" readonly>
             </div>
 
             <div class="col-md-2 mb-2">
@@ -78,7 +97,7 @@
 
             <div class="col-md-2 mb-2">
               <label for="usr">Tipo Documento:</label>
-              <input type="text" name="td" class="form-control" value="<?php echo  $td; ?>" readonly>
+              <input type="text" name="td" class="form-control" value="<?php echo $td; ?>" readonly>
             </div>
 
             <div class="col-md-6 mb-2">
@@ -119,8 +138,9 @@
               <select class="custom-select mr-sm-2" name="causaexterna" id="causaexterna">
                 <option value="0">Causa Externa:</option>
                 <?php
-                  $query = $mysqli->query("SELECT * FROM tbl_causaexterna ");
-                  while ($valores = mysqli_fetch_array($query)) {
+                  // $query = $mysqli->query("SELECT * FROM tbl_causaexterna ");
+                  // while ($valores = mysqli_fetch_array($query)) {
+                  foreach($tCausaEx as $valores){
                     echo '<option value="' . $valores['tipo'] . '">' . $valores['nombre'] . '</option>';
                   }
                 ?>
@@ -131,8 +151,9 @@
               <select class="custom-select mr-sm-2" name="finalidadconsulta" id="finalidadconsulta">
                 <option value="0">Finalidad Consulta:</option>
                 <?php
-                  $query = $mysqli->query("SELECT * FROM tbl_finalidadc");
-                  while ($valores = mysqli_fetch_array($query)) {
+                  // $query = $mysqli->query("SELECT * FROM tbl_finalidadc");
+                  // while ($valores = mysqli_fetch_array($query)) {
+                  foreach($FinalidadC as $valores){
                     echo '<option value="' . $valores['tipo'] . '">' . $valores['nombre'] . '</option>';
                   }
                 ?>
@@ -459,7 +480,7 @@
           </div>
 
           <input name="salvarhistoria" id="salvarhistoria" class="btn btn-primary " value="Grabar Historia">
-          <a href="../hclinica/indexhclinica.php?id=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
+          <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
         </form>
       </div>
     </div>
@@ -491,12 +512,6 @@
       return false;
     });
   });
-</script>
-
-<script type="text/javascript">
-  function detalleinicio() {
-    $("#tablahistorias").load('mostrarhistorias.php');
-  }
 </script>
 
 <!-- FIN PHP INDEX SUPER USUARIO -->

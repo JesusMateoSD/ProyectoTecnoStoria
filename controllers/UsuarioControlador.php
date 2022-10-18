@@ -48,14 +48,14 @@
     }
 
     public function tablaUsuariosControlador(){
-      $respuesta = new UsuarioModelo();
-      $respuesta = $respuesta->tablaUsuariosModelo();
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->tablaUsuariosModelo();
       return $respuesta;
     }
 
     public function tablaUsuariosAdmControlador(){
-      $respuesta = new UsuarioModelo();
-      $respuesta = $respuesta->tablaUsuariosAdmModelo();
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->tablaUsuariosAdmModelo();
       return $respuesta;
     }
 
@@ -88,6 +88,32 @@
         $usuario = new UsuarioModelo();
         $respuesta = $usuario->eliminarUsuarioModelo($id);
       }
+    }
+
+    public function validarProfesionalControlador($profesional){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->validarProfesionalModelo($profesional);
+      return $respuesta;
+    }
+
+    public function validarDocumentoPacienteControlador(){
+      if(isset($_POST['salvarparametro'])){
+        $documento = $_POST['documento'];
+        $usuario = new UsuarioModelo();
+        $respuesta = $usuario->validarDocumentoPacienteModelo($documento);
+
+        if($respuesta == 'success'){          
+          header('location: index.php?action=indexhclinica');
+        } else{
+          header('location:index.php?action=modalhc');
+        }
+      }
+    }
+
+    public function consultarPacienteHCControlador($cedulaPHC){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->consultarPacienteHCModelo($cedulaPHC);
+      return $respuesta;
     }
   }
 ?>
