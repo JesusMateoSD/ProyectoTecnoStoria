@@ -74,6 +74,20 @@
         return $e;
       }
     }
+    
+    public function TablaHClinicaIndModelo($id){
+      $sql = "SELECT * FROM tbl_hclinica WHERE id = :id";
+      try {
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return $stmt->fetchAll();
+        }
+      } catch (Exception $e) {
+        return $e;
+      }
+    }
 
     public function borrarHCModelo($id){
       $sql = "DELETE FROM tbl_hclinica WHERE id = :id";

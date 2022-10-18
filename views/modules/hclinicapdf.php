@@ -1,4 +1,6 @@
 <?php
+  require_once('views/fpdf/fpdf.php');
+
   session_start();
   date_default_timezone_set('America/Bogota'); 
  
@@ -112,7 +114,7 @@
 
   //mira la tabla de resolucion para la caratula
   $HClinica = new HClinicaControlador();
-  $tHC = $HClinica->TablaHClinicaControlador();
+  $tHC = $HClinica->TablaHClinicaIndControlador($id);
   // $queryrl = "SELECT * FROM tbl_hclinica WHERE id=$id";
   // $resultrl = mysqli_query($mysqli, $queryrl);
   // $rowrl = mysqli_fetch_array($resultrl);
@@ -201,9 +203,7 @@
     $nombrepr =  $row['nombre'];
     $fotou =  $row['foto'];
   }
-  
-
- 
+  ob_start();
   class PDF extends FPDF{
 
     function Header(){
@@ -326,7 +326,6 @@
   $pdf->Cell(0, 7, utf8_decode($GLOBALS['nombrepr']), 0, 1,'C');
   $pdf->Cell(0, 7, utf8_decode($GLOBALS['registro']), 0, 1,'C');
 
-  ob_start();
   $pdf->Output();
   ob_end_flush();
 ?>

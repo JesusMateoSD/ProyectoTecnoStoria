@@ -28,6 +28,12 @@
       return $respuesta;
     }
 
+    public function TablaHClinicaIndControlador($id){
+      $HClinica = new HClinicaModelo();
+      $respuesta = $HClinica->TablaHClinicaIndModelo($id);
+      return $respuesta;
+    }
+
     public function borrarHCControlador($id){
       if(isset($id)){
         $HClinica = new HClinicaModelo();
