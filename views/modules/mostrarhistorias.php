@@ -22,6 +22,7 @@
     <?php
       require_once('../../controllers/HClinicaControlador.php');
       require_once('../../models/HClinicaModelo.php');
+      
 
       $HClinica = new HClinicaControlador();
       $HClinicas = $HClinica->TablaHClinicaControlador();
@@ -43,34 +44,11 @@
             </a>
           </td>
           <td>
-            <a href="views/modules/hclinicapdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
+            <a href="index.php?action=hclinicapdf&id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
               <i class="fas fa-file-pdf"></i></a>
           </td>
         </tr>
     <?php } ?>
   </tbody>
 </table>
-
-<!-- 
-<script type="text/javascript">
-  $(function() {
-    $(".deleteitem").click(function(e) {
-      e.preventDefault();
-      var id = $(this).parent("li").attr("id");
-      $.get("borrarhistorias.php", {
-        id: id
-      }).done(function(data) {
-        if (data == "Error, insert query failed") {
-          // dont delete from list
-          alert("Failed to delete " + id);
-        } else {
-          //delete from list
-          $("#" + id).remove();
-          //alert("Deleted "+id);
-          $("#tablahistorias").load('mostrarhistorias.php');
-        }
-      });
-    });
-  });
-  //-->
-</script> -->
+</script>

@@ -48,7 +48,6 @@
       try {
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
-        $stmt->bindParam(':documento', $documento,PDO::PARAM_STR);
         if($stmt->execute()){
           return $stmt->fetchAll();
         }

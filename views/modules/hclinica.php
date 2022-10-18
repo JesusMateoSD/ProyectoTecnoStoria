@@ -509,26 +509,4 @@
   </div>
 </main>
 
-<!-- <script type="text/javascript">
-  $(document).ready(function() {
-    $('#salvarhistoria').click(function() {
-      var datos = $('#myForm').serialize();
-      $.ajax({
-        type: "POST",
-        url: "salvarhistoria.php",
-        data: datos,
-        success: function(r) {
-          if (r == 1) {
-            alert("agregado con exito");
-          } else {
-            //  alert("agregado con exito");
-            $("#tablahistorias").load('mostrarhistorias.php');
-          }
-        }
-      });
-      return false;
-    });
-  });
-</script> -->
-
 <!-- FIN PHP INDEX SUPER USUARIO -->

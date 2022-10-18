@@ -107,6 +107,12 @@
       }
     }
 
+    public function consultarDocumentoPacienteControlador($docusuario){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->consultarDocumentoPacienteModelo($docusuario);
+      return $respuesta;
+    }
+
     public function consultarPacienteHCControlador($cedulaPHC){
       $usuario = new UsuarioModelo();
       $respuesta = $usuario->consultarPacienteHCModelo($cedulaPHC);

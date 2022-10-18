@@ -12,6 +12,7 @@
   require_once('models/AgendaModelo.php');
   require_once('controllers/PacienteControlador.php');
   require_once('models/PacienteModelo.php');
+  require_once('views/fpdf/fpdf.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();

@@ -151,17 +151,33 @@ class UsuarioModelo extends Conexion{
     }
   }
 
-  public function validarDocumentoPacienteModelo($documento){
+  public function validarDocumentoPacienteModelo($docusuario){
     $sql = "SELECT * FROM tbl_pacientes WHERE documento = :documento";
     try {
       $conexion = new Conexion();
       $stmt = $conexion->conectar()->prepare($sql);
-      $stmt->bindParam(':documento', $documento, PDO::PARAM_STR);
+      $stmt->bindParam(':documento', $docusuario, PDO::PARAM_STR);
       $stmt->execute();
       if($stmt->rowCount() == 1){
         $resulsql = $stmt->fetch();
         $_SESSION['scedulap'] = $resulsql['documento'];
         return 'success';
+      } else {
+        return 'error';
+      }
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
+
+  public function consultarDocumentoPacienteModelo($documento){
+    $sql = "SELECT * FROM tbl_usuarios WHERE documento = :documento";
+    try {
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':documento', $documento, PDO::PARAM_STR);
+      if($stmt->execute()){
+        return $stmt->fetchAll();
       } else {
         return 'error';
       }
