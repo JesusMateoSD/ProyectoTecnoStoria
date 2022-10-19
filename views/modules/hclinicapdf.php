@@ -1,5 +1,5 @@
 <?php
-  require_once('views/fpdf/fpdf.php');
+  include('views/fpdf/fpdf.php');
 
   session_start();
   date_default_timezone_set('America/Bogota'); 
@@ -203,7 +203,7 @@
     $nombrepr =  $row['nombre'];
     $fotou =  $row['foto'];
   }
-  ob_start();
+
   class PDF extends FPDF{
 
     function Header(){
@@ -327,5 +327,4 @@
   $pdf->Cell(0, 7, utf8_decode($GLOBALS['registro']), 0, 1,'C');
 
   $pdf->Output();
-  ob_end_flush();
 ?>

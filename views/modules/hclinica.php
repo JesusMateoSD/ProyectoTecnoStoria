@@ -3,7 +3,7 @@
     $HClinicaS = new HClinicaControlador();
     $HClinicaS->registrarHistoriaClinicaControlador();
   }
-
+   date_default_timezone_set('America/Bogota');
   $fechahoy = date('Y-m-d');
 
   if($_GET['action'] == 'hcok'){

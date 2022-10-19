@@ -3,7 +3,7 @@
     class Conexion{
      public function conectar() {
       try {
-        $contrasena = "Mateoclombia11";
+        $contrasena = "79057182";
         $usuario = "root";
         $nombre_base_de_datos = "bd_tecnostoria";
         $bd = new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contrasena);

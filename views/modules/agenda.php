@@ -3,7 +3,7 @@
     $usuario = new AgendaControlador();
     $usuario->RegistrarCitaControlador();
   }
-
+  date_default_timezone_set('America/Bogota');
   $fechahoy = date('Y-m-d');
 
   if($_GET['action'] == 'ageAct'){
