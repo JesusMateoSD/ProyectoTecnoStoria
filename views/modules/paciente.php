@@ -43,40 +43,20 @@
  
 <head>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function existe(){
       Swal.fire({
       icon: 'success',
       title: 'El Paciente Ya Esta Creado',
       })
     }
-  </script>
+  </script> -->
 
-  <script type="text/javascript">
-    $(document).ready( function () {
-     $('#tablepacientes').DataTable();
-    });
-  </script>
+  <script type="text/javascript" src="views/js/tablaPaciente.js"></script>
 </head>
 
-<script language="javascript">
-  $(document).ready(function(){
-    $("#dpto").change(function () {
-      $("#dpto option:selected").each(function () {
-        id_departamento = $(this).val();
-        $.post("views/modules/municipios.php", { id_departamento: id_departamento }, function(data){
-          $("#municipio").html(data);
-        });            
-      });
-    })
-  });
-</script>
-
-<script type="text/javascript">
-  function detalleinicio() { 
-    $("#tablapacientes").load('views/modules/mostrardetallep.php');
-  }
-</script>
+<script language="javascript" src="views/js/municipios.js"></script>
+<script type="text/javascript" src="views/js/mostrarinfoP.js"></script>
 
 <main class="container ">  
   <div class="p-2 mb-2 bg-primary text-white">Crear Pacientes</div>
@@ -171,7 +151,7 @@
     </div>
   </div>
 </main>
-
+<!-- 
 <script>
   function alerta() {
     var request = new XMLHttpRequest();
@@ -199,25 +179,7 @@
     // Enviando la data al PHP
     request.send(formData);
   }
-</script>
+</script> -->
 
-<script type="text/javascript">
-  $(function(){
-    $('#fechan').on('change', calcularEdad);
-  });
-
-  function calcularEdad() {
-    fecha = $(this).val();
-    var hoy = new Date();
-    var cumpleanos = new Date(fecha);
-    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
-    var m = hoy.getMonth() - cumpleanos.getMonth();
-
-    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
-    }
-    
-    $('#edad').val(edad);
-  }
-</script>
+<script type="text/javascript" src="views/js/calcularEdad.js"></script>
 

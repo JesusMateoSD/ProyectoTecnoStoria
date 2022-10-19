@@ -108,15 +108,15 @@
     }
 
     public function borrarPacienteModelo($id){
-      $sql = "DELETE FROM tbl_pacientes WHERE id = $id";
+      $sql = "DELETE FROM tbl_pacientes WHERE id = :id";
       try{
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
-        $stmt->bindParam(':id', $id,PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
         if($stmt->execute()){
-          return 'success';
+          echo 'Bien';
         }else{
-          return 'error';
+          echo 'Mal';
         }
       } catch(Exception $e){
         return $e;

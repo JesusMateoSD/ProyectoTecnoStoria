@@ -67,8 +67,8 @@
 
     public function borrarPacienteControlador($id){
       if(isset($id)){
-        $usuario = new PacienteModelo();
-        $respuesta = $usuario->borrarPacienteModelo($id);
+        $paciente = new PacienteModelo();
+        $respuesta = $paciente->borrarPacienteModelo($id);
       }
     }
   }
