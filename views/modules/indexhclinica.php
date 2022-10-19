@@ -28,7 +28,7 @@
             <a href="index.php?action=hclinica"><button type="button" style="width: 100%;" class="btn btn-outline-primary">Crear Historia Clinica</button></a>
           </div>
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Evolucion</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=evolucion'">Evolucion</button>
           </div>
 
           <div class="col-md-4">
