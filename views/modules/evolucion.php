@@ -62,11 +62,7 @@ if (isset($_SESSION['usuario'])) {
 ?>
 
 <head>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tablevolucion').DataTable();
-    });
-  </script>
+  <script type="text/javascript" src="views/js/tablaEvolucionI.js"></script>
 </head>
 
 
@@ -245,10 +241,6 @@ if (isset($_SESSION['usuario'])) {
   </div>
 </main>
 
-<script type="text/javascript">
-  function detalleinicio() {
-    $("#tablaevolucion").load('views/modules/mostrarevolucion.php');
-  }
-</script>
+<script type="text/javascript" src="views/js/tablaEVolucionF.js"></script>
 
 <!-- FIN PHP INDEX SUPER USUARIO -->

@@ -66,5 +66,11 @@
         $respuesta = $EvMed->borrarEMModelo($id);
       }
     }
+
+    public function TablaEvolucionMedicaIdControlador($id){
+      $HClinica = new EvMedicaModelo();
+      $respuesta = $HClinica->TablaEvolucionMedicaIdModelo($id);
+      return $respuesta;
+    }
   }
 ?>

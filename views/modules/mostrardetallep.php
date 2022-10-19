@@ -1,9 +1,5 @@
 <head>
-  <script type="text/javascript">
-    $(document).ready( function () {
-      $('#tablepacientes').DataTable();
-    });
-  </script>
+  <script type="text/javascript" src="views/js/tablaPaciente.js"></script>
 </head>
 <table id="tablepacientes" class="table table-hover">
   <thead>
@@ -43,30 +39,4 @@
       </tr>
     <?php } ?>
   </tbody>
-</table>
-      
-<!-- <script type="text/javascript">
-  $(function() {
-    $(".deleteitem").click(function(e) {
-      e.preventDefault();
-      var id = $(this).parent("li").attr("id");
-
-      $.get("borrarpaciente.php",{ id: id}).done(function(data) {
-        if(data=="Error, insert query failed") {
-          // dont delete from list
-          alert("Failed to delete "+id);
-        } else {
-          $("#"+id).remove();
-          $("#tablapacientes").load('mostrardetallep.php');
-        }
-      });
-    });
-  });
-  
-</script> -->
-
-       
-      
-
-     
-       
+</table>       

@@ -1,9 +1,5 @@
 <head>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tablehistorias').DataTable();
-    });
-  </script>
+  <script type="text/javascript" src="views/js/tablaHistoriasT.js"></script>
 
 </head>
 <table id="tablehistorias" class="table table-hover">

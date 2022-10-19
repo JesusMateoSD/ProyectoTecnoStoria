@@ -28,7 +28,7 @@ class EnlacesPaginacionModelo{
       }
 
       if($enlace == 'emok'){
-        $modulo = 'views/modules/hclinica.php';
+        $modulo = 'views/modules/evolucion.php';
       }
     }
       
@@ -54,7 +54,7 @@ class EnlacesPaginacionModelo{
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);
-    }else if(isset($_GET['action']) && $_GET['action'] == 'editAge'){
+    } else if(isset($_GET['action']) && $_GET['action'] == 'editAge'){
       header('location:index.php?action=editpagenda&id='.$_GET['id']);
     } 
 

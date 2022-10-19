@@ -1,9 +1,5 @@
 <head>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tablevolucion').DataTable();
-    });
-  </script>
+  <script type="text/javascript" src="views/js/tablaEvolucionI.js"></script>
 
 </head>
 <table id="tablevolucion" class="table table-hover">
@@ -43,7 +39,7 @@
           </a>
         </td>
         <td>
-          <a href="evolucionpdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
+          <a href="index.php?action=evolucionpdf&id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
             <i class="fas fa-file-pdf"></i></a>
         </td>
       </tr>

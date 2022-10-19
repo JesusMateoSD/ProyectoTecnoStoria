@@ -37,20 +37,7 @@
 ?>
   
 <main class="container p-0">
-  <script language="javascript" src="views/js/jquery-3.6.0.min.js"></script>
-  <script>
-    function mostrarInfo(){
-      var url = "views/modules/proceso.php";                                      
-      $.ajax({                        
-        type: "POST",                 
-        url: url,                    
-        data: $("#myForm").serialize(),
-        success: function(data){
-          $('#datos').html(data);           
-        }
-      });
-    }
-  </script>
+<script src="views/js/mostrarinfoAG.js"></script>
 
   <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
     <body onload="mostrarInfo();">
