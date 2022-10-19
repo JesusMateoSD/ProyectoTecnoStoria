@@ -23,7 +23,6 @@
       require_once('../../controllers/HClinicaControlador.php');
       require_once('../../models/HClinicaModelo.php');
       
-
       $HClinica = new HClinicaControlador();
       $HClinicas = $HClinica->TablaHClinicaControlador();
 

@@ -26,6 +26,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'hcok'){
         $modulo = 'views/modules/hclinica.php';
       }
+
+      if($enlace == 'emok'){
+        $modulo = 'views/modules/hclinica.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
@@ -44,7 +48,9 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarPaciente&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delHC'){
       header('location:index.php?action=eliminarHC&id='.$_GET['id']);
-    } 
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delEM'){
+      header('location:index.php?action=eliminarEM&id='.$_GET['id']);
+    }  
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);

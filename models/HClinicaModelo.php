@@ -103,7 +103,7 @@
       } catch(Exception $e){
         return $e;
       }
-   }
+    }
 
   public function registrarHistoriaClinicaModelo($datosHC){
     $sql = "INSERT INTO tbl_hclinica(fecha,hora,tipodocumento,paciente,documento,direccion,telefono,edad,fechan,causaexterna,finalidadconsulta,motivodelaconsulta,enfermedadactual,revisionxsistema,uanticonceptivos,menarquia,fum,g,a,p,c,feultparto,cardvasculares,pulmonares,digestivos,diabetes,renales,quirurgicos,traumaticos,alergicos,transfusiones,medicamentos,alcohol,drogas,cigarrillo,inmunizaciones,otros,antfam,cabeza,cara,cuello,torax,corazon,pulmones,abdypel,genext,colvert,neurologico,miemsup,mieminf,pielyfaneras,artic,fuerzmus,reflejos,parescraneales,psicoemocional,fc,fr,ta,t,so2,pesokg,tallacm,imc,resultadoimc,impdiag,condseguir,incapacidad,usuario,docusuario)  VALUES (:fecha, :hora, :td, :paciente,:documento,:dir,:tel,:edad,:fechan,:causaexterna,:finalidadconsulta,:mconsulta,:eactual,:rsistema,:uanti,:menarquia,:fum,:g,:a,:p,:c,:fuparto,:cv,:pulm,:dige,:diab,:rnl,:quirur,:traum,:aler,:trfs,:mdcm,:alc,:drogas,:ciga,:inm,:otros,:afm,:cabeza,:cara,:cuello,:torax,:corazon,:pulmones,:abdpelvis,:genext,:colver,:neurologico,:miemsup,:mieminf,:pifan,:articu,:fuermus,:reflejos,:parescraneales,:psicoemocional,:fc,:fr,:ta,:t,:so2,:pesokg,:tallacm,:imc,:lectura,:imd,:conds,:incap,:usuario,:docusuario)";

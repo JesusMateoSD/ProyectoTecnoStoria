@@ -1,6 +1,30 @@
 <?php
-session_start();
-$fechahoy = date('Y-m-d');
+  session_start();
+
+  if(isset($_POST['salvarevolucion'])){
+    $HClinicaS = new EvMedicaControlador();
+    $HClinicaS->registrarEvMedicaControlador();
+  }
+
+  $fechahoy = date('Y-m-d');
+
+  if($_GET['action'] == 'emok'){
+    ?>
+      <script>
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "La evolucion medica ha sido creada con exito",
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+            
+            })
+          });
+      </script>
+    <?php
+  }
 
 // $query = "SELECT * FROM tbl_pacientes WHERE documento='$_SESSION[scedulap]'";
 // $result = mysqli_query($mysqli, $query);
@@ -50,16 +74,6 @@ if (isset($_SESSION['usuario'])) {
   <div class="p-2 bg-primary text-white">Crear Evolucion</div>
   <hr>
   <!-- MESSAGES -->
-
-  <?php if (isset($_SESSION['message'])) { ?>
-    <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
-      <?= $_SESSION['message'] ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php unset($_SESSION["message"]);
-  } ?>
 
   <!-- ADD TASK FORM -->
 
@@ -196,7 +210,7 @@ if (isset($_SESSION['usuario'])) {
                 <?php
                 // $query = $mysqli->query("SELECT * FROM tbl_consulta");
                 // while ($valores = mysqli_fetch_array($query)) {
-                foreach($tablaConsultas as $valores){
+                foreach($TablaConsultas as $valores){
                   echo '<option value="' . $valores['codigo'] . '">' . $valores['nombre'] . '</option>';
                 }
                 ?>
@@ -219,45 +233,21 @@ if (isset($_SESSION['usuario'])) {
 
           </div>
 
-          <input name="salvarevolucion" id="salvarevolucion" class="btn btn-primary " value="Grabar Evolucion">
+          <input type="submit" name="salvarevolucion" id="salvarevolucion" class="btn btn-primary " value="Grabar Evolucion">
           <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
         </form>
       </div>
     </div>
     <br>
-    <div id="tablaevolucion"></div>
+    <div id="tablaevolucion" class="bg-light p-2 mb-2"></div>
 
     </div>
   </div>
 </main>
 
-
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#salvarevolucion').click(function() {
-      var datos = $('#myForm').serialize();
-      $.ajax({
-        type: "POST",
-        url: "salvarevolucion.php",
-        data: datos,
-        success: function(r) {
-          if (r == 1) {
-            alert("agregado con exito");
-          } else {
-            //  alert("agregado con exito");
-            $("#tablaevolucion").load('mostrarevolucion.php');
-          }
-        }
-      });
-      return false;
-    });
-  });
-</script>
-
 <script type="text/javascript">
   function detalleinicio() {
-    $("#tablaevolucion").load('mostrarevolucion.php');
+    $("#tablaevolucion").load('views/modules/mostrarevolucion.php');
   }
 </script>
 
