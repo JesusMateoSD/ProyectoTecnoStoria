@@ -14,6 +14,21 @@
         return $e;
       }
     }
+    
+    public function TablaModeloRecetarioIdModelo($nombre){
+      $sql = "SELECT * FROM tbl_modelor WHERE nombre = :nombre";
+      try {
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':nombre', $nombre,PDO::PARAM_STR);
+        $stmt->execute();
+        if($stmt->rowCount() == 1){
+          return $stmt->fetch();
+        }
+      } catch (Exception $e) {
+        return $e;
+      }
+    }
 
     public function TablaRecetarioModelo(){
       $sql = "SELECT * FROM tbl_recetario";

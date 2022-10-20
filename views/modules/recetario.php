@@ -156,48 +156,7 @@
 
 <script type="text/javascript" src="views/js/mostrarRecetario.js"></script>
 
-<script>
-  document.getElementById("modelos").onchange = function() {
-    alerta()
-  };
-
-  function alerta() {
-    // Creando el objeto para hacer el request
-    var request = new XMLHttpRequest();
-    request.responseType = 'json';
-    // Objeto PHP que consultaremos
-    request.open("POST", "modelor.php");
-    // Definiendo el listener
-    request.onreadystatechange = function() {
-      // Revision si fue completada la peticion y si fue exitosa
-      if (this.readyState === 4 && this.status === 200) {
-        // Ingresando la respuesta obtenida del PHP
-        var nombrer = this.response.message;
-        if (nombrer === "vacio") {
-          alert("Este Modelo No Existe en El Sistema.");
-
-        } else {
-          document.getElementById("recetario").value = this.response.modelo;
-
-          //   document.getElementById('cantidad').focus();
-
-        }
-
-      }
-    };
-
-    // Recogiendo la data del HTML
-    var myForm = document.getElementById("myForm");
-    var formData = new FormData(myForm);
-
-    // Enviando la data al PHP
-    request.send(formData);
-  }
-
-  function handler(e) {
-    alert(e.target.value);
-  }
-</script>
+<script src="views/js/recetarioMR.js"></script>
 
 
 <!-- FIN PHP INDEX SUPER USUARIO -->

@@ -7,6 +7,12 @@
       return $respuesta;
     }
 
+    public function TablaModeloRecetarioIdControlador($nombre){
+      $Recetario = new RecetarioModelo();
+      $respuesta = $Recetario->TablaModeloRecetarioIdModelo($nombre);
+      return $respuesta;
+    }
+
     public function TablaRecetarioControlador(){
       $Recetario = new RecetarioModelo();
       $respuesta = $Recetario->TablaRecetarioModelo();

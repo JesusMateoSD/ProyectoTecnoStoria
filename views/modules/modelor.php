@@ -1,33 +1,20 @@
 <?php
-include('../db.php');
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+  require_once('../../controllers/RecetarioControlador.php');
+  require_once('../../models/RecetarioModelo.php');
+
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = htmlspecialchars(trim($_POST["modelos"]));
+    // $sqlsi = "SELECT * FROM tbl_modelor WHERE nombre = '$nombre'";
+    // $resultado = $mysqli->query($sqlsi);
+    // $dato = $resultado->fetch_assoc();
 
+    $recetario = new RecetarioControlador();
+    $rslRecetario = $recetario->TablaModeloRecetarioIdControlador($nombre);
 
-    $sqlsi = "SELECT * FROM tbl_modelor WHERE nombre = '$nombre'";
-    $resultado = $mysqli->query($sqlsi);
-    if (mysqli_num_rows($resultado) == 1) {
-    $dato = $resultado->fetch_assoc();
-
-    $modelo = $dato['modelo'];
-    
+    $modelo = $rslRecetario['modelo'];
 
     echo json_encode([
-       'modelo' => $modelo
-       
+      'modelo' => $modelo
     ]);
-   }
-
-  else{
-  
-      echo json_encode([
-      
-       'message' => 'vacio',
-       
-    ]);
-   }
-
-}
-
-
+  }
 ?>
