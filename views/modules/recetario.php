@@ -1,7 +1,32 @@
 <?php
   session_start();
+
+  if(isset($_POST['salvarrecetario'])){
+    $HClinicaS = new RecetarioControlador();
+    $HClinicaS->registrarRecetarioControlador();
+  }
+
   date_default_timezone_set('America/Bogota');
   $fechahoy = date('Y-m-d');
+
+  if($_GET['action'] == 'receok'){
+    ?>
+      <script>
+          $(document).ready(function() {
+            swal({
+              title: 'TecnoStoria',
+              text: "El recetario ha sido creada con exito",
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'OK!'
+            }).then((result) => {
+            
+            })
+          });
+      </script>
+    <?php
+  }
+
 
   $cedulaPHC = $_SESSION['scedulap'];
   $paciente = new UsuarioControlador();
@@ -28,7 +53,7 @@
 ?>
 
 <head>
-  <script type="text/javascript" src="views/modules/tablaRecetario.js"></script>
+  <script type="text/javascript" src="views/js/tablaRecetario.js"></script>
 </head>
 
 <main class="container ">
@@ -118,7 +143,7 @@
 
           </div>
 
-          <input name="salvarrecetario" id="salvarrecetario" class="btn btn-primary " value="Grabar Recetario">
+          <input type="submit" name="salvarrecetario" id="salvarrecetario" class="btn btn-primary " value="Grabar Recetario">
           <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
 
         </form>
@@ -130,29 +155,6 @@
     </div>
   </div>
 </main>
-
-<!-- <script type="text/javascript">
-  $(document).ready(function() {
-    $('#salvarrecetario').click(function() {
-      var datos = $('#myForm').serialize();
-      $.ajax({
-        type: "POST",
-        url: "salvarrecetario.php",
-        data: datos,
-        success: function(r) {
-          if (r == 1) {
-            alert("agregado con exito");
-          } else {
-            //  alert("agregado con exito");
-            $("#tablarecetario").load('mostrarrecetario.php');
-          }
-        }
-      });
-
-      return false;
-    });
-  });
-</script> -->
 
 <script type="text/javascript" src="views/js/mostrarRecetario.js"></script>
 

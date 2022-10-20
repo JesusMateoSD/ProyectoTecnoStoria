@@ -86,8 +86,6 @@
     $docusuario = $rowrl['docusuario'];
   }
 
-  echo $docusuario;
-
   $usuario = new UsuarioControlador();
   $conUsuario = $usuario->consultarDocumentoPacienteControlador($docusuario);
   // $query = "SELECT * FROM tbl_usuarios WHERE documento=$docusuario ";

@@ -30,6 +30,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'emok'){
         $modulo = 'views/modules/evolucion.php';
       }
+
+      if($enlace == 'receok'){
+        $modulo = 'views/modules/recetario.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
@@ -50,7 +54,9 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarHC&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delEM'){
       header('location:index.php?action=eliminarEM&id='.$_GET['id']);
-    }  
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delRece'){
+      header('location:index.php?action=eliminarRecetario&id='.$_GET['id']);
+    } 
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);
