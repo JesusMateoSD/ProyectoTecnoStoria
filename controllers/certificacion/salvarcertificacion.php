@@ -13,11 +13,7 @@ date_default_timezone_set('America/Bogota');
   $tel = $_POST['tel'];
   $edad = $_POST['edad'];
   $fechan = $_POST['fechan'];
-
-
   $certificacion = $_POST['certificacion'];
- 
-
   $usuario = $_SESSION['snombre'];
   $docusuario = $_SESSION['sdocumento'];
 

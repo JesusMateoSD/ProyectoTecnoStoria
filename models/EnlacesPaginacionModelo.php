@@ -34,6 +34,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'receok'){
         $modulo = 'views/modules/recetario.php';
       }
+
+      if($enlace == 'certeok'){
+        $modulo = 'views/modules/certificacion.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
