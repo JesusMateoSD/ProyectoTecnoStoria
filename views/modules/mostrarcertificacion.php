@@ -37,7 +37,7 @@
             </a>
           </td>
           <td>
-            <a href="certificacionpdf.PHP?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
+            <a href="index.php?action=certificacionpdf&id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
               <i class="fas fa-file-pdf"></i></a>
           </td>
         </tr>

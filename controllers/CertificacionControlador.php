@@ -8,7 +8,7 @@
     }
 
     public function registrarCertificacionControlador(){
-      if(isset($_POST['salvarrecetario'])){
+      if(isset($_POST['salvarhistoria'])){
         $datosCert = ['fecha' => $_POST['fecha'],
         'hora' => $_POST['hora'],
         'td' => $_POST['td'],
@@ -31,6 +31,19 @@
           header('location:index.php?action=certificacion');
         }
       }
+    }
+
+    public function borrarCertificacionControlador($id){
+      if(isset($id)){
+        $Cert = new CertificacionModelo();
+        $respuesta = $Cert->borrarCertificacionModelo($id);
+      }
+    }
+
+    public function TablaCertificacionIdControlador($id){
+      $Recetario = new CertificacionModelo();
+      $respuesta = $Recetario->TablaCertificacionIdModelo($id);
+      return $respuesta;
     }
   }
 ?>

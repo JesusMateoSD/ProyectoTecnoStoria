@@ -1,74 +1,86 @@
 <?php
-  
-  include('../db.php');
-  require '../fpdf/fpdf.php';
+  include('views/fpdf/fpdf.php');
   
   session_start();
-  date_default_timezone_set('America/Bogota'); 
- 
+  
   $id = $_GET['id'];
- // $id = "4";
-    global $nombre;
-    global $direccion;
-    global $telefono;
-    global $correo;
-    global $foto;
-    global $ciudad;
-    global $depto;
-
-     
-     global $fechar;
-     global $dora;
-     global $documento;
-     global $paciente;
-     global $direccionr;
-     global $telefonor;
-     global $edad;
-     global $fechan;
-     global $certificacion;
-
-     global $docusuario;
-     global $fotou;
-     global $nombrepr;
-     global $registro;
-
-
-    $fecha = date('Y-m-d');
+  // $id = "4";
+  global $nombre;
+  global $direccion;
+  global $telefono;
+  global $correo;
+  global $foto;
+  global $ciudad;
+  global $depto;
+  
+  global $fechar;
+  global $dora;
+  global $documento;
+  global $paciente;
+  global $direccionr;
+  global $telefonor;
+  global $edad;
+  global $fechan;
+  global $certificacion;
+  
+  global $docusuario;
+  global $fotou;
+  global $nombrepr;
+  global $registro;
+  
+  
+  date_default_timezone_set('America/Bogota'); 
+  $fecha = date('Y-m-d');
 
   //query datos caratula
-  $querym = "SELECT * FROM tbl_parametros";
-  $resultm = mysqli_query($mysqli, $querym);
-  $rowm = mysqli_fetch_array($resultm);
-  $nombre = $rowm['nombre'];
-  $nit = $rowm['nit'];
-  $direccion = $rowm['direccion'];
-  $telefono = $rowm['telefono'];
-  $correo = $rowm['correo'];
-  $foto = $rowm['foto'];
-  $ciudad = $rowm['ciudad'];
-  $depto = $rowm['depto'];
-  //mira la tabla de resolucion para la caratula
-  $queryrl = "SELECT * FROM tbl_certificaciones WHERE id=$id";
-  $resultrl = mysqli_query($mysqli, $queryrl);
-  $rowrl = mysqli_fetch_array($resultrl);
-  $fechar = $rowrl['fecha'];
-  $hora = $rowrl['hora'];
-  $documento = $rowrl['documento'];
-  $paciente = $rowrl['paciente'];
-  $direccionr = $rowrl['direccion'];
-  $telefonor = $rowrl['telefono'];
-  $edad = $rowrl['edad'];
-  $fechan =$rowrl['fechan'];
-  $certificacion = $rowrl['certificacion'];
-  $docusuario = $rowrl['docusuario'];
+  // $querym = "SELECT * FROM tbl_parametros";
+  // $resultm = mysqli_query($mysqli, $querym);
+  // $rowm = mysqli_fetch_array($resultm);
+  $consultorios = new ConsultorioControlador();
+  $tConsultorios = $consultorios->tablaConsultoriosControlador();
 
-  $query = "SELECT * FROM tbl_usuarios WHERE documento=$docusuario ";
-  $resultado = $mysqli->query($query);
-  $row = mysqli_fetch_array($resultado);
+  foreach($tConsultorios as $rowm){
+    $nombre = $rowm['nombre'];
+    $nit = $rowm['nit'];
+    $direccion = $rowm['direccion'];
+    $telefono = $rowm['telefono'];
+    $correo = $rowm['correo'];
+    $foto = $rowm['foto'];
+    $ciudad = $rowm['ciudad'];
+    $depto = $rowm['depto'];
+  }
+
+  //mira la tabla de resolucion para la caratula
+  // $queryrl = "SELECT * FROM tbl_certificaciones WHERE id=$id";
+  // $resultrl = mysqli_query($mysqli, $queryrl);
+  // $rowrl = mysqli_fetch_array($resultrl);
+
+  $cert = new CertificacionControlador();
+  $tCert = $cert->TablaCertificacionIdControlador($id);
+  foreach($tCert as $rowrl){
+    $fechar = $rowrl['fecha'];
+    $hora = $rowrl['hora'];
+    $documento = $rowrl['documento'];
+    $paciente = $rowrl['paciente'];
+    $direccionr = $rowrl['direccion'];
+    $telefonor = $rowrl['telefono'];
+    $edad = $rowrl['edad'];
+    $fechan =$rowrl['fechan'];
+    $certificacion = $rowrl['certificacion'];
+    $docusuario = $rowrl['docusuario'];
+  }
+
+  // $query = "SELECT * FROM tbl_usuarios WHERE documento=$docusuario ";
+  // $resultado = $mysqli->query($query);
+  // $row = mysqli_fetch_array($resultado);
+  $usuario = new UsuarioControlador();
+  $conUsuario = $usuario->consultarDocumentoPacienteControlador($docusuario);
+
+  foreach($conUsuario as $row){
     $registro =  $row['registro'];
     $nombrepr =  $row['nombre'];
     $fotou =  $row['foto'];
-  
+  }
 
   class PDF extends FPDF
   {
@@ -94,7 +106,7 @@
       //rectangulo logo
             $this->Rect(10, 25, 30, 30, 'C');
       //$this->Image('../img/logo1p.png', 10, 27, 30 );
-      $this->Image('../parametros/'.$GLOBALS['foto'], 12, 27, 25 );
+      $this->Image(/*'../parametros/'.*/$GLOBALS['foto'], 12, 27, 25 );
       $this->SetFont('Arial','B',10);
       //linea 1
             $this->Rect(40, 25, 160, 10, 'C');
@@ -143,17 +155,13 @@ $pdf->Ln();
 $pdf->Cell(0, 7, utf8_decode('CERTIFICACION:'), 0, 1,'C');
 $pdf->MultiCell(0, 7, utf8_decode($GLOBALS['certificacion']), 0, 1);
 
-
 $pdf->Ln(10);
  
- 
 $pdf->SetX(85);
-$pdf->Image('../usuariosad/'.($GLOBALS['fotou']), $pdf->GetX(), $pdf->GetY(),40,00);
+$pdf->Image(/*'../usuariosad/'.*/($GLOBALS['fotou']), $pdf->GetX(), $pdf->GetY(),40,00);
 $pdf->Ln(25);
 $pdf->Cell(0, 7, utf8_decode($GLOBALS['nombrepr']), 0, 1,'C');
 $pdf->Cell(0, 7, utf8_decode($GLOBALS['registro']), 0, 1,'C');
-
-
 
 $pdf->Output();
 
