@@ -107,21 +107,21 @@
             </div>
 
             <div class="col-md-12 mb-2">
-              <div class="p-2 mb-2 bg-primary "></div>
+              <div class="p-2 mb-2 bg-primary"></div>
             </div>
 
-            <div class="col-md-12 mb-2">
+            <div class="col-md-12 mb-4">
               <label for="exampleFormControlTextarea1">Certificacion:</label>
               <textarea class="form-control rounded-0" name="certificacion" id="certificacion" rows="6"></textarea>
             </div>
 
             <div class="col-md-12 mb-2">
-              <div class="p-2 mb-2 bg-primary "></div>
+              <div class="p-2 mb-2 bg-primary"></div>
             </div>
 
           </div>
 
-          <input type="submit" name="salvarhistoria" id="salvarhistoria" class="btn btn-primary " value="Grabar Certificacion">
+          <input type="submit" name="salvarhistoria" id="salvarhistoria" class="btn btn-primary mr-3" value="Grabar Certificacion">
           <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
         </form>
       </div>

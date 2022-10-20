@@ -1,3 +1,3 @@
-function detalleinicio() { 
-  $("#tablapacientes").load('views/modules/mostrardetallep.php');
+function detalleinicio(){ 
+  $("#tablapacientes").load('index.php?action=mostrardetallep');
 }

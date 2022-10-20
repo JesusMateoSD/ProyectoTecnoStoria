@@ -131,7 +131,7 @@
               </select>
             </div>
 
-            <div class="col-md-12 mb-2">
+            <div class="col-md-12 mb-4">
               <label for="exampleFormControlTextarea1">Recetario:</label>
               <textarea class="form-control rounded-0" name="recetario" id="recetario" rows="4"></textarea>
             </div>
@@ -142,7 +142,7 @@
 
           </div>
 
-          <input type="submit" name="salvarrecetario" id="salvarrecetario" class="btn btn-primary " value="Grabar Recetario">
+          <input type="submit" name="salvarrecetario" id="salvarrecetario" class="btn btn-primary mr-3" value="Grabar Recetario">
           <a href="index.php?action=indexhclinicaAge&idp=<?php echo $_SESSION['scedulap'] ?>" class="btn btn-danger">Salir</a>
 
         </form>

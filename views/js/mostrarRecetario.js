@@ -1,3 +1,3 @@
 function detalleinicio() {
-  $("#tablarecetario").load('views/modules/mostrarrecetario.php');
+  $("#tablarecetario").load('index.php?action=mostrarrecetario');
 }

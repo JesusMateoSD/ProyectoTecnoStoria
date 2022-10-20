@@ -1,3 +1,3 @@
 function detalleinicio() {
-  $("#tablaevolucion").load('views/modules/mostrarevolucion.php');
+  $("#tablaevolucion").load('index.php?action=mostrarevolucion');
 }

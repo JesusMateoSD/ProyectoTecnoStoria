@@ -394,6 +394,36 @@ INSERT INTO `auditoria_tbl_hclinica` VALUES (1,'2022-10-18','16:02:18','CC','MAR
 UNLOCK TABLES;
 
 --
+-- Table structure for table `auditoria_tbl_modelor`
+--
+
+DROP TABLE IF EXISTS `auditoria_tbl_modelor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auditoria_tbl_modelor` (
+  `idauditoria_tbl_modelor` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_old` varchar(100) DEFAULT NULL,
+  `modelo_old` mediumtext DEFAULT NULL,
+  `nombre_new` varchar(100) DEFAULT NULL,
+  `modelo_new` mediumtext DEFAULT NULL,
+  `idauditoria` int(11) DEFAULT NULL,
+  `fecha_modificacion_modr` timestamp NULL DEFAULT current_timestamp(),
+  `usuario_modificacion_modr` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT 'CURRENT_USER()',
+  `evento_auditoria_modr` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  PRIMARY KEY (`idauditoria_tbl_modelor`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auditoria_tbl_modelor`
+--
+
+LOCK TABLES `auditoria_tbl_modelor` WRITE;
+/*!40000 ALTER TABLE `auditoria_tbl_modelor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auditoria_tbl_modelor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `auditoria_tbl_pacientes`
 --
 
@@ -589,13 +619,36 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_agenda_BEFORE_UPDATE` BEFORE UPDATE ON `tbl_agenda` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_agenda_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_agenda` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_agenda VALUES(NULL, NULL, NULL, NULL, NULL, NULL, 
+    NULL, NULL, NULL, NULL, new.fecha, new.horag, new.nprofesional, new.dprofesional,
+    new.npaciente, new.dpaciente, new.tpaciente, new.estado, new.obs, NULL, now(),
+    current_user(), 'Insercion de Agenda');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_agenda_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_agenda` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_agenda VALUES(NULL, old.fecha, old.horag, old.nprofesional, 
     old.dprofesional, old.npaciente, old.dpaciente, old.tpaciente, old.estado, old.obs,
 	new.fecha, new.horag, new.nprofesional, new.dprofesional, new.npaciente, 
@@ -610,13 +663,14 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_agenda_BEFORE_DELETE` BEFORE DELETE ON `tbl_agenda` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_agenda_BEFORE_DELETE` 
+BEFORE DELETE ON `tbl_agenda` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_agenda VALUES(NULL, old.fecha, old.horag, old.nprofesional, 
     old.dprofesional, old.npaciente, old.dpaciente, old.tpaciente, old.estado, old.obs,
 	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, old.id, now(),
@@ -720,6 +774,29 @@ LOCK TABLES `tbl_certificaciones` WRITE;
 INSERT INTO `tbl_certificaciones` VALUES (6,'2022-10-20','08:42:02','CC','MARY YOLIMA DIAZ CORTES','52560022','Manzana 14 Casa 11','32565999',47,'1973-07-15','Certifico que esta mujer debe ser tratada de los rinones inmediatamente','JESUS MATEO SANCHEZ DIAZ','79057182');
 /*!40000 ALTER TABLE `tbl_certificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_certificaciones_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_certificaciones` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_recetario VALUES(NULL, NULL, NULL, NULL, NULL, NULL, 
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, new.fecha, new.hora, 
+    new.tipodocumento, new.paciente, new.documento, new.direccion, new.telefono, new.edad,
+    new.fechan, new.certificacion, new.usuario, new.docusuario,
+    NULL, now(), current_user(), 'Insercion de la Certificacion');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -854,13 +931,36 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_parametros_BEFORE_UPDATE` BEFORE UPDATE ON `tbl_consultorios` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_consultorios_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_consultorios` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_consultorios VALUES(NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL,	new.nombre, new.nit, new.direccion, new.telefono,
+    new.correo, new.foto, new.creado, new.ciudad, new.depto, new.capb, new.napb,
+    NULL, now(), current_user(), 'Insercion de Consultorios');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_parametros_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_consultorios` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_consultorios VALUES(NULL, old.nombre, old.nit, 
     old.direccion, old.telefono, old.correo, old.foto, old.creado, old.ciudad, old.depto,
     old.capb, old.napb,	new.nombre, new.nit, new.direccion, new.telefono, new.correo, 
@@ -988,13 +1088,39 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_evolucion_BEFORE_UPDATE` BEFORE UPDATE ON `tbl_evolucion` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_evolucion_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_evolucion` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_evolucion VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, new.fecha, new.hora, new.tipodocumento, new.paciente, new.documento, new.direccion,
+    new.telefono, new.edad, new.fechan, new.mconsulta, new.alerta, new.tipodiagprin,
+    new.diagprin, new.diagrel1, new.diagrel2, new.procedimiento, new.consulta, new.complicacion,
+    new.evolucion, new.usuario, new.docusuario, NULL, now(), current_user(), 
+    'Insercion de la evolucion medica');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_evolucion_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_evolucion` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_evolucion VALUES(NULL, old.fecha, old.hora, 
     old.tipodocumento, old.paciente, old.documento, old.direccion, old.telefono, old.edad,
     old.fechan, old.mconsulta, old.alerta, old.tipodiagprin, old.diagprin, old.diagrel1,
@@ -1155,6 +1281,42 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_hclinica_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_hclinica` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_hclinica VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, new.fecha, new.hora, new.tipodocumento, 
+    new.paciente, new.documento, new.direccion, new.telefono, new.edad, new.fechan,
+    new.causaexterna, new.finalidadconsulta, new.motivodelaconsulta, new.enfermedadactual,
+    new.revisionxsistema, new.uanticonceptivos, new.menarquia, new.fum , new.g, new.a, new.p,
+    new.c, new.feultparto, new.cardvasculares, new.pulmonares, new.digestivos, new.diabetes,
+    new.renales, new.quirurgicos, new.traumaticos, new.alergicos, new.transfusiones,
+    new.medicamentos, new.alcohol, new.drogas, new.cigarrillo, new.inmunizaciones, new.otros,
+    new.antfam, new.cabeza, new.cara, new.cuello, new.torax, new.corazon, new.pulmones,
+    new.abdypel, new.genext, new.colvert, new.neurologico, new.miemsup, new.mieminf, 
+    new.pielyfaneras, new.artic, new.fuerzmus, new.reflejos, new.parescraneales,
+    new.psicoemocional, new.fc, new.fr, new.ta, new.t, new.so2, new.pesokg, new.tallacm, 
+    new.imc, new.resultadoimc, new.impdiag, new.condseguir, new.incapacidad, new.usuario, 
+    new.docusuario, NULL, now(), current_user(), 'Insercion de la Historia Clinica');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
@@ -1275,6 +1437,66 @@ LOCK TABLES `tbl_modelor` WRITE;
 INSERT INTO `tbl_modelor` VALUES (3,'FDSDFSFDSDFS','fdsdfsdsfdsfdsfdsfdfsdsffdsdsfsfdfddfsdfsdfsdfsfdsdfsdfs');
 /*!40000 ALTER TABLE `tbl_modelor` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_modelor_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_modelor` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_modelor VALUES(NULL, NULL, NULL, 
+    new.nombre, new.modelo, NULL, now(), current_user(), 'Insercion del modelo recetario');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_modelor_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_modelor` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_modelor VALUES(NULL, old.nombre, old.modelo, 
+    new.nombre, new.modelo, old.id, now(), current_user(), 'Actualizacion del modelo recetario');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_modelor_BEFORE_DELETE` 
+BEFORE DELETE ON `tbl_modelor` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_modelor VALUES(NULL, old.nombre, old.modelo, 
+    NULL, NULL, old.id, now(), current_user(), 'Eliminacion del modelo recetario');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `tbl_municipios`
@@ -1345,13 +1567,38 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_pacientes_BEFORE_UPDATE` BEFORE UPDATE ON `tbl_pacientes` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_pacientes_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_pacientes` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_pacientes VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+	new.paciente, new.tipodocumento, new.documento, new.fecha, new.fechan, new.edad,
+    new.sexo, new.direccion, new.telefono, new.correo, new.ocupacion, new.eps , new.dpto,
+    new.municipio, new.acudiente, new.direcciona, new.telefonoa, new.usuario, 
+    new.docusuario, NULL, now(), current_user(), 'Insercion de Paciente');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_pacientes_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_pacientes` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_pacientes VALUES(NULL, old.paciente, old.tipodocumento, 
     old.documento, old.fecha, old.fechan, old.edad, old.sexo, old.direccion, old.telefono,
     old.correo, old.ocupacion, old.eps , old.dpto , old.municipio, old.acudiente,
@@ -1424,6 +1671,29 @@ LOCK TABLES `tbl_recetario` WRITE;
 INSERT INTO `tbl_recetario` VALUES (9,'2022-10-20','07:21:32','CC','MARY YOLIMA DIAZ CORTES','52560022','Manzana 14 Casa 11','32565999',47,'1973-07-15','FDSDFSFDSDFS','asdawd','JESUS MATEO SANCHEZ DIAZ','79057182');
 /*!40000 ALTER TABLE `tbl_recetario` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_recetario_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_recetario` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_recetario VALUES(NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL,	NULL, NULL, new.fecha, new.hora, 
+    new.tipodocumento, new.paciente, new.documento, new.direccion, new.telefono, new.edad,
+    new.fechan, new.modelos, new.recetario,	new.usuario, new.docusuario,
+    new.id, now(), current_user(), 'Insercion del Recetario');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1531,13 +1801,36 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_usuarios_BEFORE_UPDATE` BEFORE UPDATE ON `tbl_usuarios` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `bd_tecnostoria`.`tbl_usuarios_BEFORE_INSERT` 
+BEFORE INSERT ON `tbl_usuarios` FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_tbl_usuarios VALUES(NULL, NULL, NULL, NULL, NULL, NULL, NULL, 
+    NULL, NULL, NULL, new.nombre, new.correo, new.clave, new.nivel, new.documento, 
+    new.creado, new.registro, new.fecha, new.foto, NULL, now(), current_user(), 
+    'Insercion de Usuarios');
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbl_usuarios_BEFORE_UPDATE` 
+BEFORE UPDATE ON `tbl_usuarios` FOR EACH ROW BEGIN
 	INSERT INTO auditoria_tbl_usuarios VALUES(NULL, old.nombre, old.correo, 
     old.clave, old.nivel, old.documento, old.creado, old.registro, old.fecha, old.foto,
 	new.nombre, new.correo, new.clave, new.nivel, new.documento, 
@@ -1587,4 +1880,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-20  9:19:00
+-- Dump completed on 2022-10-20 10:03:17
