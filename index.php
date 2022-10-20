@@ -14,6 +14,9 @@
   require_once('models/PacienteModelo.php');
   require_once('controllers/EvMedicaControlador.php');
   require_once('models/EvMedicaModelo.php');
+  require_once('controllers/RecetarioControlador.php');
+  require_once('models/RecetarioModelo.php');
+
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();
