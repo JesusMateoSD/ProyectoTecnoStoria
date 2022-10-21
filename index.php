@@ -18,7 +18,8 @@
   require_once('models/RecetarioModelo.php');
   require_once('controllers/CertificacionControlador.php');
   require_once('models/CertificacionModelo.php');
-
+  require_once('controllers/OrdMedControlador.php');
+  require_once('models/OrdMedModelo.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();

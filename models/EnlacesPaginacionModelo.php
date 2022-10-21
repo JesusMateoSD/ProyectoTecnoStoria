@@ -38,6 +38,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'certeok'){
         $modulo = 'views/modules/certificacion.php';
       }
+
+      if($enlace == 'omok'){
+        $modulo = 'views/modules/omedicas.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
@@ -62,6 +66,8 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarRecetario&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delCert'){
       header('location:index.php?action=eliminarCertificacion&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delOM'){
+      header('location:index.php?action=eliminarOM&id='.$_GET['id']);
     }  
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
