@@ -1,3 +1,3 @@
 function detalleinicio() {
-  $("#tablacertificacion").load('index.php?action=mostrarcertificacion');
+  $("#tablacertificacion").load('views/modules/mostrarcertificacion.php');
 }

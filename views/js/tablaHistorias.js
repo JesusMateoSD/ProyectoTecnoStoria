@@ -3,5 +3,5 @@ $(document).ready(function() {
 });
 
 function detalleinicio() {
-  $("#tablahistorias").load('index.php?action=mostrarhistorias');
+  $("#tablahistorias").load('views/modules/mostrarhistorias.php');
 }

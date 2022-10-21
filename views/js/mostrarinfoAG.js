@@ -1,5 +1,5 @@
 function mostrarInfo(){
-  var url = "index.php?action=proceso"; 
+  var url = "views/modules/proceso.php"; 
   $.ajax({                        
     type: "POST",                 
     url: url,                    
