@@ -46,6 +46,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'remok'){
         $modulo = 'views/modules/remision.php';
       }
+
+      if($enlace == 'ciok'){
+        $modulo = 'views/modules/cinformados.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
@@ -74,6 +78,8 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarOM&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delRemision'){
       header('location:index.php?action=eliminarRemision&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delCI'){
+      header('location:index.php?action=eliminarCI&id='.$_GET['id']);
     } 
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){

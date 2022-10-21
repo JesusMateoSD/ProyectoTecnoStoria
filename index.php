@@ -22,6 +22,8 @@
   require_once('models/OrdMedModelo.php');
   require_once('controllers/RemisionControlador.php');
   require_once('models/RemisionModelo.php');
+  require_once('controllers/ConsInfControlador.php');
+  require_once('models/ConsInfModelo.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();

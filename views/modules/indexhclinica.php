@@ -48,7 +48,7 @@
         <br>
         <div class="row">
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Consentimientos Informados</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=cinformados'">Consentimientos Informados</button>
           </div>
         </div>
         <br>
