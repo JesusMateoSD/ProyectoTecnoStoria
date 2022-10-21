@@ -20,6 +20,8 @@
   require_once('models/CertificacionModelo.php');
   require_once('controllers/OrdMedControlador.php');
   require_once('models/OrdMedModelo.php');
+  require_once('controllers/RemisionControlador.php');
+  require_once('models/RemisionModelo.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();

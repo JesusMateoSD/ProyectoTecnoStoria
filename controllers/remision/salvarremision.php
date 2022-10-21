@@ -13,21 +13,14 @@ date_default_timezone_set('America/Bogota');
   $tel = $_POST['tel'];
   $edad = $_POST['edad'];
   $fechan = $_POST['fechan'];
-  
-
-
-
   $mconsulta = $_POST['mconsulta'];
   $diagprin = $_POST['diagprin'];
   $diagrel1 = $_POST['diagrel1'];
   $diagrel2 = $_POST['diagrel2'];
   $especialidadremite = $_POST['especialidadremite'];
   $remision = $_POST['remision'];
-
-
-
-   $usuario = $_SESSION['snombre'];
-   $docusuario = $_SESSION['sdocumento'];
+  $usuario = $_SESSION['snombre'];
+  $docusuario = $_SESSION['sdocumento'];
 
  
   $query = "INSERT INTO tbl_remisiones(fecha,hora,tipodocumento,paciente,documento,direccion,telefono,edad,fechan,mconsulta,diagprin,diagrel1,diagrel2,especialidadremite,remision,usuario,docusuario) VALUES ('$fecha', '$hora', '$td', '$paciente','$documento','$dir','$tel','$edad','$fechan','$mconsulta','$diagprin','$diagrel1','$diagrel2','$especialidadremite','$remision','$usuario','$docusuario')";

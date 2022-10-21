@@ -76,9 +76,9 @@ $conUsuario = $usuario->consultarDocumentoPacienteControlador($docusuario);
 // $resultado = $mysqli->query($query);
 // $row = mysqli_fetch_array($resultado);
 foreach ($conUsuario as $row) {
-  $registro =  $row['registro'];
-  $nombrepr =  $row['nombre'];
-  $fotou =  $row['foto'];
+  $registro = $row['registro'];
+  $nombrepr = $row['nombre'];
+  $fotou = $row['foto'];
 }
 
 class PDF extends FPDF

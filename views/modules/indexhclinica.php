@@ -42,7 +42,7 @@
           </div>
 
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=consultorio'">Remisiones</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=remision'">Remisiones</button>
           </div>
         </div>
         <br>

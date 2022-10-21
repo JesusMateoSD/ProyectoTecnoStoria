@@ -42,6 +42,10 @@ class EnlacesPaginacionModelo{
       if($enlace == 'omok'){
         $modulo = 'views/modules/omedicas.php';
       }
+
+      if($enlace == 'remok'){
+        $modulo = 'views/modules/remision.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
