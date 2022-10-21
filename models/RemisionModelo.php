@@ -47,5 +47,35 @@
         return $e;
       }
     }
+
+    public function borrarRemisionModelo($id){
+      $sql ="DELETE FROM tbl_remisiones WHERE id = :id";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
+
+    public function TablaRemisionIdModelo($id){
+      $sql = "SELECT * FROM tbl_remisiones WHERE id = :id";
+      try {
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return $stmt->fetchAll();
+        }
+      } catch (Exception $e) {
+        return $e;
+      }
+    }
   }
 ?>

@@ -72,7 +72,9 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarCertificacion&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delOM'){
       header('location:index.php?action=eliminarOM&id='.$_GET['id']);
-    }  
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delRemision'){
+      header('location:index.php?action=eliminarRemision&id='.$_GET['id']);
+    } 
     
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);

@@ -38,7 +38,7 @@
             </a>
            </td>
            <td>
-             <a href="remisionpdf.php?id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
+             <a href="index.php?action=remisionpdf&id=<?php echo $row['id'] ?>" target="_blank" class="btn btn-outline-success">
                <i class="fas fa-file-pdf"></i></a>
            </td>
          </tr>

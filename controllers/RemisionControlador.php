@@ -7,6 +7,7 @@
       return $respuesta;
     }
 
+    
     public function registrarRemisionControlador(){
       if(isset($_POST['salvarremision'])){
         $datosRemision = ['fecha' => $_POST['fecha'],
@@ -26,16 +27,29 @@
         'remision' => $_POST['remision'],
         'usuario' => $_SESSION['snombre'],
         'docusuario' => $_SESSION['sdocumento']];
-
-        $EvMed = new RemisionModelo();
-        $respuesta = $EvMed->registrarRemisionModelo($datosRemision);
-
+        
+        $Remision = new RemisionModelo();
+        $respuesta = $Remision->registrarRemisionModelo($datosRemision);
+        
         if($respuesta == 'success'){
           header('location:index.php?action=remok');
         } else if($respuesta == 'error'){
           header('location:index.php?action=remision');
         }
       }
+    }
+    
+    public function borrarRemisionControlador($id){
+      if(isset($id)){
+        $Remision = new RemisionModelo();
+        $respuesta = $Remision->borrarRemisionModelo($id);
+      }
+    }
+
+    public function TablaRemisionIdControlador($id){
+      $Remision = new RemisionModelo();
+      $respuesta = $Remision->TablaRemisionIdModelo($id);
+      return $respuesta;
     }
   }
 ?>
