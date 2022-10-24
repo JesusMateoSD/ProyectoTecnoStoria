@@ -120,5 +120,73 @@
         return $e;
       }
     }
+
+    public function registrarCIE10Modelo($datosCIE10){
+      $sql = "INSERT INTO tbl_cie10(codigo,nombre) VALUES (:codigo, :nombre)";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':codigo', $datosCIE10['codigo'],PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datosCIE10['nombre'],PDO::PARAM_STR);
+
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
+
+    public function borrarCIE10Modelo($id){
+      $sql = "DELETE FROM tbl_cie10 WHERE id = :id";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
+
+    public function registrarCUPSModelo($datosCUPS){
+      $sql = "INSERT INTO tbl_cups(codigo,nombre) VALUES (:codigo, :nombre)";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':codigo', $datosCUPS['codigo'],PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datosCUPS['nombre'],PDO::PARAM_STR);
+
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
+
+    public function borrarCUPSModelo($id){
+      $sql = "DELETE FROM tbl_cups WHERE id = :id";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
   }
 ?>

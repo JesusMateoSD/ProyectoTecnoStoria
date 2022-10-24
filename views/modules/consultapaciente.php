@@ -2,7 +2,6 @@
 
 require_once('../../controllers/PacienteControlador.php');
 require_once('../../models/PacienteModelo.php');
-
   if($_SERVER["REQUEST_METHOD"] == "POST") {
     $documento = htmlspecialchars(trim($_POST["cedula"]));
 

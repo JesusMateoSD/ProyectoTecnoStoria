@@ -57,7 +57,6 @@
     }
 
     public function registrarPacienteModelo($datosPaciente){
-
       $sql = "INSERT INTO tbl_pacientes(paciente,tipodocumento,documento,fecha,fechan,edad,sexo,direccion,telefono,correo,ocupacion,eps,dpto,municipio,acudiente,direcciona,telefonoa,usuario,docusuario) VALUES (:paciente, :tipodocumento, :documento, :fecha, :fechan, :edad, :sexo, :direccion, :telefono, :correo, :ocupacion, :eps,:dpto, :municipio, :acudiente, :direcciona, :telefonoa, :usuario, :docusuario)";
       try {
         $conexion = new Conexion();

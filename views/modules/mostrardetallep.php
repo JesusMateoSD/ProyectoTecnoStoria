@@ -34,7 +34,7 @@
         <td><?php echo $row['telefono']; ?></td>
         <td><?php echo $row['correo']; ?></td>
         <td>
-          <li id="<?php echo $row['id']?>" class="btn btn-danger"><a href="index.php?action=delPac&id=<?php echo $row['id']?>" class="deleteitem" style="color: #FFF;" ><i class="fas fa-trash-alt"></i></a></i>
+          <li id="<?php echo $row['id']?>" class="btn btn-danger"><a href="index.php?action=delPac&id=<?php echo $row['id']?>" class="deleteitem" style="color: #FFF;" ><i class="fas fa-trash-alt"></i></a></li>
         </td>
       </tr>
     <?php } ?>

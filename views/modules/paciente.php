@@ -15,7 +15,7 @@
     <script LANGUAGE="javascript">
        $(document).ready(function() {
          swal({
-           title: 'Medicina Web!',
+           title: 'TecnoStoria',
            text: "El Paciente Fue Grabado Correctamente!",
            type: 'success',
            confirmButtonColor: '#3085d6',

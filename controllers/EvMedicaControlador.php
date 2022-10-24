@@ -72,5 +72,51 @@
       $respuesta = $HClinica->TablaEvolucionMedicaIdModelo($id);
       return $respuesta;
     }
+
+    public function registrarCIE10Controlador(){
+      if(isset($_POST['salvarcie10'])){
+        $datosCIE10 = ['codigo' => $_POST['codigo'],
+        'nombre' => $_POST['nombre']];
+
+        $EvMed = new EvMedicaModelo();
+        $respuesta = $EvMed->registrarCIE10Modelo($datosCIE10);
+
+        if($respuesta == 'success'){
+          header('location:index.php?action=cie10ok');
+        } else if($respuesta == 'error'){
+          header('location:index.php?action=cie10');
+        }
+      }
+    }
+
+    public function borrarCIE10Controlador($id){
+      if(isset($id)){
+        $EvMed = new EvMedicaModelo();
+        $respuesta = $EvMed->borrarCIE10Modelo($id);
+      }
+    }
+
+    public function registrarCUPSControlador(){
+      if(isset($_POST['salvarcups'])){
+        $datosCUPS = ['codigo' => $_POST['codigo'],
+        'nombre' => $_POST['nombre']];
+
+        $EvMed = new EvMedicaModelo();
+        $respuesta = $EvMed->registrarCUPSModelo($datosCUPS);
+
+        if($respuesta == 'success'){
+          header('location:index.php?action=cupsok');
+        } else if($respuesta == 'error'){
+          header('location:index.php?action=cups');
+        }
+      }
+    }
+
+    public function borrarCUPSControlador($id){
+      if(isset($id)){
+        $EvMed = new EvMedicaModelo();
+        $respuesta = $EvMed->borrarCUPSModelo($id);
+      }
+    }
   }
 ?>

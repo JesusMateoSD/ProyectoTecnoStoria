@@ -101,5 +101,39 @@
         return $e;
       }
     }
+
+    public function registrarModeloRModelo($datosModR){
+      $sql = "INSERT INTO tbl_modelor(nombre,modelo) VALUES (:nombre, :modelo)";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':nombre', $datosModR['nombre'],PDO::PARAM_STR);
+        $stmt->bindParam(':modelo', $datosModR['modelo'],PDO::PARAM_STR);
+
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
+
+    public function borrarModeloRModelo($id){
+      $sql = "DELETE FROM tbl_modelor WHERE id = $id";
+      try{
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
+      }
+    }
   }
 ?>

@@ -1,9 +1,9 @@
 <?php
   session_start();
 
-  if(isset($_POST['salvarcinformados'])){
-    $HClinicaS = new ConsInfControlador();
-    $HClinicaS->registrarConsInfControlador();
+  if(isset($_POST['salvarrecetario'])){
+    $HClinicaS = new RecetarioControlador();
+    $HClinicaS->registrarRecetarioControlador();
   }
 
   date_default_timezone_set('America/Bogota');

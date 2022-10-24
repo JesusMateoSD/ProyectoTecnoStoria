@@ -118,6 +118,36 @@
       $respuesta = $usuario->consultarPacienteHCModelo($cedulaPHC);
       return $respuesta;
     }
+
+    public function TablaUsuarioClaveControlador($correo){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->TablaUsuarioClaveModelo($correo);
+      return $respuesta;
+    }
+
+    public function UsuarioClaveControlador($id){
+      $usuario = new UsuarioModelo();
+      $respuesta = $usuario->UsuarioClaveModelo($id);
+      return $respuesta;
+    }
+
+    public function CambiarClaveControlador($id){
+      if(isset($_POST['update'])) {
+        $datosUsuarioCC = ['id' => $id,
+        'nombre' => $_POST['nombre'],
+        'correo' => $_POST['correo'],
+        'pass' => password_hash($_POST['clave'], PASSWORD_BCRYPT)];
+
+        $usuario = new UsuarioModelo();
+        $respuesta = $usuario->CambiarClaveModelo($datosUsuarioCC);
+        
+        if($respuesta == 'success'){
+          header('location:index.php?action=usuccok');
+        } else{
+          header('location:index.php?action=editusuariocc');
+        }
+      } 
+    }
   }
 ?>
 

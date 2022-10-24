@@ -4,7 +4,6 @@ include_once('db.php');
 
 class UsuarioModelo extends Conexion{
   public function registrarUsuarioModelo($datosUsuario){
-    
     $sql = "INSERT INTO tbl_usuarios VALUES(null,:nombre,:correo,:clave,:nivel,:documento,:creado,:registro,:fecha,:foto)";
     try {
       $conexion = new Conexion();
@@ -200,6 +199,55 @@ class UsuarioModelo extends Conexion{
       return $e;
     }
   }
-}
 
+  public function TablaUsuarioClaveModelo($correo){
+    $sql = "SELECT * FROM tbl_usuarios WHERE correo = :correo";
+    try {
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':correo', $correo,PDO::PARAM_STR);
+      $stmt->execute();
+      if($stmt->rowCount() == 1){
+        return $stmt->fetch();
+      }
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
+
+  public function UsuarioClaveModelo($id){
+    $sql = "SELECT * FROM tbl_usuarios WHERE id = :id";
+    try{
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+
+      if($stmt->execute()){
+        return $stmt->fetchAll();
+      }else{
+        return 'error';
+      }
+    } catch(Exception $e){
+      return $e;
+    }
+  }
+
+  public function CambiarClaveModelo($datosUsuarioCC){
+    $sql = "UPDATE tbl_usuarios set clave = :pass WHERE id = :id";
+    try{
+      $conexion = new Conexion();
+      $stmt = $conexion->conectar()->prepare($sql);
+      $stmt->bindParam(':pass', $datosUsuarioCC['pass'],PDO::PARAM_STR);
+      $stmt->bindParam(':id', $datosUsuarioCC['id'],PDO::PARAM_INT);
+
+      if($stmt->execute()){
+        return 'success';
+      }else{
+        return 'error';
+      }
+    } catch(Exception $e){
+      return $e;
+    }
+  }
+}
 ?>

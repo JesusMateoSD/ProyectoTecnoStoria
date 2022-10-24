@@ -24,6 +24,8 @@
   require_once('models/RemisionModelo.php');
   require_once('controllers/ConsInfControlador.php');
   require_once('models/ConsInfModelo.php');
+  require_once('controllers/PagosControlador.php');
+  require_once('models/PagosModelo.php');
 
   $obj = new EnlacesPaginacionControlador();
   $obj->mostrarPagina();

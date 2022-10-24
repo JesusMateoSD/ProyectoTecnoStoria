@@ -22,11 +22,11 @@
                 <li><a class="dropdown-item" href="index.php?action=consultorio">Consultorio</a></li>
                 <li><a class="dropdown-item" href="index.php?action=usuarioadm">Crear Administrador</a></li>
                 <li><a class="dropdown-item" href="index.php?action=usuario">Crear Usuario</a></li>
-                <li><a class="dropdown-item" href="">Crear Tarifa</a></li>
-                <li><a class="dropdown-item" href="">Crear CIE10</a></li>
-                <li><a class="dropdown-item" href="">Crear CUPS</a></li>
-                <li><a class="dropdown-item" href="">Reportes</a></li>
-                <li><a class="dropdown-item" href="">Cambiar Clave</a></li>
+                <li><a class="dropdown-item" href="index.php?action=tarifa">Crear Tarifa</a></li>
+                <li><a class="dropdown-item" href="index.php?action=cie10">Crear CIE10</a></li>
+                <li><a class="dropdown-item" href="index.php?action=cups">Crear CUPS</a></li>
+                <li><a class="dropdown-item" href="index.php?action=reportes">Reportes</a></li>
+                <li><a class="dropdown-item" href="index.php?action=usuariocc">Cambiar Clave</a></li>
               </ul>
             </li>
             <?php } ?>
@@ -39,6 +39,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="index.php?action=modalhc" >Ingreso Historia Clinica</a></li>
                 <li><a class="dropdown-item" href="index.php?action=agenda">Agenda</a></li>
+                <li><a class="dropdown-item" href="index.php?action=usuariocc">Cambiar Clave</a></li>
               </ul>
             </li>
             <?php } ?>
@@ -51,10 +52,10 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="index.php?action=paciente">Pacientes</a></li>
                 <li><a class="dropdown-item" href="index.php?action=agenda">Agenda</a></li>
-                <li><a class="dropdown-item" href="">Pagos</a></li>
-                <li><a class="dropdown-item" href="">Crear Modelo Consentimiento</a></li>
-                <li><a class="dropdown-item" href="">Crear Modelo Recetario</a></li>
-                <li><a class="dropdown-item" href="">Cambiar Clave</a></li>
+                <li><a class="dropdown-item" href="index.php?action=pagos">Pagos</a></li>
+                <li><a class="dropdown-item" href="index.php?action=modeloc">Crear Modelo Consentimiento</a></li>
+                <li><a class="dropdown-item" href="index.php?action=modelorec">Crear Modelo Recetario</a></li>
+                <li><a class="dropdown-item" href="index.php?action=usuariocc">Cambiar Clave</a></li>
               </ul>
             </li>
             <?php } ?>

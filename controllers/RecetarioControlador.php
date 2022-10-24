@@ -58,5 +58,28 @@
       $respuesta = $Recetario->TablaRecetarioIdModelo($id);
       return $respuesta;
     }
+
+    public function registrarModeloRControlador(){
+      if(isset($_POST['salvarmodelor'])){
+        $datosModR = ['modelo' => $_POST['modelo'],
+        'nombre' => $_POST['nombre']];
+
+        $Recetario = new RecetarioModelo();
+        $respuesta = $Recetario->registrarModeloRModelo($datosModR);
+
+        if($respuesta == 'success'){
+          header('location:index.php?action=modrok');
+        } else if($respuesta == 'error'){
+          header('location:index.php?action=modelorec');
+        }
+      }
+    }
+
+    public function borrarModeloRControlador($id){
+      if(isset($id)){
+        $Recetario = new RecetarioModelo();
+        $respuesta = $Recetario->borrarModeloRModelo($id);
+      }
+    }
   }
 ?>

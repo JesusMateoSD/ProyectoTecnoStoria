@@ -50,6 +50,34 @@ class EnlacesPaginacionModelo{
       if($enlace == 'ciok'){
         $modulo = 'views/modules/cinformados.php';
       }
+
+      if($enlace == 'usuccok'){
+        $modulo = 'views/modules/usuariocc.php';
+      }
+
+      if($enlace == 'tarok'){
+        $modulo = 'views/modules/tarifa.php';
+      }
+
+      if($enlace == 'cie10ok'){
+        $modulo = 'views/modules/cie10.php';
+      }
+
+      if($enlace == 'cupsok'){
+        $modulo = 'views/modules/cups.php';
+      }
+
+      if($enlace == 'modrok'){
+        $modulo = 'views/modules/modelorec.php';
+      }
+
+      if($enlace == 'modcok'){
+        $modulo = 'views/modules/modeloc.php';
+      }
+
+      if($enlace == 'pagok'){
+        $modulo = 'views/modules/pagos.php';
+      }
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
@@ -80,12 +108,27 @@ class EnlacesPaginacionModelo{
       header('location:index.php?action=eliminarRemision&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'delCI'){
       header('location:index.php?action=eliminarCI&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delTar'){
+      header('location:index.php?action=eliminarTarifa&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delCIE'){
+      header('location:index.php?action=eliminarCIE10&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delCUPS'){
+      header('location:index.php?action=eliminarCUPS&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delModR'){
+      header('location:index.php?action=eliminarModeloR&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delModC'){
+      header('location:index.php?action=eliminarModeloC&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'delPagT'){
+      header('location:index.php?action=eliminarPagoTemp&id='.$_GET['id']);
     } 
     
+
     if(isset($_GET['action']) && $_GET['action'] == 'editCon'){
       header('location:index.php?action=editconsultorio&id='.$_GET['id']);
     } else if(isset($_GET['action']) && $_GET['action'] == 'editAge'){
       header('location:index.php?action=editpagenda&id='.$_GET['id']);
+    } else if(isset($_GET['action']) && $_GET['action'] == 'editUsu'){
+      header('location:index.php?action=editusuariocc&id='.$_GET['id']);
     } 
 
     if(isset($_GET['action']) && $_GET['action'] == 'indexhclinicaAge'){
