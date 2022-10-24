@@ -24,7 +24,7 @@
               <input type="date" name="fechai" class="mx-3 form-control w-25" >
               <label class="mt-1">Fecha Final </label>
               <input type="date" name="fechaf" class="mx-3 form-control w-25"  >
-              <input type="submit" name="repmes" class="btn btn-primary mx-2" target="_blank" value="Generar Reporte">
+              <input type="submit" name="repmes" class="btn btn-primary ml-1 mr-3" target="_blank" value="Generar Reporte">
               <a href="index.php?action=reportes" class="btn btn-success">Cancelar</a>
           </div>
         </form>

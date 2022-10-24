@@ -59,7 +59,7 @@
             <input type="text" name="precio1" class="form-control" placeholder="Precio Secundario" autofocus autocomplete="off">
           </div>
           
-          <input type="submit" name="salvartarifa" class="btn btn-primary btn-block" value="GrabarTarifa">
+          <input type="submit" name="salvartarifa" class="btn btn-primary btn-block" value="Grabar Tarifa">
         </form>
       </div>
     </div>

@@ -70,7 +70,7 @@ if(isset($_POST['update'])){
   }
  ?>
 
-<main class="container my-5 p-3 bg-light">
+<main class="container my-5 p-4 bg-light">
   <div class="row px-3 d-block"> 
     <form method="POST">
   		<p class="p-2 mb-2 bg-primary text-white">Actualizar Clave Usuario</p>
@@ -99,7 +99,7 @@ if(isset($_POST['update'])){
       </div>
 
       <div class="mx-auto col-md-4 mb-4">
-        <input onClick=" window.location.href='indexusuariocc.php'" class="btn btn-success btn-block" value="Cancelar">
+        <a class="btn btn-success btn-block" href="index.php?action=usuariocc">Cancelar</a>
       </div>
     </div>
   </form>
