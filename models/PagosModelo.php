@@ -262,7 +262,7 @@
       try {
         $conexion = new Conexion();
         $stmt = $conexion->conectar()->prepare($sql);
-        $stmt->bindParam(':fecha', $fecha,PDO::PARAM_INT);
+        $stmt->bindParam(':fecha', $fecha,PDO::PARAM_STR);
         if($stmt->execute()){
           return $stmt->fetchAll();
         }
