@@ -72,7 +72,7 @@
                 </select>
               </div>  
               <div class="col-md-3 mb-4">
-                <input type="text" name="cedula" id="cedula" class="form-control" onblur="alertap()" placeholder="Cedula" autofocus>
+                <input type="text" name="cedula" id="cedula" class="form-control" onkeyup="alertap()" placeholder="Cedula" autofocus>
               </div>
               <div class="col-md-4 mb-4">
                 <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Paciente" autofocus readonly>

@@ -75,7 +75,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <div class="col-md-3 mb-4">
-              <input type="text" name="cedula" class="form-control" placeholder="Documento" onBlur="alerta()" autofocus autocomplete="off">
+              <input type="text" name="cedula" class="form-control" placeholder="Documento" onkeyup="alerta()" autofocus autocomplete="off">
             </div>
 
             <div class="col-md-6 mb-4">
