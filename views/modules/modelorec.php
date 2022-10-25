@@ -1,37 +1,37 @@
 <?php
-  session_start();
+session_start();
 
-  if (isset($_POST['salvarmodelor'])) {
-    $HClinicaS = new RecetarioControlador();
-    $HClinicaS->registrarModeloRControlador();
-  }
+if (isset($_POST['salvarmodelor'])) {
+  $HClinicaS = new RecetarioControlador();
+  $HClinicaS->registrarModeloRControlador();
+}
 
-  if ($_GET['action'] == 'modrok') {
-  ?>
-    <script>
-      $(document).ready(function() {
-        swal({
-          title: 'TecnoStoria',
-          text: "El modelo recetario ha sido creada con exito",
-          type: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'OK!'
-        }).then((result) => {
+if ($_GET['action'] == 'modrok') {
+?>
+  <script>
+    $(document).ready(function() {
+      swal({
+        title: 'TecnoStoria',
+        text: "El modelo recetario ha sido creada con exito",
+        type: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK!'
+      }).then((result) => {
 
-        })
-      });
-    </script>
-  <?php
-  }
+      })
+    });
+  </script>
+<?php
+}
 
-  $Recetario = new RecetarioControlador();
-  $tablaR = $Recetario->TablaModeloRecetarioControlador();
+$Recetario = new RecetarioControlador();
+$tablaR = $Recetario->TablaModeloRecetarioControlador();
 
-  if (isset($_SESSION['usuario'])) {
-    include("header.php");
-  } else {
-    header('location:index.php');
-  }
+if (isset($_SESSION['usuario'])) {
+  include("header.php");
+} else {
+  header('location:index.php');
+}
 ?>
 
 <head>
@@ -96,7 +96,5 @@
         <?php } ?>
       </tbody>
     </table>
-  </div>
-  </div>
   </div>
 </main>

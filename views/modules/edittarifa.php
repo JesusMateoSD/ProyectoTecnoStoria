@@ -1,9 +1,9 @@
 <?php
 include("../db.php");
 $title = '';
-$description= '';
+$description = '';
 
-if  (isset($_GET['id'])) {
+if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $query = "SELECT * FROM parametros WHERE id=$id";
   $result = mysqli_query($mysqli, $query);
@@ -11,15 +11,15 @@ if  (isset($_GET['id'])) {
     $row = mysqli_fetch_array($result);
     $nombre = $row['nombre'];
     $nit = $row['nit'];
-	$direccion = $row['direccion'];
-	$telefono = $row['telefono'];
-	$correo = $row['correo'];
+    $direccion = $row['direccion'];
+    $telefono = $row['telefono'];
+    $correo = $row['correo'];
   }
 }
 
 if (isset($_POST['update'])) {
   $id = $_GET['id'];
-  $nombre= $_POST['nombre'];
+  $nombre = $_POST['nombre'];
   $nit = $_POST['nit'];
   $direccion = $_POST['direccion'];
   $telefono = $_POST['telefono'];
@@ -38,26 +38,26 @@ if (isset($_POST['update'])) {
   <div class="row">
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
-      <form action="editusuario.php?id=<?php echo $_GET['id']; ?>" method="POST">
-        <div class="form-group">
-          <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>" placeholder="Actualizar Nombre">
-        </div>
-        <div class="form-group">
-          <input name="nit" type="text" class="form-control" value="<?php echo $nit; ?>" placeholder="Actualizar Nit">
-        </div>
-		<div class="form-group">
-          <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>" placeholder="Actualizar Direccion">
-        </div>
-		<div class="form-group">
-          <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>" placeholder="Actualizar Telefono">
-        </div>
-		<div class="form-group">
-          <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>" placeholder="Actualizar Correo">
-        </div>
-        <button class="btn-success" name="update">
-          ACTUALIZAR PARAMETRO
-       </button>
-      </form>
+        <form action="editusuario.php?id=<?php echo $_GET['id']; ?>" method="POST">
+          <div class="form-group">
+            <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>" placeholder="Actualizar Nombre">
+          </div>
+          <div class="form-group">
+            <input name="nit" type="text" class="form-control" value="<?php echo $nit; ?>" placeholder="Actualizar Nit">
+          </div>
+          <div class="form-group">
+            <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>" placeholder="Actualizar Direccion">
+          </div>
+          <div class="form-group">
+            <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>" placeholder="Actualizar Telefono">
+          </div>
+          <div class="form-group">
+            <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>" placeholder="Actualizar Correo">
+          </div>
+          <button class="btn-success" name="update">
+            ACTUALIZAR PARAMETRO
+          </button>
+        </form>
       </div>
     </div>
   </div>
