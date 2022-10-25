@@ -150,12 +150,12 @@ class UsuarioModelo extends Conexion{
     }
   }
 
-  public function validarDocumentoPacienteModelo($docusuario){
+  public function validarDocumentoPacienteModelo($documento){
     $sql = "SELECT * FROM tbl_pacientes WHERE documento = :documento";
     try {
       $conexion = new Conexion();
       $stmt = $conexion->conectar()->prepare($sql);
-      $stmt->bindParam(':documento', $docusuario, PDO::PARAM_STR);
+      $stmt->bindParam(':documento', $documento, PDO::PARAM_INT);
       $stmt->execute();
       if($stmt->rowCount() == 1){
         $resulsql = $stmt->fetch();

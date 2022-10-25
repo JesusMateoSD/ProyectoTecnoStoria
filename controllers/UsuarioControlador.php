@@ -103,7 +103,7 @@
       if($respuesta == 'success'){          
         header('location: index.php?action=indexhclinica');
       } else{
-        header('location:index.php?action=modalhc');
+        header('location:index.php?action=agenda');
       }
     }
 
