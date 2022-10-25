@@ -39,7 +39,7 @@
 <main class="container p-0">
 <script src="views/js/mostrarinfoAG.js"></script>
 
-  <div class="p-2 mb-2 bg-primary text-white">Agenda Citas</div>
+  <div class="p-2 mb-3 bg-primary text-white">Agenda Citas</div>
     <body onload="mostrarInfo();">
       <div class="container">
         <div class="row">
@@ -94,14 +94,14 @@
                 <input type="text" name="obs" id="obs" class="form-control" placeholder="Observaciones" autofocus>
               </div>
             </div>
-            <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary mx-2" value="Grabar Cita">
+            <input type="submit" id="salvaragenda" name="salvaragenda" class="btn btn-primary" value="Grabar Cita">
           </form>
         </div>
       </div>
       <br>
-      <div id="datos"></div>
     </div>
   </div>
+  <div id="datos"></div>
 </main>
 
 <script src="views/js/agendapro.js"></script>
