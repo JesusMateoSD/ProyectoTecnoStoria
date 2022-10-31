@@ -140,7 +140,7 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="tipodiagprin" id="tipodiagprin">
                 <option value="0">Tipo de Diagnostico Principal</option>
                 <option value="Impresión diagnóstica">Impresión diagnóstica</option>
@@ -149,7 +149,7 @@ if (isset($_SESSION['usuario'])) {
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagprin" id="diagprin">
                 <option value="0">Diagnostico Principal</option>
                 <?php
@@ -162,7 +162,7 @@ if (isset($_SESSION['usuario'])) {
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagrel1" id="diagrel1">
                 <option value="0">Diagnostico Relacionado 1</option>
                 <?php
@@ -175,7 +175,7 @@ if (isset($_SESSION['usuario'])) {
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagrel2" id="diagrel2">
                 <option value="0">Diagnostico Relacionado 2</option>
                 <?php
@@ -188,7 +188,7 @@ if (isset($_SESSION['usuario'])) {
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="procedimiento" id="procedimiento">
                 <option value="0">Procedimiento</option>
                 <?php
@@ -201,7 +201,7 @@ if (isset($_SESSION['usuario'])) {
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="consulta" id="consulta">
                 <option value="0">Consulta</option>
                 <?php
@@ -219,7 +219,7 @@ if (isset($_SESSION['usuario'])) {
               <input type="text" name="complicacion" class="form-control" value="Sin Complicacion">
             </div>
 
-            <div class="col-md-12 mb-2">
+            <div class="col-md-12 mb-4">
               <label for="exampleFormControlTextarea1">Evolucion:</label>
               <textarea class="form-control rounded-0" name="evolucion" id="evolucion" rows="4"></textarea>
             </div>
@@ -227,7 +227,6 @@ if (isset($_SESSION['usuario'])) {
             <div class="col-md-12 mb-2">
               <div class="p-2 mb-2 bg-primary "></div>
             </div>
-
           </div>
 
           <input type="submit" name="salvarevolucion" id="salvarevolucion" class="btn btn-primary " value="Grabar Evolucion">

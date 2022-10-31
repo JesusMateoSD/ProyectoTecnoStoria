@@ -118,7 +118,7 @@
               <input type="text" name="mconsulta" class="form-control">
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagprin" id="diagprin">
                 <option value="0">Diagnostico Principal</option>
                 <?php
@@ -131,7 +131,7 @@
               </select>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagrel1" id="diagrel1">
                 <option value="0">Diagnostico Relacionado 1</option>
                 <?php
@@ -145,7 +145,7 @@
             </div>
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-md-12 mb-4">
               <select class="custom-select mr-sm-2" name="diagrel2" id="diagrel2">
                 <option value="0">Diagnostico Relacionado 2</option>
                 <?php
