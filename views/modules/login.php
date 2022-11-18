@@ -1,7 +1,14 @@
 <?php 
   if(isset($_POST['validarusuario'])){
     $usuario = new UsuarioControlador();
-    $usuario->validarUsuarioControlador();
+    if(isset($_GET['int'])){
+      $inten = $_GET['int'];
+    } else{
+      $inten = 0;
+    }
+    if(!isset($_GET['int']) || $_GET['int'] < 3){
+      $usuario->validarUsuarioControlador($inten);
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -30,17 +37,17 @@
             
             <form action="" method="POST" autocomplete="off">
             <?php if(isset($_GET['err']) && $_GET['err'] == 'err'){
-              print "<div class='text-center mx-5'><h3 class='alert alert-danger'>Error al iniciar sesion</h3></div>"  ;
+              print "<div class='text-center mx-5'><h3 class='alert alert-danger'>Error al iniciar sesion, llevas ".$_GET['int']." intentos, si hacer 3 intentos no podras acceder</h3></div>";
             }
             ?>
               <div class="input-container">
-                <input type="text" id="correo" name="correo"  required="required"/>
-                <label for="Username">Correo</label>
+                <input type="text" id="correo" name="correo" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> disabled <?php } ?> />
+                <label for="Username" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> style="color:brown" <?php } ?>>Correo</label>
                 <div class="bar"></div>
               </div>
               <div class="input-container">
-                <input type="password" id="clave" name="clave" required="required"/>
-                <label for="Password">Contraseña</label>
+                <input type="password" id="clave" name="clave" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> disabled <?php } ?>/>
+                <label for="Password" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> style="color:brown" <?php } ?>>Contraseña</label>
                 <div class="bar"></div>
               </div>
               <div class="button-container">

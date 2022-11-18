@@ -81,7 +81,7 @@ class EnlacesPaginacionModelo{
     }
       
     if(isset($_GET['action']) && $_GET['action'] == 'err'){
-      header('location:index.php?action=login&err=err');
+      header('location:index.php?action=login&err=err&int='.$_GET['int']);
     } 
     
     if(isset($_GET['action']) && $_GET['action'] == 'delUser'){

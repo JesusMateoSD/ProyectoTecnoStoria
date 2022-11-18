@@ -59,19 +59,19 @@
       return $respuesta;
     }
 
-    public function validarUsuarioControlador(){
+    public function validarUsuarioControlador($inten){
         if(isset($_POST['validarusuario'])) {
           $datosUsuario = ['clave' => $_POST['clave'], 'correo' => $_POST['correo']];
           $usuario = new UsuarioModelo();
           $respuesta = $usuario->validarUsuarioModelo($datosUsuario);
-
           if($respuesta == 'success'){
             session_start();
             $_SESSION['usuario'] = $_POST['correo'];
-            
+            $inten = 0;
             header('location: index.php?action=inicio');
           } else{
-            header('location:index.php?action=err');
+            $inten ++;
+            header('location:index.php?action=err&int='.$inten);
           }
         }
       }
