@@ -27,7 +27,7 @@
   $CIE10 = new EvMedicaControlador();
   $tCIE10 = $CIE10->TablaCIE10Controlador();
 
-  if(isset($_SESSION['usuario'])){
+  if(isset($_SESSION['usuario']) && $_SESSION['snivel'] == 1){
     include("header.php");
   }
   else{

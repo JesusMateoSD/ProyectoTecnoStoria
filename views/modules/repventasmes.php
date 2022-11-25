@@ -7,7 +7,7 @@
     header('location:index.php?action=repventasmespdf&fechaI='.$fechaI.'&fechaF='.$fechaF);
   }
 
-  if(isset($_SESSION['usuario'])){
+  if(isset($_SESSION['usuario']) && $_SESSION['snivel'] == 1){
     include("header.php");
   } else{
     header('location:index.php');

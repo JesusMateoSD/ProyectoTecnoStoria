@@ -5,7 +5,7 @@
     $usuario->validarDocumentoPacienteControlador($cedula);
   }
 
-  if(isset($_SESSION['usuario'])){
+  if(isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 2){
     include("header.php");
   }
   else{

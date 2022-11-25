@@ -44,7 +44,7 @@
   $tCausaEx = $HClinica->TablaCausasExternasControlador();
   $FinalidadC = $HClinica->TablaFinalidadConsultasControlador();
 
-  if(isset($_SESSION['usuario'])){
+  if(isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 2){
     include("header.php");
   } else{
     header('location:index.php');

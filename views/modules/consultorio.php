@@ -43,7 +43,7 @@
   $consultorio = new ConsultorioControlador();
   $datos = $consultorio->tablaConsultoriosControlador();
 
-  if(isset($_SESSION['usuario'])){
+  if(isset($_SESSION['usuario']) && $_SESSION['snivel'] == 1){
     include("header.php");
   }
   else{

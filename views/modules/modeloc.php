@@ -27,7 +27,7 @@
   $CInformados = new ConsInfControlador();
   $tModelC = $CInformados->TablaModeloCControlador();
 
-  if (isset($_SESSION['usuario'])) {
+  if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {
     include("header.php");
   } else {
     header('location:index.php');

@@ -4,10 +4,16 @@
     if(isset($_GET['int'])){
       $inten = $_GET['int'];
     } else{
+      setcookie('T','intentos fallidos',time() + (60));
       $inten = 0;
     }
     if(!isset($_GET['int']) || $_GET['int'] < 3){
       $usuario->validarUsuarioControlador($inten);
+    } else{
+      if(!isset($_COOKIE['T']) && $inten > 0){
+        header('location:index.php?action=login');
+        $inten = 0;
+      }
     }
   }
 ?>
@@ -37,17 +43,17 @@
             
             <form action="" method="POST" autocomplete="off">
             <?php if(isset($_GET['err']) && $_GET['err'] == 'err'){
-              print "<div class='text-center mx-5'><h3 class='alert alert-danger'>Error al iniciar sesion, llevas ".$_GET['int']." intentos, si hacer 3 intentos no podras acceder</h3></div>";
+              print "<div class='text-center mx-5'><h3 class='alert alert-danger'>Error al iniciar sesion, llevas ".$_GET['int']. " ". $_COOKIE['T'].", si haces 3 intentos no podras acceder hasta esperar 60 segundos</h3></div>";
             }
             ?>
               <div class="input-container">
-                <input type="text" id="correo" name="correo" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> disabled <?php } ?> />
-                <label for="Username" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> style="color:brown" <?php } ?>>Correo</label>
+                <input type="text" id="correo" name="correo" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3' && isset($_COOKIE['T'])){ ?> disabled <?php } ?> />
+                <label for="Username" <?php if(isset($_GET['int']) && $_GET['int'] >= '3' && isset($_COOKIE['T'])){ ?> style="color:brown" <?php } ?>>Correo</label>
                 <div class="bar"></div>
               </div>
               <div class="input-container">
-                <input type="password" id="clave" name="clave" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> disabled <?php } ?>/>
-                <label for="Password" <?php if(isset($_GET['int']) && $_GET['int'] >= '3'){ ?> style="color:brown" <?php } ?>>Contraseña</label>
+                <input type="password" id="clave" name="clave" required="required" <?php if(isset($_GET['int']) && $_GET['int'] >= '3' && isset($_COOKIE['T'])){ ?> disabled <?php } ?>/>
+                <label for="Password" <?php if(isset($_GET['int']) && $_GET['int'] >= '3' && isset($_COOKIE['T'])){ ?> style="color:brown" <?php } ?>>Contraseña</label>
                 <div class="bar"></div>
               </div>
               <div class="button-container">

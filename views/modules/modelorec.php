@@ -27,7 +27,7 @@ if ($_GET['action'] == 'modrok') {
 $Recetario = new RecetarioControlador();
 $tablaR = $Recetario->TablaModeloRecetarioControlador();
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {
   include("header.php");
 } else {
   header('location:index.php');

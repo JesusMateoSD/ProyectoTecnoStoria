@@ -47,7 +47,7 @@ $nfactura = $tFactura["max_page"] + 1;
 $tTarifa = $Pagos->TablasTarifaControlador();
 $tFactura = $Pagos->TablaFacturaOrdControlador();
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {
   include("header.php");
 } else {
   header('location:index.php');

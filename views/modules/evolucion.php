@@ -55,7 +55,7 @@ $TablaCIE10 = $EvolucionMedica->TablaCIE10Controlador();
 $TablaCUPS = $EvolucionMedica->TablaCUPSControlador();
 $TablaConsultas = $EvolucionMedica->TablaConsultasControlador();
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 2) {
   include("header.php");
 } else {
   header('location:index.php');

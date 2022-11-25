@@ -22,7 +22,7 @@
   if(isset($_SESSION['usuario'])){
     include("header.php");
   } else{
-    header('location:index.php');
+    header('location:index.php?action=login');
   }
 
   $usuario = new UsuarioControlador();
