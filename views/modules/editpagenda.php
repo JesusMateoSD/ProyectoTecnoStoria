@@ -48,7 +48,9 @@
   
   $agenda = new AgendaControlador();
   $profesionales = $agenda->tablaAgenProControlador();
-  $horas = $agenda->tablaHorasControlador();
+  
+  $Hora = new HoraControlador();
+  $horas = $Hora->tablaHorasControlador();
 
   if(isset($_SESSION['usuario'])){
     include("header.php");

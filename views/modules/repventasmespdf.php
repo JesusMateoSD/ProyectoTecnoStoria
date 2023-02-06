@@ -9,8 +9,8 @@
 	$fechai = $_GET['fechaI'];
 	$fechaf = $_GET['fechaF'];
 
-	$Pago = new PagosControlador();
-	$tPagoMes = $Pago->TablaFacturaFMensualControlador($fechai, $fechaf);
+	$DetFactura = new DetalleFacturaControlador();
+	$tPagoMes = $DetFactura->TablaFacturaFMensualControlador($fechai, $fechaf);
 	// $queryag = "SELECT SUM(total) as mtotal FROM tbl_dfactura WHERE fecha BETWEEN '$fechai' AND '$fechaf'";
 	// $resultag = mysqli_query($mysqli, $queryag);
 	// $rowag = mysqli_fetch_array($resultag);
@@ -71,7 +71,7 @@ class PDF extends FPDF{
 $pdf = new PDF();
 $pdf->AliasNbPages(); //funcion que calcula el numero de paginas
 
-$dFacturaTodo = $Pago->TablaDFacturaTodoControlador($fechai, $fechaf);
+$dFacturaTodo = $DetFactura->TablaDFacturaFechasControlador($fechai, $fechaf);
 
 // $sql1 = "SELECT * FROM tbl_dfactura  WHERE fecha BETWEEN '$fechai' AND '$fechaf'";
 // $result1 = mysqli_query($mysqli, $sql1);

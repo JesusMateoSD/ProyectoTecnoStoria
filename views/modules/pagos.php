@@ -8,15 +8,19 @@ $usuario = $_SESSION['snombre'];
 $docusuario = $_SESSION['sdocumento'];
 
 if (isset($_POST['salvarpagod'])) {
-  $Pagos = new PagosControlador();
-  $Pagos->registrarPagoTempControlador($usuario, $docusuario);
+  $DPPagos = new DetalleFacturaPControlador();
+  $DPPagos->registrarPagoTempControlador($usuario, $docusuario);
 }
 
 if (isset($_POST['salvarpago'])) {
-  $Pagos = new PagosControlador();
-  $Pagos->registrarPagoDControlador();
-  $Pagos->registrarPagoControlador();
-  $Pagos->BorrarPagosTempControlador();
+  $DetPagos = new DetalleFacturaControlador();
+  $DetPagos->registrarPagoDControlador();
+
+  $Factura = new FacturaControlador();
+  $Factura->registrarFacturaControlador();
+  
+  $DetPPagos = new DetalleFacturaPControlador();
+  $DetPPagos->BorrarPagosTempControlador();
 }
 
 if ($_GET['action'] == 'pagok') {
@@ -37,15 +41,19 @@ if ($_GET['action'] == 'pagok') {
 <?php
 }
 
-$Pagos = new PagosControlador();
+$Pagos = new FacturaControlador();
 $tFactura = $Pagos->TablaFacturaControlador();
 
 // $result = mysqli_query($mysqli,"SELECT max(nfactura) AS max_page from tbl_factura");
 // $rowf = mysqli_fetch_array($result);
 $nfactura = $tFactura["max_page"] + 1;
 
-$tTarifa = $Pagos->TablasTarifaControlador();
+$TarifaC = new TarifaControlador();
+$tTarifa = $TarifaC->TablasTarifaControlador();
+
 $tFactura = $Pagos->TablaFacturaOrdControlador();
+
+
 
 if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {
   include("header.php");

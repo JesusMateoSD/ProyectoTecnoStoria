@@ -2,8 +2,10 @@
   session_start();
   date_default_timezone_set('America/Bogota'); 
   $fechahoy = $_POST['fecha']; 
-  require_once('../../controllers/AgendaControlador.php');
-  require_once('../../models/AgendaModelo.php');
+  require_once('../../controllers/AgendaPControlador.php');
+  require_once('../../models/AgendaPModelo.php');
+  require_once('../../controllers/HoraControlador.php');
+  require_once('../../models/HoraModelo.php');
 ?>
 
 <div class="col-md-12">
@@ -15,7 +17,7 @@
         <th>Cedula</th>
         <th>Paciente</th>
         <th>Estado</th>
-        <th>Obsevaciones</th>
+        <th>Observaciones</th>
         <th>Acciones</th>
           <?php if ($_SESSION['snivel'] == 1 OR $_SESSION['snivel'] == 2) { ?>
         <th>HC</th>
@@ -24,9 +26,11 @@
     </thead>
     <tbody>  
       <?php 
-        $proceso = new AgendaControlador();
-        $procesoSH = $proceso->UnionAgendaControlador($fechahoy);
-        $procesoD = $proceso->LimpiarAgendaPControlador();
+        $Hora = new HoraControlador();
+        $procesoSH = $Hora->UnionAgendaControlador($fechahoy);
+
+        $AgendaP = new AgendaPControlador();
+        $procesoD = $AgendaP->LimpiarAgendaPControlador();
 
         // $queryh = "SELECT * FROM tbl_horas H LEFT JOIN tbl_agenda A ON H.hora=A.horag AND A.fecha = '".$fechahoy."'";
         // $result_tasks = mysqli_query($mysqli, $queryh); 
@@ -51,16 +55,16 @@
 
           $Cita = ['idh' => $idh,'hora' => $hora,'idag' => $idag,'fecha' => $fecha,'horag' => $horag,'nprofesional' => $nprofesional,'dprofesional' => $dprofesional,'npaciente' => $npaciente,'dpaciente' => $dpaciente,'tpaciente' => $tpaciente,'estado' => $estado,'obs' => $obs];
 
-          $procesoI = $proceso->InsertarFechaAgendaPControlador($Cita);
+          $procesoI = $AgendaP->InsertarFechaAgendaPControlador($Cita);
           // $queryi = "INSERT INTO tbl_agendap(idh,hora,id,fecha,hora1,nprofesional,dprofesional,npaciente,dpaciente,tpaciente,estado,obs) VALUES ('$idh', '$hora', '$idag', '$fecha','$horag','$nprofesional','$dprofesional','$npaciente','$dpaciente','$tpaciente','$estado','$obs')";
           // $resulti = mysqli_query($mysqli, $queryi);  
 
         } 
 
-        $procesoF = new AgendaControlador();
-        $procesoSP = $proceso->TablaAgendaControlador();
+        //$AgendaP = new AgendaControlador();
+        $procesoSP = $AgendaP->TablaAgendaPControlador();
         // $queryap = "SELECT hora,id,fecha,nprofesional,dpaciente,npaciente,tpaciente,estado,obs FROM tbl_agendap ORDER BY idh ASC";
-        // $resultap= mysqli_query($mysqli, $queryap); 
+        // $resultap = mysqli_query($mysqli, $queryap); 
 
         //while($row = mysqli_fetch_assoc($resultap)) { 
         foreach($procesoSP as $row){ ?>

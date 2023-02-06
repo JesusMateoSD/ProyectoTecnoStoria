@@ -2,8 +2,8 @@
 session_start();
 
 if (isset($_POST['salvarmodelor'])) {
-  $HClinicaS = new RecetarioControlador();
-  $HClinicaS->registrarModeloRControlador();
+  $ModRecetario = new ModeloRecetarioControlador();
+  $ModRecetario->registrarModeloRControlador();
 }
 
 if ($_GET['action'] == 'modrok') {
@@ -24,8 +24,8 @@ if ($_GET['action'] == 'modrok') {
 <?php
 }
 
-$Recetario = new RecetarioControlador();
-$tablaR = $Recetario->TablaModeloRecetarioControlador();
+$MRecetario = new ModeloRecetarioControlador();
+$tablaR = $MRecetario->TablaModeloRecetarioControlador();
 
 if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {
   include("header.php");

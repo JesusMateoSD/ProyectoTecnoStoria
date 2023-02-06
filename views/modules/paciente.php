@@ -28,9 +28,10 @@
     <?php
   }
 
-  $paciente = new PacienteControlador();
-  $pacienteTD = $paciente->tipoDocumentoControlador();
-  $pacienteDept = $paciente->DepartamentosPacienteControlador();
+  $TipoDoc = new TipoDocumentoControlador();
+  $pacienteTD = $TipoDoc->tipoDocumentoControlador();
+  $departamento = new DepartamentoControlador();
+  $pacienteDept = $departamento->DptosControlador();
 
   if(isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3){
     include("header.php");
@@ -89,13 +90,14 @@
               <input type="date" name="fechan" id="fechan" class="form-control">
             </div>
             <div class="col-md-1 mb-4">
-              <input type="text" name="edad" class="form-control" placeholder="Edad" id="edad" autocomplete="off">
+              <input type="text" name="edad" class="form-control" placeholder="Edad" id="edad" autocomplete="off" readonly>
             </div>
             <div class="col-md-2 mb-4">
               <select class="form-control" id="sexo" name="sexo">
-              <option>Sexo</option>
-              <option value="M">M</option>
-              <option Value="F">F</option>
+                <option>Sexo</option>
+                <option value="M">M</option>
+                <option Value="F">F</option>
+                <option Value="F">Otro</option>
               </select>
             </div>
             <div class="col-md-5 mb-4">
@@ -151,12 +153,12 @@
     </div>
   </div>
 </main>
-<!-- 
+
 <script>
   function alerta() {
     var request = new XMLHttpRequest();
     request.responseType = 'json';
-    request.open("POST", "consultapaciente.php");
+    request.open("POST", "views/modules/consultapaciente.php");
 
     request.onreadystatechange = function() {
       if(this.readyState === 4 && this.status === 200) {
@@ -179,7 +181,7 @@
     // Enviando la data al PHP
     request.send(formData);
   }
-</script> -->
+</script>
 
 <script type="text/javascript" src="views/js/calcularEdad.js"></script>
 

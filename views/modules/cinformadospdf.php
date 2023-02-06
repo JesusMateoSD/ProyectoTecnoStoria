@@ -72,7 +72,7 @@ foreach ($tCI as $rowrl) {
 }
 
 $usuario = new UsuarioControlador();
-$conUsuario = $usuario->consultarDocumentoPacienteControlador($docusuario);
+$conUsuario = $usuario->consultarDocumentoProfesionalPacControlador($docusuario);
 // $query = "SELECT * FROM tbl_usuarios WHERE documento=$docusuario ";
 // $resultado = $mysqli->query($query);
 // $row = mysqli_fetch_array($resultado);

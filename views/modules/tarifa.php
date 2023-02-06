@@ -2,7 +2,7 @@
  session_start();
 
   if(isset($_POST['salvartarifa'])){
-    $TarifaR = new PagosControlador();
+    $TarifaR = new TarifaControlador();
     $TarifaR->registrarTarifaControlador();
   }
 
@@ -35,7 +35,7 @@
     header('location:index.php');
   }
 
-  $tarifa = new PagosControlador();
+  $tarifa = new TarifaControlador();
   $tTarifa = $tarifa->TablasTarifaControlador();
 ?>
 

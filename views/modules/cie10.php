@@ -2,7 +2,7 @@
  session_start();
 
   if(isset($_POST['salvarcie10'])){
-    $TarifaR = new EvMedicaControlador();
+    $TarifaR = new Cie10Controlador();
     $TarifaR->registrarCIE10Controlador();
   }
 
@@ -24,7 +24,7 @@
     <?php
   }
 
-  $CIE10 = new EvMedicaControlador();
+  $CIE10 = new Cie10Controlador();
   $tCIE10 = $CIE10->TablaCIE10Controlador();
 
   if(isset($_SESSION['usuario']) && $_SESSION['snivel'] == 1){
@@ -76,15 +76,15 @@
 
           // while($row = mysqli_fetch_assoc($result_tasks)) { 
           foreach($tCIE10 as $row){ ?>
-          <tr>
-            <td><?php echo $row['codigo']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>  
-            <td>
-              <a href="index.php?action=delCIE&id=<?php echo $row['id']?>" class="btn btn-danger">
-                <i class="fas fa-trash-alt"></i>
-              </a>
-            </td>
-          </tr>
+            <tr>
+              <td><?php echo $row['codigo']; ?></td>
+              <td><?php echo $row['nombre']; ?></td>  
+              <td>
+                <a href="index.php?action=delCIE&id=<?php echo $row['id']?>" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </td>
+            </tr>
           <?php } ?>
         </tbody>
       </table>

@@ -12,10 +12,10 @@
         </thead>
         <tbody>
           <?php
-          require_once('../../controllers/PagosControlador.php');
-          require_once('../../models/PagosModelo.php');
+          require_once('../../controllers/DetalleFacturaPControlador.php');
+          require_once('../../models/DetalleFacturaPModelo.php');
 
-          $Pagos = new PagosControlador();
+          $Pagos = new DetalleFacturaPControlador();
           $tFacturap = $Pagos->TablaFacturaPagosControlador();
          
           // $query = "SELECT * FROM tbl_dfacturap ";

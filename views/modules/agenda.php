@@ -26,7 +26,9 @@
   
   $agenda = new AgendaControlador();
   $profesionales = $agenda->tablaAgenProControlador();
-  $horas = $agenda->tablaHorasControlador();
+  
+  $Hora = new HoraControlador();
+  $horas = $Hora->tablaHorasControlador();
 
   if(isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3){
     include("header.php");

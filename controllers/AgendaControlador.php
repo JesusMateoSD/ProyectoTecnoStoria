@@ -7,34 +7,6 @@
       return $respuesta;
     }
 
-    public function tablaHorasControlador(){
-      $agenda = new AgendaModelo();
-      $respuesta = $agenda->tablaHorasModelo();
-      return $respuesta;
-    }
-
-    public function UnionAgendaControlador($fechahoy){
-      $agenda = new AgendaModelo();
-      $respuesta = $agenda->UnionAgendaModelo($fechahoy);
-      return $respuesta;
-    }
-
-    public function LimpiarAgendaPControlador(){
-      $agenda = new AgendaModelo();
-      $respuesta = $agenda->LimpiarAgendaPModelo();
-    }
-
-    public function InsertarFechaAgendaPControlador($Cita){
-      $agenda = new AgendaModelo();
-      $respuesta = $agenda->InsertarFechaAgendaPModelo($Cita);
-    }
-
-    public function TablaAgendaControlador(){
-      $agenda = new AgendaModelo();
-      $respuesta = $agenda->TablaAgendaModelo();
-      return $respuesta;
-    }
-
     public function RegistrarCitaControlador(){
       if(isset($_POST['salvaragenda'])){
         $datosCita = [

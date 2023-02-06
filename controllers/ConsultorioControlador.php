@@ -12,8 +12,8 @@
         'direccion' => $_POST['direccion'],
         'telefono' => $_POST['telefono'],
         'correo' => $_POST['correo'],
-        'ciudad' => $_POST['ciudad'],
-        'depto' => $_POST['depto'],
+        'municipio' => $_POST['ciudad'],
+        'dpto' => $_POST['depto'],
         'capb' => $_POST['capb'],
         'napb' => $_POST['napb'],
         'destino' => $destino];

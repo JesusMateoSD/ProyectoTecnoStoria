@@ -1,18 +1,6 @@
 <?php
   error_reporting(E_ERROR | E_PARSE);
   class ConsInfControlador{
-    public function TablaModeloCControlador(){
-      $CInformados = new ConsInfModelo();
-      $respuesta = $CInformados->TablaModeloCModelo();
-      return $respuesta;
-    }
-
-    public function TablaModeloConsControlador($nombre){
-      $CInformados = new ConsInfModelo();
-      $respuesta = $CInformados->TablaModeloConsModelo($nombre);
-      return $respuesta;
-    }
-
     public function tablaConsInfControlador(){
       $CInformados = new ConsInfModelo();
       $respuesta = $CInformados->tablaConsInfModelo();
@@ -57,29 +45,6 @@
       $CInformados = new ConsInfModelo();
       $respuesta = $CInformados->tablaConsInfIdModelo($id);
       return $respuesta;
-    }
-
-    public function registrarModeloCControlador(){
-      if(isset($_POST['salvarmodeloc'])){
-        $datosModC = ['modelo' => $_POST['modelo'],
-        'nombre' => $_POST['nombre']];
-
-        $Recetario = new ConsInfModelo();
-        $respuesta = $Recetario->registrarModeloCModelo($datosModC);
-
-        if($respuesta == 'success'){
-          header('location:index.php?action=modcok');
-        } else if($respuesta == 'error'){
-          header('location:index.php?action=modeloc');
-        }
-      }
-    }
-
-    public function borrarModeloCControlador($id){
-      if(isset($id)){
-        $Recetario = new ConsInfModelo();
-        $respuesta = $Recetario->borrarModeloCModelo($id);
-      }
     }
   }
 ?>

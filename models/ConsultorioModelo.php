@@ -12,11 +12,11 @@ class ConsultorioModelo extends Conexion{
       $stmt->bindParam(':nombre', $datosConsultorio['nombre'],PDO::PARAM_STR);
       $stmt->bindParam(':nit', $datosConsultorio['nit'],PDO::PARAM_STR);
       $stmt->bindParam(':direccion', $datosConsultorio['direccion'],PDO::PARAM_STR);
-      $stmt->bindParam(':telefono', $datosConsultorio['telefono'],PDO::PARAM_STR);
+      $stmt->bindParam(':telefono', $datosConsultorio['telefono'],PDO::PARAM_INT);
       $stmt->bindParam(':correo', $datosConsultorio['correo'],PDO::PARAM_STR);
       $stmt->bindParam(':foto', $datosConsultorio['destino'],PDO::PARAM_STR);
-      $stmt->bindParam(':ciudad', $datosConsultorio['ciudad'],PDO::PARAM_STR);
-      $stmt->bindParam(':depto', $datosConsultorio['depto'],PDO::PARAM_STR);
+      $stmt->bindParam(':ciudad', $datosConsultorio['municipio'],PDO::PARAM_STR);
+      $stmt->bindParam(':depto', $datosConsultorio['dpto'],PDO::PARAM_STR);
       $stmt->bindParam(':capb', $datosConsultorio['capb'],PDO::PARAM_STR);
       $stmt->bindParam(':napb', $datosConsultorio['napb'],PDO::PARAM_STR);
       

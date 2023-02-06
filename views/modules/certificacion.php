@@ -28,7 +28,7 @@
   }
 
   $cedulaPHC = $_SESSION['scedulap'];
-  $paciente = new UsuarioControlador();
+  $paciente = new PacienteControlador();
   $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
   // $query = "SELECT * FROM tbl_pacientes WHERE documento='$_SESSION[scedulap]'";
   // $result = mysqli_query($mysqli, $query);

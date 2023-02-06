@@ -6,19 +6,7 @@
       $respuesta = $paciente->consultarPacienteAgendaModelo($documento);
       return $respuesta;
     }
-
-    public function tipoDocumentoControlador(){
-      $paciente = new PacienteModelo();
-      $respuesta = $paciente->tipoDocumentoModelo();
-      return $respuesta;
-    }
-
-    public function DepartamentosPacienteControlador(){
-      $paciente = new PacienteModelo();
-      $respuesta = $paciente->DepartamentosPacienteModelo();
-      return $respuesta;
-    }
-
+        
     public function TablaPacientesControlador(){
       $paciente = new PacienteModelo();
       $respuesta = $paciente->TablaPacientesModelo();
@@ -59,17 +47,28 @@
       }
     }
 
-    public function MunicipiosPacienteControlador($dpto){
-      $paciente = new PacienteModelo();
-      $respuesta = $paciente->MunicipiosPacienteModelo($dpto);
-      return $respuesta;
-    }
-
     public function borrarPacienteControlador($id){
       if(isset($id)){
         $paciente = new PacienteModelo();
         $respuesta = $paciente->borrarPacienteModelo($id);
       }
+    }
+
+    public function validarDocumentoPacienteControlador($documento){
+      $paciente = new PacienteModelo();
+      $respuesta = $paciente->validarDocumentoPacienteModelo($documento);
+
+      if($respuesta == 'success'){          
+        header('location: index.php?action=indexhclinica');
+      } else{
+        header('location:index.php?action=agenda');
+      }
+    }
+
+    public function consultarPacienteHCControlador($cedulaPHC){
+      $paciente = new PacienteModelo();
+      $respuesta = $paciente->consultarPacienteHCModelo($cedulaPHC);
+      return $respuesta;
     }
   }
 ?>

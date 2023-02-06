@@ -1,6 +1,6 @@
 <?php
-  require_once('../../controllers/ConsInfControlador.php');
-  require_once('../../models/ConsInfModelo.php');
+  require_once('../../controllers/ModeloConsentimientoControlador.php');
+  require_once('../../models/ModeloConsentimientoModelo.php');
   
   if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = htmlspecialchars(trim($_POST["modelos"]));
@@ -8,7 +8,7 @@
     // $resultado = $mysqli->query($sqlsi);
     // $dato = $resultado->fetch_assoc();
     
-    $CInformados = new ConsInfControlador();
+    $CInformados = new ModeloConsentimientoControlador();
     $rslModeloC = $CInformados->TablaModeloConsControlador($nombre);
 
     $modelo = $rslModeloC['modelo'];

@@ -52,7 +52,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="index.php?action=paciente">Pacientes</a></li>
                 <li><a class="dropdown-item" href="index.php?action=agenda">Agenda</a></li>
-                <li><a class="dropdown-item" href="index.php?action=pagos">Pagos</a></li>
+                <li><a class="dropdown-item" href="index.php?action=pagos">Pagos (Factura)</a></li>
                 <li><a class="dropdown-item" href="index.php?action=modeloc">Crear Modelo Consentimiento</a></li>
                 <li><a class="dropdown-item" href="index.php?action=modelorec">Crear Modelo Recetario</a></li>
                 <li><a class="dropdown-item" href="index.php?action=usuariocc">Cambiar Clave</a></li>

@@ -2,7 +2,7 @@
   session_start();
 
   if (isset($_POST['salvarmodeloc'])) {
-    $HClinicaS = new ConsInfControlador();
+    $HClinicaS = new ModeloConsentimientoControlador();
     $HClinicaS->registrarModeloCControlador();
   }
 
@@ -24,7 +24,7 @@
   <?php
   }
 
-  $CInformados = new ConsInfControlador();
+  $CInformados = new ModeloConsentimientoControlador();
   $tModelC = $CInformados->TablaModeloCControlador();
 
   if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 3) {

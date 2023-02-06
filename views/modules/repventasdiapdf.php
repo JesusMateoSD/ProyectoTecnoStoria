@@ -7,8 +7,8 @@
 
 	$fecha = $_GET['fecha'];
 
-	$Pagos = new PagosControlador();
-	$FacturaFecha = $Pagos->ValorFacturaTotalFControlador($fecha);
+	$DetFactura = new DetalleFacturaControlador();
+	$FacturaFecha = $DetFactura->ValorFacturaTotalFControlador($fecha);
   // $queryag = "SELECT SUM(total) as mtotal FROM tbl_dfactura WHERE fecha = '$fecha'";
   // $resultag = mysqli_query($mysqli, $queryag);
   // $rowag = mysqli_fetch_array($resultag);
@@ -64,7 +64,7 @@
 $pdf = new PDF(); 
 $pdf->AliasNbPages(); //funcion que calcula el numero de paginas
 
-$FacturaFechaTotal = $Pagos->TablaFacturaDFechasControlador($fecha); 
+$FacturaFechaTotal = $DetFactura->TablaFacturaDFechaControlador($fecha); 
 // $sql1 = "SELECT * FROM tbl_dfactura  WHERE fecha = '$fecha'";
 // $result1 = mysqli_query($mysqli, $sql1);
 $head = array("FACTURA","FECHA","PRODUCTO","VALOR","CANTIDAD","TOTAL"); // cabecera

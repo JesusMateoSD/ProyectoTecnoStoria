@@ -1,11 +1,11 @@
 <?php
-  require_once('../../controllers/PagosControlador.php');
-  require_once('../../models/PagosModelo.php');
+  require_once('../../controllers/TarifaControlador.php');
+  require_once('../../models/TarifaModelo.php');
 
   $producto = $_POST['producto'];
 
-  $Pagos = new PagosControlador();
-  $PagosT = $Pagos->TablaProductoControlador($producto);
+  $Pagos = new TarifaControlador();
+  $PagosT = $Pagos->TablaProductoTarifaControlador($producto);
   
   // $queryM = "SELECT precio, precio1 FROM tbl_tarifa WHERE producto = '$producto' ";
   // $resultadoM = $mysqli->query($queryM);

@@ -2,7 +2,7 @@
   session_start();
 
   $cedulaPHC = $_SESSION['scedulap'];
-  $paciente = new UsuarioControlador();
+  $paciente = new PacienteControlador();
   $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
 
   $nombreP = $pacienteHC['paciente']; 
@@ -21,10 +21,10 @@
       <?php if ($_SESSION['snivel'] == 1 OR $_SESSION['snivel'] == 2) { ?>  
         <div class="row">
           <div class="col-md-4">
-            <a href="index.php?action=hclinica"><button type="button" style="width: 100%;" class="btn btn-outline-primary">Crear Historia Clinica</button></a>
+            <a href="index.php?action=ananmesis"><button type="button" style="width: 100%;" class="btn btn-outline-primary">Ananmesis</button></a>
           </div>
           <div class="col-md-4">
-            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=evolucion'">Evolucion</button>
+            <button type="button" style="width: 100%;" class="btn btn-outline-primary" onclick="window.location.href='index.php?action=evolucion'">Evolucion Medica</button>
           </div>
 
           <div class="col-md-4">

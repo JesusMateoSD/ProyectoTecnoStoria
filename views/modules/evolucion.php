@@ -2,8 +2,8 @@
   session_start();
 
   if(isset($_POST['salvarevolucion'])){
-    $HClinicaS = new EvMedicaControlador();
-    $HClinicaS->registrarEvMedicaControlador();
+    $EvMedicaS = new EvMedicaControlador();
+    $EvMedicaS->registrarEvMedicaControlador();
   }
 
   date_default_timezone_set('America/Bogota');
@@ -39,7 +39,7 @@
 // $fechan = $row["fechan"];
 
 $cedulaPHC = $_SESSION['scedulap'];
-$paciente = new UsuarioControlador();
+$paciente = new PacienteControlador();
 $pacienteHC = $paciente->consultarPacienteHCControlador($cedulaPHC);
 
 $nombrep = $pacienteHC['paciente'];
@@ -50,10 +50,15 @@ $tel = $pacienteHC["telefono"];
 $edad = $pacienteHC["edad"];
 $fechan = $pacienteHC["fechan"];
 
-$EvolucionMedica = new EvMedicaControlador();
-$TablaCIE10 = $EvolucionMedica->TablaCIE10Controlador();
-$TablaCUPS = $EvolucionMedica->TablaCUPSControlador();
-$TablaConsultas = $EvolucionMedica->TablaConsultasControlador();
+$Consulta = new ConsultaControlador();
+$TablaConsultas = $Consulta->TablaConsultasControlador();
+
+$Cie10 = new Cie10Controlador();
+$TablaCIE10 = $Cie10->TablaCIE10Controlador();
+
+$Cups = new CupsControlador();
+$TablaCUPS = $Cups->TablaCUPSControlador();
+
 
 if (isset($_SESSION['usuario']) && $_SESSION['snivel'] <= 2) {
   include("header.php");

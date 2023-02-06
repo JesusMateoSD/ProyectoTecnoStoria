@@ -50,6 +50,7 @@
     header('location:index.php');
   }
 ?>
+
              <!-- INICIO PHP INDEXCONSULTORIOS -->
 <main class="container p-0">
   <br>
@@ -71,12 +72,12 @@
             </div>
 
             <div class="col-md-4 mb-4">
-              <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad"value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"autofocus>
+              <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"autofocus>
             </div>
 
             <div class="col-md-4 mb-4">
               <input type="text" name="depto" id="depto" class="form-control" placeholder="Departamento" value=""  onkeyup="javascript:this.value=this.value.toUpperCase();"autofocus>
-            </div> 
+            </div>
 
             <div class="col-md-3 mb-4">
               <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" autofocus>

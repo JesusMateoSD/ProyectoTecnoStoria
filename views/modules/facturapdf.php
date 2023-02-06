@@ -36,8 +36,8 @@
     $depto = $rowm['depto'];
   }
 
-  $Pagos = new PagosControlador();
-  $tFactura = $Pagos->TablaFacturaIdControlador($id);
+  $Factura = new FacturaControlador();
+  $tFactura = $Factura->TablaFacturaIdControlador($id);
 
   // $queryf = "SELECT * FROM tbl_factura WHERE id=$id";
   // $resultf = mysqli_query($mysqli, $queryf);
@@ -49,7 +49,8 @@
     $documento = $rowf['documento'];
   }
   
-  $valorT = $Pagos->ValorTotalFacturaControlador($factura);
+  $DetFactura = new DetalleFacturaControlador();
+  $valorT = $DetFactura->ValorTotalFacturaControlador($factura);
   // $queryag = "SELECT SUM(total) as mtotal FROM tbl_dfactura WHERE nfactura=$factura";
   // $resultag = mysqli_query($mysqli, $queryag);
   // $rowag = mysqli_fetch_array($resultag);
@@ -103,7 +104,7 @@ $pdf->Ln(0);
 // $query = "SELECT * FROM tbl_dfactura WHERE nfactura=$factura";
 // $result_tasks = mysqli_query($mysqli, $query);    
 // while($row = mysqli_fetch_assoc($result_tasks)) {
-$FacturaD = $Pagos->TablaFacturaDetControlador($factura);
+$FacturaD = $DetFactura->TablaFacturaDetControlador($factura);
 foreach($FacturaD as $row){
   $pdf->SetFont('Helvetica', '', 7);
   $pdf->Ln(1);

@@ -96,26 +96,9 @@
       return $respuesta;
     }
 
-    public function validarDocumentoPacienteControlador($documento){
+    public function consultarDocumentoProfesionalPacControlador($docusuario){
       $usuario = new UsuarioModelo();
-      $respuesta = $usuario->validarDocumentoPacienteModelo($documento);
-
-      if($respuesta == 'success'){          
-        header('location: index.php?action=indexhclinica');
-      } else{
-        header('location:index.php?action=agenda');
-      }
-    }
-
-    public function consultarDocumentoPacienteControlador($docusuario){
-      $usuario = new UsuarioModelo();
-      $respuesta = $usuario->consultarDocumentoPacienteModelo($docusuario);
-      return $respuesta;
-    }
-
-    public function consultarPacienteHCControlador($cedulaPHC){
-      $usuario = new UsuarioModelo();
-      $respuesta = $usuario->consultarPacienteHCModelo($cedulaPHC);
+      $respuesta = $usuario->consultarDocumentoPacModelo($docusuario);
       return $respuesta;
     }
 

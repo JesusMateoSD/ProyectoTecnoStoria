@@ -1,7 +1,7 @@
 <?php
   if(isset($_POST['salvarparametro'])){
     $cedula = $_POST['documento'];
-    $usuario = new UsuarioControlador();
+    $usuario = new PacienteControlador();
     $usuario->validarDocumentoPacienteControlador($cedula);
   }
 
@@ -17,7 +17,7 @@
   <form method="POST" >
     <div class="row text-center">
       <div class="col-md-12 mb-2 text-center">
-        <h1>Digite Numero Documento:</h1> 
+        <h1>Digite Numero de Documento del Paciente:</h1> 
       </div>
     </div>
     <div class="form-row mb-4">
@@ -26,7 +26,7 @@
     </div>
     <div class="form-row mb-2 text-center">
       <div class="col-md-12 text-center">        
-        <input type="submit" name="salvarparametro" class="btn btn-primary " value="Historia Clinica">   
+        <input type="submit" name="salvarparametro" class="btn btn-primary " value="Ingresar a Historia Clinica">   
       </div>
     </div>
   </form>

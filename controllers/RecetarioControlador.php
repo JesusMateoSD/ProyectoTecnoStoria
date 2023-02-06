@@ -1,18 +1,6 @@
 <?php
   error_reporting(E_ERROR | E_PARSE);
   class RecetarioControlador{
-    public function TablaModeloRecetarioControlador(){
-      $Recetario = new RecetarioModelo();
-      $respuesta = $Recetario->TablaModeloRecetarioModelo();
-      return $respuesta;
-    }
-
-    public function TablaModeloRecetarioIdControlador($nombre){
-      $Recetario = new RecetarioModelo();
-      $respuesta = $Recetario->TablaModeloRecetarioIdModelo($nombre);
-      return $respuesta;
-    }
-
     public function TablaRecetarioControlador(){
       $Recetario = new RecetarioModelo();
       $respuesta = $Recetario->TablaRecetarioModelo();
@@ -57,29 +45,6 @@
       $Recetario = new RecetarioModelo();
       $respuesta = $Recetario->TablaRecetarioIdModelo($id);
       return $respuesta;
-    }
-
-    public function registrarModeloRControlador(){
-      if(isset($_POST['salvarmodelor'])){
-        $datosModR = ['modelo' => $_POST['modelo'],
-        'nombre' => $_POST['nombre']];
-
-        $Recetario = new RecetarioModelo();
-        $respuesta = $Recetario->registrarModeloRModelo($datosModR);
-
-        if($respuesta == 'success'){
-          header('location:index.php?action=modrok');
-        } else if($respuesta == 'error'){
-          header('location:index.php?action=modelorec');
-        }
-      }
-    }
-
-    public function borrarModeloRControlador($id){
-      if(isset($id)){
-        $Recetario = new RecetarioModelo();
-        $respuesta = $Recetario->borrarModeloRModelo($id);
-      }
     }
   }
 ?>

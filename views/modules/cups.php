@@ -2,7 +2,7 @@
   session_start();
 
   if(isset($_POST['salvarcups'])){
-    $TarifaR = new EvMedicaControlador();
+    $TarifaR = new CupsControlador();
     $TarifaR->registrarCUPSControlador();
   }
 
@@ -24,7 +24,7 @@
     <?php
   }
 
-  $CUPS = new EvMedicaControlador();
+  $CUPS = new CupsControlador();
   $tCUPS = $CUPS->TablaCUPSControlador();
 
   if(isset($_SESSION['usuario']) && $_SESSION['snivel'] == 1){
@@ -74,15 +74,15 @@
 
           // while($row = mysqli_fetch_assoc($result_tasks)) { 
           foreach($tCUPS as $row){?>
-          <tr>
-            <td><?php echo $row['codigo']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>
-            <td>
-              <a href="index.php?action=delCUPS&id=<?php echo $row['id']?>" class="btn btn-danger">
-                <i class="fas fa-trash-alt"></i>
-              </a>
-            </td>
-          </tr>
+            <tr>
+              <td><?php echo $row['codigo']; ?></td>
+              <td><?php echo $row['nombre']; ?></td>
+              <td>
+                <a href="index.php?action=delCUPS&id=<?php echo $row['id']?>" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </td>
+            </tr>
           <?php } ?>
         </tbody>
       </table>

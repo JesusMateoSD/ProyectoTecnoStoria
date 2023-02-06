@@ -1,6 +1,6 @@
 <?php
-  require_once('../../controllers/RecetarioControlador.php');
-  require_once('../../models/RecetarioModelo.php');
+  require_once('../../controllers/ModeloRecetarioControlador.php');
+  require_once('../../models/ModeloRecetarioModelo.php');
 
   if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = htmlspecialchars(trim($_POST["modelos"]));
@@ -8,7 +8,7 @@
     // $resultado = $mysqli->query($sqlsi);
     // $dato = $resultado->fetch_assoc();
 
-    $recetario = new RecetarioControlador();
+    $recetario = new ModeloRecetarioControlador();
     $rslRecetario = $recetario->TablaModeloRecetarioIdControlador($nombre);
 
     $modelo = $rslRecetario['modelo'];

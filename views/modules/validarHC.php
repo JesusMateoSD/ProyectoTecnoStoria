@@ -1,4 +1,4 @@
 <?php
-	$usuario = new UsuarioControlador();
+	$usuario = new PacienteControlador();
 	$respuesta = $usuario->validarDocumentoPacienteControlador($_GET['id']);
 ?>

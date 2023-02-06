@@ -74,7 +74,7 @@
   // $resultado = $mysqli->query($query);
   // $row = mysqli_fetch_array($resultado);
   $usuario = new UsuarioControlador();
-  $conUsuario = $usuario->consultarDocumentoPacienteControlador($docusuario);
+  $conUsuario = $usuario->consultarDocumentoProfesionalPacControlador($docusuario);
 
   foreach($conUsuario as $row){
     $registro =  $row['registro'];
