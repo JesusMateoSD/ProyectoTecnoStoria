@@ -75,31 +75,31 @@
     }
 
     public function editarAgendaModelo($datosAgenda){
-    $sql = "UPDATE tbl_agenda set fecha = :fecha, horag = :horag, nprofesional = :nprofesional, dprofesional = :docp, npaciente = :npaciente, dpaciente = :cedula , tpaciente = :tpaciente, estado = :nivel, obs = :obs WHERE id = :id";
-    try{
-      
-      $conexion = new Conexion();
-      $stmt = $conexion->conectar()->prepare($sql);
-      $stmt->bindParam(':fecha', $datosAgenda['fecha'],PDO::PARAM_STR);
-      $stmt->bindParam(':horag', $datosAgenda['hora'],PDO::PARAM_STR);
-      $stmt->bindParam(':nprofesional', $datosAgenda['profesional'],PDO::PARAM_STR);
-      $stmt->bindParam(':docp', $datosAgenda['docp'],PDO::PARAM_STR);
-      $stmt->bindParam(':npaciente', $datosAgenda['paciente'],PDO::PARAM_STR);
-      $stmt->bindParam(':cedula', $datosAgenda['cedula'],PDO::PARAM_STR);
-      $stmt->bindParam(':tpaciente', $datosAgenda['telefono'],PDO::PARAM_STR);
-      $stmt->bindParam(':nivel', $datosAgenda['nivel'],PDO::PARAM_STR);
-      $stmt->bindParam(':obs', $datosAgenda['obs'],PDO::PARAM_STR);
-      $stmt->bindParam(':id', $datosAgenda['id'],PDO::PARAM_INT);
+      $sql = "UPDATE tbl_agenda set fecha = :fecha, horag = :horag, nprofesional = :nprofesional, dprofesional = :docp, npaciente = :npaciente, dpaciente = :cedula , tpaciente = :tpaciente, estado = :nivel, obs = :obs WHERE id = :id";
+      try{
+        
+        $conexion = new Conexion();
+        $stmt = $conexion->conectar()->prepare($sql);
+        $stmt->bindParam(':fecha', $datosAgenda['fecha'],PDO::PARAM_STR);
+        $stmt->bindParam(':horag', $datosAgenda['hora'],PDO::PARAM_STR);
+        $stmt->bindParam(':nprofesional', $datosAgenda['profesional'],PDO::PARAM_STR);
+        $stmt->bindParam(':docp', $datosAgenda['docp'],PDO::PARAM_STR);
+        $stmt->bindParam(':npaciente', $datosAgenda['paciente'],PDO::PARAM_STR);
+        $stmt->bindParam(':cedula', $datosAgenda['cedula'],PDO::PARAM_STR);
+        $stmt->bindParam(':tpaciente', $datosAgenda['telefono'],PDO::PARAM_STR);
+        $stmt->bindParam(':nivel', $datosAgenda['nivel'],PDO::PARAM_STR);
+        $stmt->bindParam(':obs', $datosAgenda['obs'],PDO::PARAM_STR);
+        $stmt->bindParam(':id', $datosAgenda['id'],PDO::PARAM_INT);
 
-      $stmt->execute();
-      if($stmt->execute()){
-        return 'success';
-      }else{
-        return 'error';
+        $stmt->execute();
+        if($stmt->execute()){
+          return 'success';
+        }else{
+          return 'error';
+        }
+      } catch(Exception $e){
+        return $e;
       }
-    } catch(Exception $e){
-      return $e;
     }
-  }
   }
 ?>

@@ -37,7 +37,7 @@
       
         // $queryb = "DELETE FROM tbl_agendap";
         // $resultb = mysqli_query($mysqli, $queryb); 
-        
+
         //while($rowt = mysqli_fetch_array($result_tasks)) {
         foreach($procesoSH as $rowt){ 
           $idh = $rowt['idh']; 
@@ -55,7 +55,27 @@
 
           $Cita = ['idh' => $idh,'hora' => $hora,'idag' => $idag,'fecha' => $fecha,'horag' => $horag,'nprofesional' => $nprofesional,'dprofesional' => $dprofesional,'npaciente' => $npaciente,'dpaciente' => $dpaciente,'tpaciente' => $tpaciente,'estado' => $estado,'obs' => $obs];
 
-          $procesoI = $AgendaP->InsertarFechaAgendaPControlador($Cita);
+          if(isset($rowt['id'])){
+            $procesoI = $AgendaP->InsertarFechaAgendaPControlador($Cita);
+          } else{
+            $idh = $rowt['idh']; 
+            $hora = $rowt['hora']; 
+            $idag = NULL; 
+            $fecha = NULL; 
+            $horag = NULL;
+            $nprofesional = NULL;  
+            $dprofesional = NULL; 
+            $npaciente = NULL; 
+            $dpaciente = NULL; 
+            $tpaciente = NULL; 
+            $estado = NULL; 
+            $obs = NULL;
+
+            $Cita = ['idh' => $idh,'hora' => $hora,'idag' => $idag,'fecha' => $fecha,'horag' => $horag,'nprofesional' => $nprofesional,'dprofesional' => $dprofesional,'npaciente' => $npaciente,'dpaciente' => $dpaciente,'tpaciente' => $tpaciente,'estado' => $estado,'obs' => $obs];
+
+            $procesoI = $AgendaP->InsertarFechaAgendaPControlador($Cita);
+          }
+          
           // $queryi = "INSERT INTO tbl_agendap(idh,hora,id,fecha,hora1,nprofesional,dprofesional,npaciente,dpaciente,tpaciente,estado,obs) VALUES ('$idh', '$hora', '$idag', '$fecha','$horag','$nprofesional','$dprofesional','$npaciente','$dpaciente','$tpaciente','$estado','$obs')";
           // $resulti = mysqli_query($mysqli, $queryi);  
 

@@ -44,6 +44,7 @@ if ($_GET['action'] == 'pagok') {
 $Pagos = new FacturaControlador();
 $tFactura = $Pagos->TablaFacturaControlador();
 
+
 // $result = mysqli_query($mysqli,"SELECT max(nfactura) AS max_page from tbl_factura");
 // $rowf = mysqli_fetch_array($result);
 $nfactura = $tFactura["max_page"] + 1;
